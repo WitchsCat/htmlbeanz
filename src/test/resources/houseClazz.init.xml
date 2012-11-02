@@ -1,0 +1,105 @@
+<org.funcode.htmlbeans.wrappers.Clazz>
+  <type>COMPLEX</type>
+  <originalClass>org.funcode.htmlbeans.samples.foundation.House</originalClass>
+  <attributes>
+    <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+      <type>STRING</type>
+      <fieldName>color</fieldName>
+      <originalClass>java.lang.String</originalClass>
+      <originalValue class="string">yellow</originalValue>
+    </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+    <org.funcode.htmlbeans.wrappers.Clazz>
+      <type>COMPLEX</type>
+      <fieldName>dimension</fieldName>
+      <originalClass>java.awt.Dimension</originalClass>
+      <attributes>
+        <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+          <type>INTEGER</type>
+          <fieldName>width</fieldName>
+          <originalClass>java.lang.Integer</originalClass>
+          <originalValue class="int">140</originalValue>
+        </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+        <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+          <type>INTEGER</type>
+          <fieldName>height</fieldName>
+          <originalClass>java.lang.Integer</originalClass>
+          <originalValue class="int">160</originalValue>
+        </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+      </attributes>
+    </org.funcode.htmlbeans.wrappers.Clazz>
+    <org.funcode.htmlbeans.wrappers.ClazzList>
+      <type>LIST</type>
+      <fieldName>stages</fieldName>
+      <originalClass>java.util.ArrayList</originalClass>
+      <elements>
+        <org.funcode.htmlbeans.wrappers.Clazz>
+          <type>COMPLEX</type>
+          <originalClass>org.funcode.htmlbeans.samples.foundation.Stage</originalClass>
+          <attributes>
+            <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+              <type>INTEGER</type>
+              <fieldName>perimeter</fieldName>
+              <originalClass>java.lang.Integer</originalClass>
+              <originalValue class="int">270</originalValue>
+            </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+          </attributes>
+        </org.funcode.htmlbeans.wrappers.Clazz>
+        <org.funcode.htmlbeans.wrappers.Clazz>
+          <type>COMPLEX</type>
+          <originalClass>org.funcode.htmlbeans.samples.foundation.Stage</originalClass>
+          <attributes>
+            <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+              <type>INTEGER</type>
+              <fieldName>perimeter</fieldName>
+              <originalClass>java.lang.Integer</originalClass>
+              <originalValue class="int">1670</originalValue>
+            </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+            <org.funcode.htmlbeans.wrappers.ClazzList>
+              <type>LIST</type>
+              <fieldName>rooms</fieldName>
+              <originalClass>java.util.ArrayList</originalClass>
+              <elements>
+                <org.funcode.htmlbeans.wrappers.Clazz>
+                  <type>COMPLEX</type>
+                  <originalClass>org.funcode.htmlbeans.samples.foundation.Room</originalClass>
+                  <attributes>
+                    <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                      <type>INTEGER</type>
+                      <fieldName>number</fieldName>
+                      <originalClass>java.lang.Integer</originalClass>
+                      <originalValue class="int">1</originalValue>
+                    </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                    <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                      <type>STRING</type>
+                      <fieldName>owner</fieldName>
+                      <originalClass>java.lang.String</originalClass>
+                      <originalValue class="string">Givi</originalValue>
+                    </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                  </attributes>
+                </org.funcode.htmlbeans.wrappers.Clazz>
+                <org.funcode.htmlbeans.wrappers.Clazz>
+                  <type>COMPLEX</type>
+                  <originalClass>org.funcode.htmlbeans.samples.foundation.Room</originalClass>
+                  <attributes>
+                    <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                      <type>INTEGER</type>
+                      <fieldName>number</fieldName>
+                      <originalClass>java.lang.Integer</originalClass>
+                      <originalValue class="int">2</originalValue>
+                    </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                    <org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                      <type>STRING</type>
+                      <fieldName>owner</fieldName>
+                      <originalClass>java.lang.String</originalClass>
+                      <originalValue class="string">Goggi</originalValue>
+                    </org.funcode.htmlbeans.wrappers.ClazzAttribute>
+                  </attributes>
+                </org.funcode.htmlbeans.wrappers.Clazz>
+              </elements>
+            </org.funcode.htmlbeans.wrappers.ClazzList>
+          </attributes>
+        </org.funcode.htmlbeans.wrappers.Clazz>
+      </elements>
+    </org.funcode.htmlbeans.wrappers.ClazzList>
+  </attributes>
+</org.funcode.htmlbeans.wrappers.Clazz>
