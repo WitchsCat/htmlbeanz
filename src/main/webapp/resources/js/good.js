@@ -20,8 +20,9 @@ function submitGood(id) {
         type:"POST",
         url:"good",
         data:dataString,
-        success:function () {
+        complete:function (jqXHR) {
             p.style = 'saved';
+            window.alert("Success");
         }
     });
 }
