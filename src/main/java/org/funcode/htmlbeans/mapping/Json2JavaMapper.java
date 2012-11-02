@@ -12,7 +12,9 @@ import java.lang.reflect.Type;
  * @author dmarkin
  */
 public class Json2JavaMapper {
-
+    /**
+     * Initialized google JSON mapper, with self written deserializer
+     */
     private Gson gson;
 
     {
