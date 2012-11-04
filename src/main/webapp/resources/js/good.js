@@ -1,19 +1,36 @@
-/**
- * Created with IntelliJ IDEA.
- * User: amatveev
- * Date: 12.10.12
- * Time: 19:17
- * To change this template use File | Settings | File Templates.
- */
 $(document).ready(function () {
     $.getJSON('good', function (data) {
+        window.dataModel = data;
+        window.bindingMap = new Object();
+        window.modifiedArray = [];
         document.getElementById('graphroot').appendChild(doGood(data));
+
     });
 });
 
+function updateBindingMap(id, object) {
+    window.bindingMap[id] = object;
+}
+
+function markAsChanged(id) {
+    var p = $('#' + id);
+    var input = $('#' + id + ' > input');
+    if (window.bindingMap[id].originalValue != input.val()) {
+        if (window.modifiedArray.indexOf(id) == -1) {
+            $(p).addClass("modified");
+            window.modifiedArray.push(id);
+        }
+    } else {
+        //Think about removing it from the modified array.
+        $(p).removeClass("modified");
+        window.modifiedArray.splice(window.modifiedArray.indexOf(id),1);
+    }
+
+}
+
 function submitGood(id) {
-    var p = $('#'+id);
-    var input = $('#'+id+' > input');
+    var p = $('#' + id);
+    var input = $('#' + id + ' > input');
 
     var dataString = id + '=' + input.val();
     $.ajax({
@@ -21,8 +38,7 @@ function submitGood(id) {
         url:"good",
         data:dataString,
         complete:function (jqXHR) {
-            p.style = 'saved';
-            window.alert("Success");
+
         }
     });
 }
@@ -38,17 +54,16 @@ function doGood(object, parentId) {
     } else {
         id = parentId;
     }
-
+    updateBindingMap(id, object);
     console.log(object);
     var htmlResult;
     if (object.type == 'COMPLEX') {
         htmlResult = document.createElement('div');
-        htmlResult.id = id;
         var header = document.createElement('span');
         header.innerHTML = object.fieldName + '/' + object.originalClass;
         var submitButton = document.createElement('button');
         submitButton.innerHTML = "SAVE";
-        submitButton.onclick = function(){
+        submitButton.onclick = function () {
             submitGood(id);
         };
         var ul = document.createElement('ul');
@@ -63,7 +78,6 @@ function doGood(object, parentId) {
         }
     } else if (object.type == 'LIST') {
         htmlResult = document.createElement('ul');
-        htmlResult.id = id;
         for (attributeIndex in object.elements) {
             var attributeItem = document.createElement('li');
             attributeItem.appendChild(doGood(object.elements[attributeIndex], id));
@@ -71,25 +85,29 @@ function doGood(object, parentId) {
         }
     } else {
         htmlResult = document.createElement('p');
-        htmlResult.id = id;
         var span = document.createElement('span');
         htmlResult.appendChild(span);
         span.innerHTML = object.fieldName;
         var input = document.createElement('input');
         htmlResult.appendChild(input);
         input.value = object.originalValue;
+        input.onblur = function () {
+            markAsChanged(id);
+        }
         var button = document.createElement('button');
         htmlResult.appendChild(button);
-        button.onclick = function(){
+        button.onclick = function () {
             submitGood(id);
         }
         button.innerHTML = 'SAVE Field';
     }
 
+    htmlResult.id = id;
+
     return htmlResult;
 }
 
-function doReverse(id){
+function doReverse(id) {
 
 }
 
