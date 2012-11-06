@@ -32,6 +32,7 @@ public class DoGoodServlet extends HttpServlet {
         modelViewController.applyChanges(request.getParameterMap());
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         ModelViewController modelViewController

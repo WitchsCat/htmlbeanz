@@ -23,7 +23,35 @@ function markAsChanged(id) {
     } else {
         //Think about removing it from the modified array.
         $(p).removeClass("modified");
-        window.modifiedArray.splice(window.modifiedArray.indexOf(id),1);
+        window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
+    }
+
+}
+
+function submitModified() {
+    var data = '';
+    for (var index in window.modifiedArray) {
+        if (index != 0) {
+            data += '&';
+        }
+        var id = window.modifiedArray[index];
+        data += (id + '=' + $('#' + id + ' > input').val());
+    }
+    if (data != '') {
+        $.ajax({
+            type:"POST",
+            url:"good",
+            data:data,
+            success:function (jqXHR) {
+                for (var index in window.modifiedArray) {
+                    $('#' + window.modifiedArray[index]).removeClass("modified");
+                    $('#' + window.modifiedArray[index]).addClass("saved");
+                }
+                window.modifiedArray = [];
+            }
+        });
+    } else {
+        window.alert('no changes to submit!');
     }
 
 }
