@@ -1,9 +1,9 @@
 <org.funcode.htmlbeans.samples.foundation.House>
-    <color>yellow</color>
-    <dimension>
-        <width>140</width>
-        <height>160</height>
-    </dimension>
+    <!--<color>yellow</color>   -->
+    <!--<dimension>-->
+        <!--<width>140</width>-->
+        <!--<height>160</height>-->
+    <!--</dimension>-->
     <stages>
         <org.funcode.htmlbeans.samples.foundation.Stage>
             <perimeter>270</perimeter>

@@ -18,6 +18,7 @@ function markAsChanged(id) {
     if (window.bindingMap[id].originalValue != input.val()) {
         if (window.modifiedArray.indexOf(id) == -1) {
             $(p).addClass("modified");
+            $(p).removeClass("saved");
             window.modifiedArray.push(id);
         }
     } else {
@@ -92,24 +93,30 @@ function doGood(object, parentId) {
         var submitButton = document.createElement('button');
         submitButton.innerHTML = "SAVE";
         submitButton.onclick = function () {
+            //TODO not implemented for blocks
             submitGood(id);
         };
-        var ul = document.createElement('ul');
-        ul.setAttribute('style', 'border-left: 2px groove Red');
+        var ulAttributes = document.createElement('ul');
+        ulAttributes.setAttribute('style', 'border-left: 2px groove Red');
         htmlResult.appendChild(header);
         htmlResult.appendChild(submitButton);
-        htmlResult.appendChild(ul);
+        htmlResult.appendChild(ulAttributes);
         for (attributeIndex in object.attributes) {
             var li = document.createElement('li');
+            ulAttributes.appendChild(li);
             li.appendChild(doGood(object.attributes[attributeIndex], id));
-            ul.appendChild(li);
         }
     } else if (object.type == 'LIST') {
-        htmlResult = document.createElement('ul');
+        htmlResult = document.createElement('p');
+        var headerElements = document.createElement('h4');
+        headerElements.innerHTML = object.fieldName + '/' + object.originalClass;
+        htmlResult.appendChild(headerElements);
+        var ulElements = document.createElement('ul');
+        htmlResult.appendChild(ulElements);
         for (attributeIndex in object.elements) {
             var attributeItem = document.createElement('li');
             attributeItem.appendChild(doGood(object.elements[attributeIndex], id));
-            htmlResult.appendChild(attributeItem);
+            ulElements.appendChild(attributeItem);
         }
     } else {
         htmlResult = document.createElement('p');

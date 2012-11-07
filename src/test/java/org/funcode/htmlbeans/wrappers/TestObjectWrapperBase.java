@@ -24,4 +24,5 @@ public abstract class TestObjectWrapperBase {
         house = (House) xStream.fromXML(this.getClass().getResourceAsStream("/house.init.xml"));
         houseClazz = (Clazz) xStream.fromXML(this.getClass().getResourceAsStream("/houseClazz.init.xml"));
     }
+
 }

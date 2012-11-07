@@ -1,5 +1,7 @@
 package org.funcode.htmlbeans.wrappers;
 
+import org.apache.commons.lang.ClassUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -37,6 +39,15 @@ public class ObjectWrapper {
         }
     }
 
+    public Element doGood(Object object) throws IllegalArgumentException,
+            IllegalAccessException {
+        if (object == null) {
+            return null;
+        } else {
+            return doGood(object, object.getClass());
+        }
+    }
+
     /**
      * this method performs a recursive walk through the given object and maps
      * it to a user interface wrapper
@@ -46,42 +57,59 @@ public class ObjectWrapper {
      * @throws IllegalAccessException
      */
     @SuppressWarnings("unchecked")
-    public Element doGood(Object object) throws IllegalArgumentException,
+    public Element doGood(Object object, Class objectClass) throws IllegalArgumentException,
             IllegalAccessException {
-        if (object == null) {
-            return null;
-        }
+
         Element result;
-        if (classToPrimitiveType.get(object.getClass()) != null) {
+        if (classToPrimitiveType.get(objectClass) != null) {
             result = new ClazzAttribute();
-            result.setType(classToPrimitiveType.get(object.getClass()));
-            ((ClazzAttribute) result).setOriginalValue(object);
-        } else if (object instanceof List) {
+            result.setType(classToPrimitiveType.get(objectClass));
+            if (object != null) {
+                ((ClazzAttribute) result).setOriginalValue(object);
+            }
+        } else if (List.class.isAssignableFrom(objectClass)) {
             result = new ClazzList();
             result.setType(ElementType.LIST);
-            long i = 0;
-            for (Object resultElement : ((List<Object>) object)) {
-                Element element = doGood(resultElement);
-                element.setFieldName("element_" + i++);
-                ((ClazzList) result).getElements().add(element);
+            if (object != null) {
+                long i = 0;
+                for (Object resultElement : ((List<Object>) object)) {
+                    Element element = doGood(resultElement);
+                    element.setFieldName("element_" + i++);
+                    ((ClazzList) result).getElements().add(element);
+                }
             }
         } else {
             result = new Clazz();
             result.setType(ElementType.COMPLEX);
-            Field[] fields = object.getClass().getDeclaredFields();
+            Field[] fields = objectClass.getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
-                Object fieldValue = field.get(object);
-                if (fieldValue != null
-                        && !Modifier.isStatic(field.getModifiers())) {
-                    Element justCreatedElement = doGood(fieldValue);
+                if (!Modifier.isStatic(field.getModifiers())) {
+                    Object fieldValue;
+                    /*
+                    To get the empty fields also included in the structure we, we have to avoid calling
+                    field.get(null). This will cause a null pointer exception
+                     */
+                    if (object != null) {
+                        fieldValue = field.get(object);
+                    } else {
+                        fieldValue = null;
+                    }
+                    Class fieldType;
+
+                    if (field.getType().isPrimitive()) {
+                        fieldType = ClassUtils.primitiveToWrapper(field.getType());
+                    } else {
+                        fieldType = field.getType();
+                    }
+                    Element justCreatedElement = doGood(fieldValue, fieldType);
                     justCreatedElement.setFieldName(field.getName());
                     ((Clazz) result).getAttributes().add(justCreatedElement);
                 }
             }
 
         }
-        result.setOriginalClass(object.getClass().getName());
+        result.setOriginalClass(objectClass.getName());
         return result;
 
     }

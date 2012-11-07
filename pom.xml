@@ -18,6 +18,7 @@
         <junit.version>4.10</junit.version>
         <hamcrest-all.version>1.1</hamcrest-all.version>
         <jetty.version>7.0.0.pre5</jetty.version>
+        <commons-lang.version>2.6</commons-lang.version>
     </properties>
 
     <dependencies>
@@ -44,11 +45,20 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+        </dependency>
+
+        <!--tests section-->
+
+        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <version>${hamcrest-all.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>jetty</artifactId>
@@ -62,7 +72,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -73,7 +82,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
             </plugin>
         </plugins>
     </build>
