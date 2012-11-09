@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>tiles</title>
+    <script src="resources/js_lib/jquery-1.7.2.min.js"></script>
+    <link rel="stylesheet" href="resources/style.css" type="text/css" />
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var result = $('#ClazzAttributeTemplate').clone()[0];
+        var label = $(result).find('label');
+        label.html('Zopa label');
+        var hint = $(result).find('.field-wrap > span');
+        hint.html('Zopa Hint');
+        var saveLink = $(result).find('a.save');
+        saveLink.html('ZopaSave');
+        saveLink[0].onclick= function (){
+            window.alert("hI!!!!!");
+        }
+        var input = $(result).find(':input')[0];
+        input.value = 'zopa';
+        var targetDiv = document.getElementById('target');
+        targetDiv.appendChild(result);
+    });
+</script>
+
+<div id="ClazzAttributeTemplate" class="row">
+    <label></label>
+    <div class="field-wrap">
+        <input>
+        <span></span>
+    </div>
+    <a class="btn-link save" href="javascript:;">Save</a>
+    <a class="cancel" href="javascript:;">Cancel</a>
+</div>
+
+<div id="target" ></div>
+</body>
+</html>

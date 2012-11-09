@@ -14,7 +14,7 @@ function updateBindingMap(id, object) {
 
 function markAsChanged(id) {
     var p = $('#' + id);
-    var input = $('#' + id + ' > input');
+    var input = $('#' + id + ' :input');
     if (window.bindingMap[id].originalValue != input.val()) {
         if (window.modifiedArray.indexOf(id) == -1) {
             $(p).addClass("modified");
@@ -36,7 +36,7 @@ function submitModified() {
             data += '&';
         }
         var id = window.modifiedArray[index];
-        data += (id + '=' + $('#' + id + ' > input').val());
+        data += (id + '=' + $('#' + id + ' :input').val());
     }
     if (data != '') {
         $.ajax({
@@ -59,7 +59,7 @@ function submitModified() {
 
 function submitGood(id) {
     var p = $('#' + id);
-    var input = $('#' + id + ' > input');
+    var input = $('#' + id + ' :input');
 
     var dataString = id + '=' + input.val();
     $.ajax({
@@ -88,8 +88,11 @@ function doGood(object, parentId) {
     var htmlResult;
     if (object.type == 'COMPLEX') {
         htmlResult = document.createElement('div');
-        var header = document.createElement('span');
-        header.innerHTML = object.fieldName + '/' + object.originalClass;
+        var header = document.createElement('h4');
+        header.innerHTML = object.fieldName;
+        var headerSpan = document.createElement('span');
+        header.appendChild(headerSpan);
+        headerSpan.innerHTML = object.originalClass;
         var submitButton = document.createElement('button');
         submitButton.innerHTML = "SAVE";
         submitButton.onclick = function () {
@@ -97,7 +100,6 @@ function doGood(object, parentId) {
             submitGood(id);
         };
         var ulAttributes = document.createElement('ul');
-        ulAttributes.setAttribute('style', 'border-left: 2px groove Red');
         htmlResult.appendChild(header);
         htmlResult.appendChild(submitButton);
         htmlResult.appendChild(ulAttributes);
@@ -109,7 +111,10 @@ function doGood(object, parentId) {
     } else if (object.type == 'LIST') {
         htmlResult = document.createElement('p');
         var headerElements = document.createElement('h4');
-        headerElements.innerHTML = object.fieldName + '/' + object.originalClass;
+        headerElements.innerHTML = object.fieldName;
+        var headerSpan = document.createElement('span');
+        headerElements.appendChild(headerSpan);
+        headerSpan.innerHTML = object.originalClass;
         htmlResult.appendChild(headerElements);
         var ulElements = document.createElement('ul');
         htmlResult.appendChild(ulElements);
@@ -119,22 +124,7 @@ function doGood(object, parentId) {
             ulElements.appendChild(attributeItem);
         }
     } else {
-        htmlResult = document.createElement('p');
-        var span = document.createElement('span');
-        htmlResult.appendChild(span);
-        span.innerHTML = object.fieldName;
-        var input = document.createElement('input');
-        htmlResult.appendChild(input);
-        input.value = object.originalValue;
-        input.onblur = function () {
-            markAsChanged(id);
-        }
-        var button = document.createElement('button');
-        htmlResult.appendChild(button);
-        button.onclick = function () {
-            submitGood(id);
-        }
-        button.innerHTML = 'SAVE Field';
+        htmlResult = generateInputBlock(id, object);
     }
 
     htmlResult.id = id;
@@ -146,3 +136,21 @@ function doReverse(id) {
 
 }
 
+//Function used to generate a single input based on the object & its ID
+function generateInputBlock(id, object) {
+    var result = $('#ClazzAttributeTemplate').clone()[0];
+    var label = $(result).find("label");
+    label.html(object.fieldName);
+    var hint = $(result).find('.field-wrap > span');
+    hint.html(object.originalClass);
+    var input = $(result).find(":input")[0];
+    input.value = object.originalValue;
+    input.onblur = function () {
+        markAsChanged(id)
+    }
+    var saveLink = $(result).find('a.save');
+    saveLink[0].onclick = function () {
+        submitGood(id);
+    }
+    return result;
+}
