@@ -75,6 +75,7 @@ function submitGood(id) {
 //Function that mirrors the wrapping mechanism on the server side, especially the
 function doGood(object, parentId) {
     if (parentId == null) {
+        object.fieldName = 'TOP';
         parentId = "TOP";
     }
     var id
@@ -84,47 +85,15 @@ function doGood(object, parentId) {
         id = parentId;
     }
     updateBindingMap(id, object);
-    console.log(object);
+
     var htmlResult;
+
     if (object.type == 'COMPLEX') {
-        htmlResult = document.createElement('div');
-        var header = document.createElement('h4');
-        header.innerHTML = object.fieldName;
-        var headerSpan = document.createElement('span');
-        header.appendChild(headerSpan);
-        headerSpan.innerHTML = object.originalClass;
-        var submitButton = document.createElement('button');
-        submitButton.innerHTML = "SAVE";
-        submitButton.onclick = function () {
-            //TODO not implemented for blocks
-            submitGood(id);
-        };
-        var ulAttributes = document.createElement('ul');
-        htmlResult.appendChild(header);
-        htmlResult.appendChild(submitButton);
-        htmlResult.appendChild(ulAttributes);
-        for (attributeIndex in object.attributes) {
-            var li = document.createElement('li');
-            ulAttributes.appendChild(li);
-            li.appendChild(doGood(object.attributes[attributeIndex], id));
-        }
+        htmlResult = generateClazzBlock(id, object)
     } else if (object.type == 'LIST') {
-        htmlResult = document.createElement('p');
-        var headerElements = document.createElement('h4');
-        headerElements.innerHTML = object.fieldName;
-        var headerSpan = document.createElement('span');
-        headerElements.appendChild(headerSpan);
-        headerSpan.innerHTML = object.originalClass;
-        htmlResult.appendChild(headerElements);
-        var ulElements = document.createElement('ul');
-        htmlResult.appendChild(ulElements);
-        for (attributeIndex in object.elements) {
-            var attributeItem = document.createElement('li');
-            attributeItem.appendChild(doGood(object.elements[attributeIndex], id));
-            ulElements.appendChild(attributeItem);
-        }
+        htmlResult = generateClazzListBlock(id, object);
     } else {
-        htmlResult = generateInputBlock(id, object);
+        htmlResult = generateClazzAttributeBlock(id, object);
     }
 
     htmlResult.id = id;
@@ -137,8 +106,10 @@ function doReverse(id) {
 }
 
 //Function used to generate a single input based on the object & its ID
-function generateInputBlock(id, object) {
-    var result = $('#ClazzAttributeTemplate').clone()[0];
+function generateClazzAttributeBlock(id, object) {
+    var result = $('#ClazzAttributeTemplate').clone();
+    result.toggleClass("template");
+    result = result[0];
     var label = $(result).find("label");
     label.html(object.fieldName);
     var hint = $(result).find('.field-wrap > span');
@@ -151,6 +122,40 @@ function generateInputBlock(id, object) {
     var saveLink = $(result).find('a.save');
     saveLink[0].onclick = function () {
         submitGood(id);
+    }
+    return result;
+}
+
+function generateClazzBlock(id, object) {
+    var result = $('#ClazzTemplate').clone();
+    result.toggleClass("template");
+    result = result[0];
+    var header = $(result).find('h4');
+    header.html(object.fieldName);
+    var classHint = $(result).find('span');
+    classHint.html(object.originalClass);
+    var listOfAttributes = $(result).find('ul')[0];
+    for (var attributeIndex in object.attributes) {
+        var li = document.createElement('li');
+        listOfAttributes.appendChild(li);
+        li.appendChild(doGood(object.attributes[attributeIndex], id));
+    }
+    return result;
+}
+
+function generateClazzListBlock(id, object) {
+    var result = $('#ClazzTemplate').clone();
+    result.toggleClass("template");
+    result = result[0];
+    var header = $(result).find('h4');
+    header.html(object.fieldName);
+    var classHint = $(result).find('span');
+    classHint.html(object.originalClass);
+    var listOfElements = $(result).find('ul')[0];
+    for (var elementIndex in object.elements) {
+        var li = document.createElement('li');
+        listOfElements.appendChild(li);
+        li.appendChild(doGood(object.elements[elementIndex], id));
     }
     return result;
 }

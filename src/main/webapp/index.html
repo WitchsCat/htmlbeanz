@@ -4,7 +4,7 @@
     <title>Index</title>
     <script src="resources/js_lib/jquery-1.7.2.min.js"></script>
     <script src="resources/js/good.js"></script>
-    <link rel="stylesheet" href="resources/style.css" type="text/css" />
+    <link rel="stylesheet" href="resources/style.css" type="text/css"/>
 </head>
 
 <body>
@@ -12,8 +12,9 @@
 <button onclick="submitModified()">Submit Modified</button>
 <div id="graphroot"></div>
 
-<div id="ClazzAttributeTemplate" class="row">
+<div id="ClazzAttributeTemplate" class="row template">
     <label></label>
+
     <div class="field-wrap">
         <input>
         <span></span>
@@ -22,5 +23,16 @@
     <a class="cancel" href="javascript:;">Cancel</a>
 </div>
 
+<section id="ClazzTemplate" class="template">
+    <header>
+        <h4></h4>
+        <div class="actions">
+            <button>SAVE</button>
+            <button>DEL</button>
+        </div>
+        <span></span>
+    </header>
+    <ul></ul>
+</section>
 </body>
 </html>
