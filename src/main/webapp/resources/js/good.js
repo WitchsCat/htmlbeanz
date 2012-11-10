@@ -75,7 +75,6 @@ function submitGood(id) {
 //Function that mirrors the wrapping mechanism on the server side, especially the
 function doGood(object, parentId) {
     if (parentId == null) {
-        object.fieldName = 'TOP';
         parentId = "TOP";
     }
     var id
@@ -83,6 +82,7 @@ function doGood(object, parentId) {
         id = parentId + '-' + object.fieldName;
     } else {
         id = parentId;
+        object.fieldName = parentId;
     }
     updateBindingMap(id, object);
 
