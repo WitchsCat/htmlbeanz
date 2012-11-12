@@ -79,7 +79,7 @@ function doGood(object, parentId) {
     if (parentId == null) {
         parentId = "TOP";
     }
-    var id
+    var id;
     if (object.fieldName != null) {
         id = parentId + '-' + object.fieldName;
     } else {
@@ -120,11 +120,11 @@ function generateClazzAttributeBlock(id, object) {
     input.value = object.originalValue;
     input.onblur = function () {
         markAsChanged(id)
-    }
+    };
     var saveLink = $(result).find('a.save');
     saveLink[0].onclick = function () {
         submitGood(id);
-    }
+    };
     return result;
 }
 

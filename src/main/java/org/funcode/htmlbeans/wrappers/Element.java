@@ -35,10 +35,8 @@ public abstract class Element {
             return false;
         if (originalClass != null ? !originalClass.equals(element.originalClass) : element.originalClass != null)
             return false;
-        if (type != element.type)
-            return false;
+        return type == element.type;
 
-        return true;
     }
 
     @Override

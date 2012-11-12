@@ -5,17 +5,19 @@ import org.funcode.htmlbeans.samples.foundation.House;
 import org.junit.Before;
 
 /**
- * Created with IntelliJ IDEA.
+ * Base class for test that are done with the @ObjectWrapper
+ * Primarily is used for initialization of resources used in tests
  * User: dmarkin
  * Date: 01.11.12
  * Time: 17:31
- * To change this template use File | Settings | File Templates.
  */
 public abstract class TestObjectWrapperBase {
 
     protected ObjectWrapper wrapper;
     protected House house;
     protected Clazz houseClazz;
+    protected ClazzAttribute colorClazzAttribute;
+    protected Clazz simpleDimensionClazz;
 
     @Before
     public void setUp() {
@@ -23,6 +25,14 @@ public abstract class TestObjectWrapperBase {
         XStream xStream = new XStream();
         house = (House) xStream.fromXML(this.getClass().getResourceAsStream("/house.init.xml"));
         houseClazz = (Clazz) xStream.fromXML(this.getClass().getResourceAsStream("/houseClazz.init.xml"));
+
+        for (Element element : houseClazz.getAttributes()) {
+            if (element.getFieldName().equals("dimension")) {
+                simpleDimensionClazz = (Clazz) element;
+            } else if (element.getFieldName().equals("color")) {
+                colorClazzAttribute = (ClazzAttribute) element;
+            }
+        }
     }
 
 }

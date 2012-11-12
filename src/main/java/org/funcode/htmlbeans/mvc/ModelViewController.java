@@ -21,12 +21,12 @@ public class ModelViewController {
     /**
      * Map that will be used for quick access to elements by their ID.
      */
-    private Map<String, Element> modelBindingMap = new HashMap<>();
+    private final Map<String, Element> modelBindingMap = new HashMap<>();
 
     /**
      * View presentation
      */
-    private Element model;
+    private final Element model;
 
     /**
      * ModelViewController can't exist without a binding to an element model

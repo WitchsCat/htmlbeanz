@@ -120,7 +120,7 @@ public class ObjectWrapper {
      * @param element wrapping element that will serve as the source of the unwrapping algorithm
      * @return Resulting object of the initial class type.
      */
-    public Object doReverse(Element element) throws ClassNotFoundException {
+    public Object doReverse(Element element) {
         if (element == null) {
             return null;
         }

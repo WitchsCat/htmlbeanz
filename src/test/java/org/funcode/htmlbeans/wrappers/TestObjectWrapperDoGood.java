@@ -29,26 +29,20 @@ public class TestObjectWrapperDoGood extends TestObjectWrapperBase {
             IllegalAccessException {
 
         Element result = wrapper.doGood(house.getDimension());
-        Clazz referentialDimension = null;
-        for(Element element : houseClazz.getAttributes()){
-            if(element.getFieldName().equals("dimension")){
-                 referentialDimension = (Clazz)element;
-            }
-        }
 
         assertNotNull("List of attributes is null", result);
         assertTrue("istance object not correct", result instanceof Clazz);
         Clazz resultClazz = (Clazz) result;
 
         assertTrue("do not contains 1 attribute", resultClazz.getAttributes()
-                .contains(referentialDimension.getAttributes().get(0)));
+                .contains(simpleDimensionClazz.getAttributes().get(0)));
         assertTrue("do not contains 2 attribute", resultClazz.getAttributes()
-                .contains(referentialDimension.getAttributes().get(1)));
+                .contains(simpleDimensionClazz.getAttributes().get(1)));
         assertEquals("clazz type is not COMPLEX", resultClazz.getType(),
                 ElementType.COMPLEX);
         assertTrue("has invalid attributes size", resultClazz.getAttributes()
                 .size() == 2);
-        assertEquals("Referential dimension clazz doesn't match the result",referentialDimension,resultClazz);
+        assertEquals("Referential dimension clazz doesn't match the result",simpleDimensionClazz,resultClazz);
     }
 
     @Test

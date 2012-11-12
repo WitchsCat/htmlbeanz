@@ -31,10 +31,8 @@ public class ClazzAttribute extends Element {
 
         ClazzAttribute that = (ClazzAttribute) o;
 
-        if (originalValue != null ? !originalValue.equals(that.originalValue) : that.originalValue != null)
-            return false;
+        return !(originalValue != null ? !originalValue.equals(that.originalValue) : that.originalValue != null);
 
-        return true;
     }
 
     @Override

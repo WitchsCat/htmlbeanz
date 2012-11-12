@@ -79,3 +79,8 @@ label:after {
     display: none;
 }
 
+input:focus {
+    -moz-transition: background-color 0.5s linear;
+    -webkit-transition: background-color 0.5s linear;
+    background: #ccc;
+}

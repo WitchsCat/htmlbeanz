@@ -15,7 +15,7 @@ public class Json2JavaMapper {
     /**
      * Initialized google JSON mapper, with self written deserializer
      */
-    private Gson gson;
+    private final Gson gson;
 
     {
         GsonBuilder builder = new GsonBuilder();
