@@ -120,7 +120,8 @@ public class ObjectWrapper {
      * @param element wrapping element that will serve as the source of the unwrapping algorithm
      * @return Resulting object of the initial class type.
      */
-    public Object doReverse(Element element) {
+    public Object doReverse(Element element) throws ClassNotFoundException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
         if (element == null) {
             return null;
         }
@@ -129,6 +130,13 @@ public class ObjectWrapper {
         if (primitiveTypeToClass.get(element.getType()) != null) {
             ClazzAttribute elementAsClazzAttribute = (ClazzAttribute) element;
             result = elementAsClazzAttribute.getOriginalValue();
+        } else if (element.getType().equals(ElementType.COMPLEX)) {
+            Class<?> originalClass = Class.forName(element.getOriginalClass());
+            result = originalClass.newInstance();
+            for (Element attribute : ((Clazz) element).getAttributes()) {
+                Field field = originalClass.getField(attribute.getFieldName());
+                field.set(result, doReverse(attribute));
+            }
         }
         return result;
     }
