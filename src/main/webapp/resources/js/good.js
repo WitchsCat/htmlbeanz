@@ -66,8 +66,10 @@ function submitGood(id) {
         type:"POST",
         url:"good",
         data:dataString,
-        complete:function (jqXHR) {
-
+        success:function (jqXHR) {
+            window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
+            p.removeClass("modified");
+            p.addClass("saved");
         }
     });
 }
