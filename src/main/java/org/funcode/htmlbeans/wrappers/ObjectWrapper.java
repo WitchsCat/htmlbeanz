@@ -4,10 +4,7 @@ import org.apache.commons.lang.ClassUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class is responsible for creation of wrapper objects, over the cached
@@ -111,7 +108,7 @@ public class ObjectWrapper {
 
         }
         result.setOriginalClass(objectClass.getName());
-        if(object == null){
+        if (object == null) {
             result.setEmpty(true);
         }
         return result;
@@ -127,37 +124,59 @@ public class ObjectWrapper {
     public Object doReverse(Element element) throws ClassNotFoundException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
 
+        return doReverse(element, null);
+    }
+
+    public Object doReverse(Element element, Object objectToUpdate) throws ClassNotFoundException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
+
         if (element == null || element.isEmpty) {
             return null;
         }
 
-        Object result = null;
+        Object result = objectToUpdate;
         if (primitiveTypeToClass.get(element.getType()) != null) {
             ClazzAttribute elementAsClazzAttribute = (ClazzAttribute) element;
             result = elementAsClazzAttribute.getOriginalValue();
         } else if (element.getType().equals(ElementType.COMPLEX)) {
             Class<?> originalClass = Class.forName(element.getOriginalClass());
-            result = originalClass.newInstance();
+            if (result == null) {
+                result = originalClass.newInstance();
+            }
             for (Element attribute : ((Clazz) element).getAttributes()) {
                 Field field = originalClass.getDeclaredField(attribute.getFieldName());
                 field.setAccessible(true);
-                field.set(result, doReverse(attribute));
+                if (objectToUpdate != null) {
+                    field.set(result, doReverse(attribute, field.get(objectToUpdate)));
+                } else {
+                    field.set(result, doReverse(attribute));
+                }
             }
         } else if (element.getType().equals(ElementType.LIST)) {
             Class<?> originalClass = Class.forName(element.getOriginalClass());
-            result = originalClass.newInstance();
-            for (Element listElement : ((ClazzList) element).getElements()) {
-                if (result instanceof Collection) {
-                    ((Collection) result).add(doReverse(listElement));
+            if (result == null) {
+                result = originalClass.newInstance();
+            }
+            /*
+                TODO this is a really potentially buggy situation I made big assumption that the order of elements is saved
+             */
+            Iterator originalInstanceIterator = ((Collection) result).iterator();
+            Iterator<Element> clazzListElementsIterator = ((ClazzList) element).getElements().iterator();
+            while (originalInstanceIterator.hasNext()) {
+                if (clazzListElementsIterator.hasNext()) {
+                    doReverse(clazzListElementsIterator.next(), originalInstanceIterator.next());
+                } else {
+                    originalInstanceIterator.remove();
                 }
             }
+            while (clazzListElementsIterator.hasNext()) {
+                ((Collection) result).add(doReverse(clazzListElementsIterator.next()));
+            }
+
         }
         return result;
-    }
 
-    public Object doReverse(Element element, Object objectToUpdate) throws ClassNotFoundException,
-            IllegalAccessException, InstantiationException, NoSuchFieldException {
-        return null;
     }
 
 }
+

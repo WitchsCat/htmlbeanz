@@ -1,7 +1,10 @@
 package org.funcode.htmlbeans.wrappers;
 
+import com.thoughtworks.xstream.XStream;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import java.awt.*;
 
 import static org.junit.Assert.*;
 
@@ -36,9 +39,14 @@ public class TestObjectWrapperDoReverse extends TestObjectWrapperBase {
     }
 
     @Test
-    @Ignore("Don't forget to write an implementation")
-    public void testUpdatingAnExistingObject() {
-
+    public void testUpdatingAnExistingObject() throws ClassNotFoundException,
+            NoSuchFieldException, InstantiationException, IllegalAccessException {
+        XStream xStream = new XStream();
+        Dimension input = (Dimension) xStream.fromXML(xStream.toXML(house.getDimension()));
+        input.height = -1;
+        Object result = wrapper.doReverse(simpleDimensionClazz, input);
+        assertNotNull("result of mapping from Clazz to object shouldn't be null", result);
+        assertEquals("Changes in the wrapper are not reflected to the re instantiated object", result, house.getDimension());
     }
 
     @Test
