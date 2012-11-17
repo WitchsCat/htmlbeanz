@@ -18,6 +18,7 @@ public abstract class TestObjectWrapperBase {
     protected Clazz houseClazz;
     protected ClazzAttribute colorClazzAttribute;
     protected Clazz simpleDimensionClazz;
+    protected ClazzList simpleClazzList;
 
     @Before
     public void setUp() {
@@ -31,8 +32,11 @@ public abstract class TestObjectWrapperBase {
                 simpleDimensionClazz = (Clazz) element;
             } else if (element.getFieldName().equals("color")) {
                 colorClazzAttribute = (ClazzAttribute) element;
+            } else if (element.getFieldName().equals("stages")) {
+                simpleClazzList = (ClazzList) element;
             }
         }
+
     }
 
 }

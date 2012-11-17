@@ -8,11 +8,6 @@ public class ClazzAttribute extends Element {
         super();
     }
 
-    public ClazzAttribute(ElementType type, String fieldName, Object originalValue, Object originalValue1) {
-        super(type, fieldName, originalValue);
-        originalValue = originalValue1;
-    }
-
     public Object getOriginalValue() {
         return originalValue;
     }

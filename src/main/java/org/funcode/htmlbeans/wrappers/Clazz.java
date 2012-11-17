@@ -17,10 +17,6 @@ public class Clazz extends Element {
 		super();
 	}
 
-	public Clazz(ElementType type, String fieldName, Object originalValue) {
-		super(type, fieldName, originalValue);
-	}
-
 	public List<Element> getAttributes() {
 		if(attributes==null){
 			attributes = new ArrayList<Element>();

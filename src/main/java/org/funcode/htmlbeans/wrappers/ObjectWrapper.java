@@ -4,6 +4,7 @@ import org.apache.commons.lang.ClassUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,21 +87,21 @@ public class ObjectWrapper {
                 field.setAccessible(true);
                 if (!Modifier.isStatic(field.getModifiers())) {
                     Object fieldValue;
-                    /*
-                    To get the empty fields also included in the structure we, we have to avoid calling
-                    field.get(null). This will cause a null pointer exception
-                     */
+
                     if (object != null) {
                         fieldValue = field.get(object);
                     } else {
                         fieldValue = null;
                     }
+
                     Class fieldType;
 
-                    if (field.getType().isPrimitive()) {
+                    if (fieldValue == null && field.getType().isPrimitive()) {
                         fieldType = ClassUtils.primitiveToWrapper(field.getType());
-                    } else {
+                    } else if (fieldValue == null && !field.getType().isPrimitive()) {
                         fieldType = field.getType();
+                    } else {
+                        fieldType = fieldValue.getClass();
                     }
                     Element justCreatedElement = doGood(fieldValue, fieldType);
                     justCreatedElement.setFieldName(field.getName());
@@ -110,6 +111,9 @@ public class ObjectWrapper {
 
         }
         result.setOriginalClass(objectClass.getName());
+        if(object == null){
+            result.setEmpty(true);
+        }
         return result;
 
     }
@@ -122,7 +126,8 @@ public class ObjectWrapper {
      */
     public Object doReverse(Element element) throws ClassNotFoundException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
-        if (element == null) {
+
+        if (element == null || element.isEmpty) {
             return null;
         }
 
@@ -134,11 +139,25 @@ public class ObjectWrapper {
             Class<?> originalClass = Class.forName(element.getOriginalClass());
             result = originalClass.newInstance();
             for (Element attribute : ((Clazz) element).getAttributes()) {
-                Field field = originalClass.getField(attribute.getFieldName());
+                Field field = originalClass.getDeclaredField(attribute.getFieldName());
+                field.setAccessible(true);
                 field.set(result, doReverse(attribute));
+            }
+        } else if (element.getType().equals(ElementType.LIST)) {
+            Class<?> originalClass = Class.forName(element.getOriginalClass());
+            result = originalClass.newInstance();
+            for (Element listElement : ((ClazzList) element).getElements()) {
+                if (result instanceof Collection) {
+                    ((Collection) result).add(doReverse(listElement));
+                }
             }
         }
         return result;
+    }
+
+    public Object doReverse(Element element, Object objectToUpdate) throws ClassNotFoundException,
+            IllegalAccessException, InstantiationException, NoSuchFieldException {
+        return null;
     }
 
 }

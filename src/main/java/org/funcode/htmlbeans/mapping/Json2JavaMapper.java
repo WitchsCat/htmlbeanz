@@ -121,6 +121,7 @@ public class Json2JavaMapper {
             }
             result.setType(elementType);
             result.setOriginalClass(unknownElement.get("originalClass").getAsString());
+            result.setEmpty(unknownElement.get("isEmpty").getAsBoolean());
 
 
             return result;

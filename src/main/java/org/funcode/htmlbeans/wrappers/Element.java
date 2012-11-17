@@ -6,37 +6,30 @@ public abstract class Element {
      */
     protected ElementType type;
 
-    protected String id;
-
     protected String fieldName;
 
     protected String originalClass;
+
+    protected boolean isEmpty;
 
     public Element() {
         super();
     }
 
-    public Element(ElementType type, String fieldName, Object originalValue) {
-        super();
-
-        this.type = type;
-        this.fieldName = fieldName;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Element element = (Element) o;
 
-        if (fieldName != null ? !fieldName.equals(element.fieldName) : element.fieldName != null)
-            return false;
+        if (isEmpty != element.isEmpty) return false;
+        if (fieldName != null ? !fieldName.equals(element.fieldName) : element.fieldName != null) return false;
         if (originalClass != null ? !originalClass.equals(element.originalClass) : element.originalClass != null)
             return false;
-        return type == element.type;
+        if (type != element.type) return false;
 
+        return true;
     }
 
     @Override
@@ -44,7 +37,16 @@ public abstract class Element {
         int result = type != null ? type.hashCode() : 0;
         result = 31 * result + (fieldName != null ? fieldName.hashCode() : 0);
         result = 31 * result + (originalClass != null ? originalClass.hashCode() : 0);
+        result = 31 * result + (isEmpty ? 1 : 0);
         return result;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
     }
 
     public String getOriginalClass() {
@@ -70,8 +72,6 @@ public abstract class Element {
     public void setFieldName(String fieldName) {
         this.fieldName = fieldName;
     }
-
-
 
 
 }
