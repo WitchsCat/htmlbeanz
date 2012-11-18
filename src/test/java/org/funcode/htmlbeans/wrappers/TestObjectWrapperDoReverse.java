@@ -1,6 +1,7 @@
 package org.funcode.htmlbeans.wrappers;
 
 import com.thoughtworks.xstream.XStream;
+import org.funcode.htmlbeans.samples.foundation.House;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -57,6 +58,18 @@ public class TestObjectWrapperDoReverse extends TestObjectWrapperBase {
         assertEquals("reconstructed object isn't equal to the original one", house.getStages(), result);
     }
 
+    @Test
+    public void testUpdatingAComplexObject() throws ClassNotFoundException,
+            NoSuchFieldException, InstantiationException, IllegalAccessException {
+        XStream xStream = new XStream();
+        House input = (House) xStream.fromXML(xStream.toXML(house));
+        input.getStages().get(1).getRooms().remove(1);
+        input.getDimension().height = -1;
+        Object result = wrapper.doReverse(houseClazz,input);
+        assertEquals("A complex object wasn't updated as intended",house,result);
 
+    }
+
+    //TODO write a lot of tests to see how it will work with collections in different variants.
 
 }

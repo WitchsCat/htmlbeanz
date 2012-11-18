@@ -4,7 +4,7 @@ $(document).ready(function () {
         window.bindingMap = new Object();
         window.modifiedArray = [];
         window.htmlTemplates = new Object();
-        window.htmlTemplate.clazz = $('#ClazzTemplate');
+        window.htmlTemplates.clazz = $('#ClazzTemplate');
         window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
 
         document.getElementById('graphroot').appendChild(doGood(data));
