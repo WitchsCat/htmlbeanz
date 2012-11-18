@@ -156,22 +156,29 @@ public class ObjectWrapper {
             Class<?> originalClass = Class.forName(element.getOriginalClass());
             if (result == null) {
                 result = originalClass.newInstance();
-            }
-            /*
-                TODO this is a really potentially buggy situation I made big assumption that the order of elements is saved
-             */
-            Iterator originalInstanceIterator = ((Collection) result).iterator();
-            Iterator<Element> clazzListElementsIterator = ((ClazzList) element).getElements().iterator();
-            while (originalInstanceIterator.hasNext()) {
-                if (clazzListElementsIterator.hasNext()) {
-                    doReverse(clazzListElementsIterator.next(), originalInstanceIterator.next());
-                } else {
-                    originalInstanceIterator.remove();
+                for (Element listElement : ((ClazzList) element).getElements()) {
+                    ((Collection) result).add(doReverse(listElement));
                 }
+            } else {
+                //TODO don't know what to do if the new elements aren't last in the list :(
+                ArrayList tempResult = new ArrayList();
+                Iterator<Element> elementsIterator = ((ClazzList) element).getElements().iterator();
+                Iterator<Object> originalObjects = ((Collection) result).iterator();
+                while (elementsIterator.hasNext()) {
+                    if (originalObjects.hasNext()) {
+                        Object nextOriginalObject = originalObjects.next();
+                        Element nextElement = elementsIterator.next();
+                        if (!nextElement.isEmpty()) {
+                            tempResult.add(doReverse(nextElement, nextOriginalObject));
+                        }
+                    } else if (elementsIterator.hasNext()) {
+                        tempResult.add(doReverse(elementsIterator.next()));
+                    }
+                }
+                ((Collection) result).clear();
+                ((Collection) result).addAll(tempResult);
             }
-            while (clazzListElementsIterator.hasNext()) {
-                ((Collection) result).add(doReverse(clazzListElementsIterator.next()));
-            }
+
 
         }
         return result;

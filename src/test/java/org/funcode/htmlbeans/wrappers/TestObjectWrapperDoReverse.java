@@ -57,4 +57,6 @@ public class TestObjectWrapperDoReverse extends TestObjectWrapperBase {
         assertEquals("reconstructed object isn't equal to the original one", house.getStages(), result);
     }
 
+
+
 }

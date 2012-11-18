@@ -3,6 +3,10 @@ $(document).ready(function () {
         window.dataModel = data;
         window.bindingMap = new Object();
         window.modifiedArray = [];
+        window.htmlTemplates = new Object();
+        window.htmlTemplate.clazz = $('#ClazzTemplate');
+        window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
+
         document.getElementById('graphroot').appendChild(doGood(data));
 
     });
@@ -109,7 +113,7 @@ function doReverse(id) {
 
 //Function used to generate a single input based on the object & its ID
 function generateClazzAttributeBlock(id, object) {
-    var result = $('#ClazzAttributeTemplate').clone();
+    var result = window.htmlTemplates.clazzAttribute.clone();
     result.toggleClass("template");
     result = result[0];
     var label = $(result).find("label");
@@ -129,7 +133,7 @@ function generateClazzAttributeBlock(id, object) {
 }
 
 function generateClazzBlock(id, object) {
-    var result = $('#ClazzTemplate').clone();
+    var result = window.htmlTemplates.clazz.clone();
     result.toggleClass("template");
     result = result[0];
     var header = $(result).find('h4');
@@ -146,7 +150,7 @@ function generateClazzBlock(id, object) {
 }
 
 function generateClazzListBlock(id, object) {
-    var result = $('#ClazzTemplate').clone();
+    var result = window.htmlTemplates.clazz.clone();
     result.toggleClass("template");
     result = result[0];
     var header = $(result).find('h4');
