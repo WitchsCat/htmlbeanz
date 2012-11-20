@@ -20,7 +20,7 @@ public class ObjectWrapper {
     public static final Map<ElementType, Class<?>> primitiveTypeToClass;
 
     static {
-        classToPrimitiveType = new HashMap<>();
+        classToPrimitiveType = new HashMap<Class<?>, ElementType>();
         classToPrimitiveType.put(Integer.class, ElementType.INTEGER);
         classToPrimitiveType.put(Long.class, ElementType.LONG);
         classToPrimitiveType.put(Float.class, ElementType.FLOAT);
@@ -31,7 +31,7 @@ public class ObjectWrapper {
     }
 
     static {
-        primitiveTypeToClass = new HashMap<>();
+        primitiveTypeToClass = new HashMap<ElementType, Class<?>>();
         for (Class classKey : classToPrimitiveType.keySet()) {
             primitiveTypeToClass.put(classToPrimitiveType.get(classKey), classKey);
         }

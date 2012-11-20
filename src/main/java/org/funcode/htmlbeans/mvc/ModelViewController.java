@@ -21,7 +21,7 @@ public class ModelViewController {
     /**
      * Map that will be used for quick access to elements by their ID.
      */
-    private final Map<String, Element> modelBindingMap = new HashMap<>();
+    private final Map<String, Element> modelBindingMap = new HashMap<String, Element>();
 
     /**
      * View presentation
