@@ -19,6 +19,16 @@
                     <number>2</number>
                     <owner>Goggi</owner>
                 </org.funcode.htmlbeans.samples.foundation.Room>
+                <org.funcode.htmlbeans.samples.foundation.NiceRoom>
+                    <number>14</number>
+                    <owner>Barby</owner>
+                    <reallyNice>true</reallyNice>
+                </org.funcode.htmlbeans.samples.foundation.NiceRoom>
+                <org.funcode.htmlbeans.samples.foundation.BadRoom>
+                    <number>666</number>
+                    <owner>Lucifer</owner>
+                    <howBad>13</howBad>
+                </org.funcode.htmlbeans.samples.foundation.BadRoom>
             </rooms>
         </org.funcode.htmlbeans.samples.foundation.Stage>
     </stages>
