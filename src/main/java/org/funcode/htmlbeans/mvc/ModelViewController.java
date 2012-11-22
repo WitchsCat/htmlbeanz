@@ -75,6 +75,7 @@ public class ModelViewController {
 
     /**
      * This methods takes incoming attributes and maps trier values to the presentation model
+     *
      * @param changedValues Map of key value pairs, that are to be reflected to the presentation model
      */
     public void applyChanges(Map<Object, Object> changedValues) {
@@ -82,7 +83,9 @@ public class ModelViewController {
             if (modelBindingMap.containsKey(attributeName)) {
                 Element element = modelBindingMap.get(attributeName);
                 if (element != null && element instanceof ClazzAttribute) {
-                    ((ClazzAttribute) element).setOriginalValue(changedValues.get(attributeName));
+                    //Just take the first and use it
+                    Object value = ((String[]) changedValues.get(attributeName))[0];
+                    ((ClazzAttribute) element).setOriginalValue(value);
                 }
             }
         }
