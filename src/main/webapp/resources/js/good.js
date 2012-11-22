@@ -165,3 +165,13 @@ function generateClazzListBlock(id, object) {
     }
     return result;
 }
+
+function printClasses() {
+    $.getJSON('subclasses', function (data) {
+        var allClassesNames = "";
+        for (i=0; i<data.length; i++) {
+            allClassesNames += data[i] + "\n";
+        }
+        $("#printClassesArea").val(allClassesNames);
+    });
+}

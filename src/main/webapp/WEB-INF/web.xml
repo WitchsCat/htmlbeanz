@@ -14,6 +14,10 @@
         <servlet-name>descriptionServlet</servlet-name>
         <servlet-class>org.funcode.htmlbeans.servlet.DescriptionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubClassesServlet</servlet-name>
+        <servlet-class>org.funcode.htmlbeans.servlet.SubClassesServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>doGood</servlet-name>
@@ -23,6 +27,11 @@
     <servlet-mapping>
         <servlet-name>descriptionServlet</servlet-name>
         <url-pattern>/describe</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SubClassesServlet</servlet-name>
+        <url-pattern>/subclasses</url-pattern>
     </servlet-mapping>
 
 </web-app>
