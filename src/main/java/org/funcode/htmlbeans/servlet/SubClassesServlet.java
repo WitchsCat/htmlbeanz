@@ -25,24 +25,33 @@ public class SubClassesServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Field f = null;
-        try {
-            // Each class loader has classes field containing Vector of loaded classes
-            f = ClassLoader.class.getDeclaredField("classes");
-            f.setAccessible(true);
-            Vector<Class> classes =  (Vector<Class>) f.get(Thread.currentThread().getContextClassLoader());
-            List<String> classNames = new ArrayList<String>();
-            for (Class clazz : classes) {
-                classNames.add(clazz.getName());
+        String parentClassString = request.getParameter("parent");
+        if (parentClassString != null) {
+            Field f = null;
+            try {
+                Class parentClass = Class.forName(parentClassString);
+                // Each class loader has classes field containing Vector of loaded classes
+                f = ClassLoader.class.getDeclaredField("classes");
+                f.setAccessible(true);
+                Vector<Class> classes = (Vector<Class>) f.get(Thread.currentThread().getContextClassLoader());
+                List<String> childClasses = new ArrayList<String>();
+                for (Class clazz : classes) {
+                    if (parentClass.isAssignableFrom(clazz)) {
+                        childClasses.add(clazz.getName());
+                    }
+                }
+                response.setContentType("text/json");
+                response.getWriter().print(new Gson().toJson(childClasses));
+            } catch (NoSuchFieldException e) {
+                response.getWriter().print(e.getMessage());
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (IllegalAccessException e) {
+                response.getWriter().print(e.getMessage());
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (ClassNotFoundException e) {
+                response.getWriter().print(e.getMessage());
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
-            response.setContentType("text/json");
-            response.getWriter().print(new Gson().toJson(classNames));
-        } catch (NoSuchFieldException e) {
-            response.getWriter().print(e.getMessage());
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (IllegalAccessException e) {
-            response.getWriter().print(e.getMessage());
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         response.getWriter().close();
     }

@@ -146,6 +146,10 @@ function generateClazzBlock(id, object) {
         listOfAttributes.appendChild(li);
         li.appendChild(doGood(object.attributes[attributeIndex], id));
     }
+    var childsLink = $(result).find('button.childs');
+    childsLink[0].onclick = function () {
+        getChilds(id);
+    };
     return result;
 }
 
@@ -166,12 +170,26 @@ function generateClazzListBlock(id, object) {
     return result;
 }
 
-function printClasses() {
-    $.getJSON('subclasses', function (data) {
-        var allClassesNames = "";
-        for (i=0; i<data.length; i++) {
-            allClassesNames += data[i] + "\n";
+function getChilds(id) {
+    var classBlock = $('#' + id);
+    var headerBlock = $(classBlock).find("header");
+    var spanBlock = $(headerBlock[0]).find("span");
+    var dataString = "parent=" + spanBlock[0].innerHTML;
+    $.ajax({
+        type:"GET",
+        url:"subclasses",
+        data:dataString,
+        success:function (data) {
+            childClasses = arrayToString(data);
+            alert(childClasses);
         }
-        $("#printClassesArea").val(allClassesNames);
     });
+}
+
+function arrayToString(array) {
+    var result = "";
+    for (i=0; i<array.length; i++) {
+        result += array[i] + "\n";
+    }
+    return result;
 }
