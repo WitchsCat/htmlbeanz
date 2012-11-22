@@ -62,18 +62,18 @@ function submitModified() {
 }
 
 function submitGood(id) {
-    var p = $('#' + id);
-    var input = $('#' + id + ' :input');
+    var div = $('#' + id);
 
-    var dataString = id + '=' + input.val();
+    window.bindingMap[id].originalValue = div.find(":input").val();
+    var dataString = id + "=" + JSON.stringify(window.bindingMap[id]);
     $.ajax({
         type:"POST",
         url:"good",
         data:dataString,
         success:function (jqXHR) {
             window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
-            p.removeClass("modified");
-            p.addClass("saved");
+            div.removeClass("modified");
+            div.addClass("saved");
         }
     });
 }

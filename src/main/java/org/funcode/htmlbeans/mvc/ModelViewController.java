@@ -1,6 +1,8 @@
 package org.funcode.htmlbeans.mvc;
 
 
+import com.google.gson.Gson;
+import org.funcode.htmlbeans.mapping.Json2JavaMapper;
 import org.funcode.htmlbeans.wrappers.Clazz;
 import org.funcode.htmlbeans.wrappers.ClazzAttribute;
 import org.funcode.htmlbeans.wrappers.ClazzList;
@@ -27,6 +29,8 @@ public class ModelViewController {
      * View presentation
      */
     private final Element model;
+
+    private final Json2JavaMapper json2JavaMapper = new Json2JavaMapper();
 
     /**
      * ModelViewController can't exist without a binding to an element model
@@ -79,14 +83,13 @@ public class ModelViewController {
      * @param changedValues Map of key value pairs, that are to be reflected to the presentation model
      */
     public void applyChanges(Map<Object, Object> changedValues) {
-        for (Object attributeName : changedValues.keySet()) {
-            if (modelBindingMap.containsKey(attributeName)) {
-                Element element = modelBindingMap.get(attributeName);
-                if (element != null && element instanceof ClazzAttribute) {
-                    //Just take the first and use it
-                    Object value = ((String[]) changedValues.get(attributeName))[0];
-                    ((ClazzAttribute) element).setOriginalValue(value);
-                }
+        for (Object elementName : changedValues.keySet()) {
+            String parentAttributeName = ((String) elementName).substring(0, ((String) elementName).lastIndexOf("-"));
+            if (modelBindingMap.containsKey(parentAttributeName)) {
+                Element parentElement = modelBindingMap.get(parentAttributeName);
+                ViewSearchHelper.updateParent(parentElement,
+                        json2JavaMapper.json2Java(
+                                ((String[]) changedValues.get(elementName))[0]));
             }
         }
 

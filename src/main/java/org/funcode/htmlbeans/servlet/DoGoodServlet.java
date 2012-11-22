@@ -23,7 +23,8 @@ import java.util.Map;
 public class DoGoodServlet extends HttpServlet {
 
     public static final String PRESENTATION_CONTROLLER_ATTRIBUTE_NAME = "PRESENTATION_CONTROLLER";
-    public static final String SOURCE_ATTRIBUTE_NAME = "SOURCE";
+    private Object source;
+    private ObjectWrapper objectWrapper;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,11 +33,22 @@ public class DoGoodServlet extends HttpServlet {
         ModelViewController modelViewController
                 = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
         modelViewController.applyChanges(request.getParameterMap());
+        try {
+            objectWrapper.doReverse(modelViewController.getModel(), source);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (InstantiationException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
     }
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Map<Object,Object> params = request.getParameterMap();
+        Map<Object, Object> params = request.getParameterMap();
         System.out.println(params);
     }
 
@@ -45,14 +57,15 @@ public class DoGoodServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         ModelViewController modelViewController
                 = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
-        Object source = session.getAttribute(SOURCE_ATTRIBUTE_NAME);
-        if (source == null || modelViewController == null) {
+        if (source == null) {
             source = new XStream().fromXML(
                     DoGoodServlet.class.getResourceAsStream("/house.init.xml")
             );
-            session.setAttribute(SOURCE_ATTRIBUTE_NAME, source);
+        }
+        if (modelViewController == null) {
             try {
-                modelViewController = new ModelViewController(new ObjectWrapper().doGood(source));
+                objectWrapper = new ObjectWrapper();
+                modelViewController = new ModelViewController(objectWrapper.doGood(source));
                 session.setAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME, modelViewController);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();  //TODO Create an error message, for the GUI

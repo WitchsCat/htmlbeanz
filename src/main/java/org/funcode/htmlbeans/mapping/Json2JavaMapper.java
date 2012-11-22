@@ -32,7 +32,7 @@ public class Json2JavaMapper {
             return new Clazz();
         }
 
-        return gson.fromJson(json, Clazz.class);
+        return gson.fromJson(json, Element.class);
 
     }
 
