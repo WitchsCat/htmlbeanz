@@ -1,5 +1,6 @@
 package org.funcode.htmlbeans.wrappers;
 
+import com.thoughtworks.xstream.core.util.Fields;
 import org.apache.commons.lang.ClassUtils;
 
 import java.lang.reflect.Field;
@@ -79,7 +80,13 @@ public class ObjectWrapper {
         } else {
             result = new Clazz();
             result.setType(ElementType.COMPLEX);
-            Field[] fields = objectClass.getDeclaredFields();
+            List<Field> fields = new ArrayList<Field>();
+            Class rec = objectClass;
+            while (!(rec.getName().equals("java.lang.Object"))) {
+                fields.addAll(Arrays.asList(rec.getDeclaredFields()));
+                rec = rec.getSuperclass();
+            }
+            objectClass.getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
                 if (!Modifier.isStatic(field.getModifiers())) {
