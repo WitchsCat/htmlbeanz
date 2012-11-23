@@ -3,8 +3,7 @@ package org.funcode.htmlbeans.wrappers;
 import com.thoughtworks.xstream.core.util.Fields;
 import org.apache.commons.lang.ClassUtils;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.*;
 
 /**
@@ -43,7 +42,7 @@ public class ObjectWrapper {
         if (object == null) {
             return null;
         } else {
-            return doGood(object, object.getClass());
+            return doGood(object, object.getClass(), null, null);
         }
     }
 
@@ -56,7 +55,7 @@ public class ObjectWrapper {
      * @throws IllegalAccessException
      */
     @SuppressWarnings("unchecked")
-    public Element doGood(Object object, Class objectClass) throws IllegalArgumentException,
+    public Element doGood(Object object, Class objectClass, Class parentClass, String parentFieldName) throws IllegalArgumentException,
             IllegalAccessException {
 
         Element result;
@@ -69,10 +68,25 @@ public class ObjectWrapper {
         } else if (List.class.isAssignableFrom(objectClass)) {
             result = new ClazzList();
             result.setType(ElementType.LIST);
+            // getting generic class of list elements via reflection it's parent holder
+            String getterName = "get" + parentFieldName.substring(0, 1).toUpperCase()
+                    + parentFieldName.substring(1, parentFieldName.length());
+            try {
+                Method getterMethod = parentClass.getMethod(getterName);
+                Type genericReturnType = getterMethod.getGenericReturnType();
+                Class genericClass = null;
+                if (genericReturnType instanceof ParameterizedType) {
+                    genericClass = (Class) ((ParameterizedType)genericReturnType).getActualTypeArguments()[0];
+                }
+                ((ClazzList) result).setElementsGenericClass(genericClass.getName());
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             if (object != null) {
                 long i = 0;
                 for (Object resultElement : ((List<Object>) object)) {
-                    Element element = doGood(resultElement);
+
+                    Element element = doGood(resultElement, resultElement.getClass(), null, null);
                     element.setFieldName("element_" + i++);
                     ((ClazzList) result).getElements().add(element);
                 }
@@ -81,12 +95,11 @@ public class ObjectWrapper {
             result = new Clazz();
             result.setType(ElementType.COMPLEX);
             List<Field> fields = new ArrayList<Field>();
-            Class rec = objectClass;
-            while (!(rec.getName().equals("java.lang.Object"))) {
-                fields.addAll(Arrays.asList(rec.getDeclaredFields()));
-                rec = rec.getSuperclass();
+            Class recursiveObject = objectClass;
+            while (!(recursiveObject.getName().equals("java.lang.Object"))) {
+                fields.addAll(Arrays.asList(recursiveObject.getDeclaredFields()));
+                recursiveObject = recursiveObject.getSuperclass();
             }
-            objectClass.getDeclaredFields();
             for (Field field : fields) {
                 field.setAccessible(true);
                 if (!Modifier.isStatic(field.getModifiers())) {
@@ -107,7 +120,7 @@ public class ObjectWrapper {
                     } else {
                         fieldType = fieldValue.getClass();
                     }
-                    Element justCreatedElement = doGood(fieldValue, fieldType);
+                    Element justCreatedElement = doGood(fieldValue, fieldType, objectClass, field.getName());
                     justCreatedElement.setFieldName(field.getName());
                     ((Clazz) result).getAttributes().add(justCreatedElement);
                 }

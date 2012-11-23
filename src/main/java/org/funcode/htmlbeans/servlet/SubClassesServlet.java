@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 /**
@@ -30,16 +30,17 @@ public class SubClassesServlet extends HttpServlet {
             Field f = null;
             try {
                 Class parentClass = Class.forName(parentClassString);
+                Set<String> childClasses = new HashSet<String>();
                 // Each class loader has classes field containing Vector of loaded classes
                 f = ClassLoader.class.getDeclaredField("classes");
                 f.setAccessible(true);
                 Vector<Class> classes = (Vector<Class>) f.get(Thread.currentThread().getContextClassLoader());
-                List<String> childClasses = new ArrayList<String>();
                 for (Class clazz : classes) {
                     if (parentClass.isAssignableFrom(clazz)) {
                         childClasses.add(clazz.getName());
                     }
                 }
+
                 response.setContentType("text/json");
                 response.getWriter().print(new Gson().toJson(childClasses));
             } catch (NoSuchFieldException e) {

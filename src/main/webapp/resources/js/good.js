@@ -5,6 +5,7 @@ $(document).ready(function () {
         window.modifiedArray = [];
         window.htmlTemplates = new Object();
         window.htmlTemplates.clazz = $('#ClazzTemplate');
+        window.htmlTemplates.clazzList = $('#ClazzListTemplate');
         window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
 
         document.getElementById('graphroot').appendChild(doGood(data));
@@ -154,7 +155,7 @@ function generateClazzBlock(id, object) {
 }
 
 function generateClazzListBlock(id, object) {
-    var result = window.htmlTemplates.clazz.clone();
+    var result = window.htmlTemplates.clazzList.clone();
     result.toggleClass("template");
     result = result[0];
     var header = $(result).find('h4');
@@ -162,6 +163,12 @@ function generateClazzListBlock(id, object) {
     var classHint = $(result).find('span');
     classHint.html(object.originalClass);
     var listOfElements = $(result).find('ul')[0];
+    // button to show all available elements to add
+    var addElementsButton = $(result).find('button.addelements').first();
+    addElementsButton[0].onclick = function () {
+        showAvailableElementsToAdd(id, object.elementsGenericClass);
+    };
+
     for (var elementIndex in object.elements) {
         var li = document.createElement('li');
         listOfElements.appendChild(li);
@@ -170,26 +177,24 @@ function generateClazzListBlock(id, object) {
     return result;
 }
 
-function getChilds(id) {
-    var classBlock = $('#' + id);
-    var headerBlock = $(classBlock).find("header");
-    var spanBlock = $(headerBlock[0]).find("span");
-    var dataString = "parent=" + spanBlock[0].innerHTML;
+function showAvailableElementsToAdd(id, parentClass) {
+    var listElementClasses = [];
+    var dataString = 'parent=' + parentClass;
     $.ajax({
         type:"GET",
         url:"subclasses",
         data:dataString,
         success:function (data) {
-            childClasses = arrayToString(data);
-            alert(childClasses);
+            if (data != '') {
+                var selectElementsMenu = $('#' + id).find('select').first();
+                for (var childClass in data) {
+                    var selectElementsMenuItem = document.createElement('option');
+                    $(selectElementsMenu).append(selectElementsMenuItem);
+                    selectElementsMenuItem.innerHTML = data[childClass];
+                }
+            } else {
+                alert('no elements found.. fixmeplease!');
+            }
         }
     });
-}
-
-function arrayToString(array) {
-    var result = "";
-    for (i=0; i<array.length; i++) {
-        result += array[i] + "\n";
-    }
-    return result;
 }
