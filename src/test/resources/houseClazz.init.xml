@@ -37,6 +37,7 @@
             <fieldName>stages</fieldName>
             <originalClass>java.util.ArrayList</originalClass>
             <isEmpty>false</isEmpty>
+            <elementsGenericClass>org.funcode.htmlbeans.samples.foundation.Stage</elementsGenericClass>
             <elements>
                 <org.funcode.htmlbeans.wrappers.Clazz>
                     <type>COMPLEX</type>
@@ -56,6 +57,7 @@
                             <fieldName>rooms</fieldName>
                             <originalClass>java.util.List</originalClass>
                             <isEmpty>true</isEmpty>
+                            <elementsGenericClass>org.funcode.htmlbeans.samples.foundation.Room</elementsGenericClass>
                         </org.funcode.htmlbeans.wrappers.ClazzList>
                     </attributes>
                 </org.funcode.htmlbeans.wrappers.Clazz>
@@ -77,6 +79,7 @@
                             <fieldName>rooms</fieldName>
                             <originalClass>java.util.ArrayList</originalClass>
                             <isEmpty>false</isEmpty>
+                            <elementsGenericClass>org.funcode.htmlbeans.samples.foundation.Room</elementsGenericClass>
                             <elements>
                                 <org.funcode.htmlbeans.wrappers.Clazz>
                                     <type>COMPLEX</type>

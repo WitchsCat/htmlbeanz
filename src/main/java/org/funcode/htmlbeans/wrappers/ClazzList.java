@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ClazzList extends Element {
 
-    protected List<Element> elements;
-
     private String elementsGenericClass;
+
+    protected List<Element> elements;
 
     public List<Element> getElements() {
         if (elements == null) {
@@ -25,30 +25,25 @@ public class ClazzList extends Element {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result
-                + ((elements == null) ? 0 : elements.hashCode());
-        return result;
-    }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
+        ClazzList clazzList = (ClazzList) o;
+
+        if (elements != null ? !elements.equals(clazzList.elements) : clazzList.elements != null) return false;
+        if (elementsGenericClass != null ? !elementsGenericClass.equals(clazzList.elementsGenericClass) : clazzList.elementsGenericClass != null)
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        ClazzList other = (ClazzList) obj;
-        if (elements == null) {
-            if (other.elements != null)
-                return false;
-        } else if (!elements.equals(other.elements))
-            return false;
+
         return true;
     }
 
-
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (elements != null ? elements.hashCode() : 0);
+        result = 31 * result + (elementsGenericClass != null ? elementsGenericClass.hashCode() : 0);
+        return result;
+    }
 }

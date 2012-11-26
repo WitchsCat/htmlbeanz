@@ -68,6 +68,7 @@ public class Json2JavaMapper {
                 }
                 case LIST: {
                     result = new ClazzList();
+                    ((ClazzList) result).setElementsGenericClass(unknownElement.get("elementsGenericClass").getAsString());
                     JsonElement elements = unknownElement.get("elements");
                     if (elements != null) {
                         for (JsonElement element : elements.getAsJsonArray()) {

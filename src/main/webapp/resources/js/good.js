@@ -147,10 +147,7 @@ function generateClazzBlock(id, object) {
         listOfAttributes.appendChild(li);
         li.appendChild(doGood(object.attributes[attributeIndex], id));
     }
-    var childsLink = $(result).find('button.childs');
-    childsLink[0].onclick = function () {
-        getChilds(id);
-    };
+
     return result;
 }
 
