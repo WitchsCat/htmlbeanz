@@ -34,6 +34,10 @@ function markAsChanged(id) {
 
 }
 
+/**
+ * Function submits all changes to the server as a list of HTTP parameters.
+ * POST - DoGoodServlet
+ */
 function submitModified() {
     var data = '';
     for (var index in window.modifiedArray) {
@@ -62,6 +66,12 @@ function submitModified() {
 
 }
 
+/**
+ * Function submits the changed element to server.
+ * POST - DoGoodServlet
+ *
+ * @param id
+ */
 function submitGood(id) {
     var div = $('#' + id);
 
@@ -79,7 +89,12 @@ function submitGood(id) {
     });
 }
 
-//Function that mirrors the wrapping mechanism on the server side, especially the
+/**
+ * Function that mirrors the wrapping mechanism on the server side.
+ * @param object
+ * @param parentId
+ * @return {*}
+ */
 function doGood(object, parentId) {
     if (parentId == null) {
         parentId = "TOP";
@@ -112,7 +127,12 @@ function doReverse(id) {
 
 }
 
-//Function used to generate a single input based on the object & its ID
+/**
+ * Function used to generate a single input based on the object & its ID.
+ * @param id
+ * @param object
+ * @return {*}
+ */
 function generateClazzAttributeBlock(id, object) {
     var result = window.htmlTemplates.clazzAttribute.clone();
     result.toggleClass("template");
@@ -157,15 +177,39 @@ function generateClazzListBlock(id, object) {
     result = result[0];
     var header = $(result).find('h4');
     header.html(object.fieldName);
-    var classHint = $(result).find('span');
+    var classHint = $(result).find('.original-class');
     classHint.html(object.originalClass);
-    var listOfElements = $(result).find('ul')[0];
-    // button to show all available elements to add
-    var addElementsButton = $(result).find('button.addelements').first();
-    addElementsButton[0].onclick = function () {
-        showAvailableElementsToAdd(id, object.elementsGenericClass);
-    };
 
+    if (object.isEmpty == true) {
+        $(result).find('.null').removeClass('invisible');
+        $(result).find('.initialize').removeClass('invisible');
+        $(result).find('.add-elements').addClass('invisible');
+        $(result).find('.elements-impl').addClass('invisible');
+    }
+
+    // button to show all available elements to add
+    var addElementsButton = $(result).find('.add-elements');
+    console.log($(addElementsButton));
+    addElementsButton[0].onclick = function() {
+        loadChildrenClasses(id, object.elementsGenericClass);
+    }
+    // button to initialize list
+    var initializeListButton = $(result).find('.initialize');
+    initializeListButton[0].onclick = function() {
+        initializeList(id);
+    }
+    // buttons to confirm/reject initialization act
+    var confirmInitializeButton = $(result).find('.confirm-initialize');
+    confirmInitializeButton[0].onclick = function() {
+        confirmInitializeList(id)
+    }
+    var rejectInitializeButton = $(result).find('.reject-initialize');
+    rejectInitializeButton[0].onclick = function() {
+        rejectInitializeList(id);
+    }
+
+    // recursively load all children elements
+    var listOfElements = $(result).find('ul')[0];
     for (var elementIndex in object.elements) {
         var li = document.createElement('li');
         listOfElements.appendChild(li);
@@ -174,7 +218,14 @@ function generateClazzListBlock(id, object) {
     return result;
 }
 
-function showAvailableElementsToAdd(id, parentClass) {
+/**
+ * Function to check parent class for available children in JVM.
+ * GET - SubClassesServlet
+ *
+ * @param id
+ * @param parentClass
+ */
+function loadChildrenClasses(id, parentClass) {
     var listElementClasses = [];
     var dataString = 'parent=' + parentClass;
     $.ajax({
@@ -183,15 +234,101 @@ function showAvailableElementsToAdd(id, parentClass) {
         data:dataString,
         success:function (data) {
             if (data != '') {
-                var selectElementsMenu = $('#' + id).find('select').first();
+                var element = $('#' + id);
+                var selectElementsMenu = $(element).find('select.elements-impl').first();
                 for (var childClass in data) {
                     var selectElementsMenuItem = document.createElement('option');
                     $(selectElementsMenu).append(selectElementsMenuItem);
                     selectElementsMenuItem.innerHTML = data[childClass];
                 }
+                $(element).find('.add-elements').first().addClass('invisible');
+                $(element).find('.add').first().removeClass('invisible');
             } else {
                 alert('no elements found.. fixmeplease!');
             }
         }
     });
+}
+
+/**
+ * Function to perform initialize list act.
+ * @param id
+ */
+function initializeList(id) {
+    // TODO server call can be implemented in future (or just static list of List impls)
+    var implementation = "java.util.ArrayList";
+
+    var listBlock = $('#' + id);
+    var selectElementsMenu = $(listBlock).find('select.list-impl').first();
+    $(selectElementsMenu).removeClass("invisible");
+    var selectElementsMenuItem = document.createElement('option');
+    $(selectElementsMenu).append(selectElementsMenuItem);
+    selectElementsMenuItem.innerHTML = implementation;
+
+    $(listBlock).find('.confirm-initialize').first().removeClass('invisible');
+    $(listBlock).find('.reject-initialize').first().removeClass('invisible');
+
+}
+
+/**
+ * Function to send initialize list request to server.
+ * Update client and server.
+ * PUT - DoGoodServlet
+ *
+ * @param id
+ */
+function confirmInitializeList(id) {
+    // TODO index should be get from select list
+    var selectedItem = 0;
+    var listBlock = $('#' + id);
+    var selectElementMenuOptions = $(listBlock).find('select.list-impl').first().find('option');
+
+    var implementation = selectElementMenuOptions[selectedItem].value;
+
+    // update client model
+    var object = bindingMap[id];
+    object.isEmpty = false;
+    object.originalClass = implementation;
+    // TODO update UI originalClass
+
+    $(listBlock).find('.null').addClass('invisible');
+    $(listBlock).find('.initialize').addClass('invisible');
+    $(listBlock).find('.list-impl').addClass('invisible');
+    $(listBlock).find('.confirm-initialize').addClass('invisible');
+    $(listBlock).find('.reject-initialize').addClass('invisible');
+
+    $(listBlock).find('.add-elements').removeClass('invisible');
+    $(listBlock).find('.elements-impl').removeClass('invisible');
+    $(listBlock).find('.add').removeClass('invisible');
+
+    // update server model
+    var dataString = id + '=' + JSON.stringify(object);
+    $.ajax({
+        type:"PUT",
+        url:"good",
+        data: dataString,
+        success:function (data) {
+
+        }
+    });
+}
+
+/**
+ * Function to undo list initialization.
+ * @param id
+ */
+function rejectInitializeList(id) {
+    var listBlock = $('#' + id);
+    $(listBlock).find('.list-impl').addClass('invisible');
+    $(listBlock).find('.list-impl')[0] = null;
+    $(listBlock).find('.confirm-initialize').addClass('invisible');
+    $(listBlock).find('.reject-initialize').addClass('invisible');
+}
+
+/**
+ * Function to put new element into the model.
+ * @param id
+ */
+function addElement(id) {
+
 }

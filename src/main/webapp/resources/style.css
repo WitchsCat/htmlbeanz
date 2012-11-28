@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+.invisible {
+    display: none;
+}
+
 .modified {
     background-color: #f6ff3b;
 }
