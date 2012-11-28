@@ -123,9 +123,6 @@ function doGood(object, parentId) {
     return htmlResult;
 }
 
-function doReverse(id) {
-
-}
 
 /**
  * Function used to generate a single input based on the object & its ID.
@@ -187,24 +184,29 @@ function generateClazzListBlock(id, object) {
         $(result).find('.elements-impl').addClass('invisible');
     }
 
+    var addListElementButton = $(result).find('.add');
+    addListElementButton[0].onclick = function () {
+        addElementToList(id);
+    }
+
     // button to show all available elements to add
     var addElementsButton = $(result).find('.add-elements');
     console.log($(addElementsButton));
-    addElementsButton[0].onclick = function() {
+    addElementsButton[0].onclick = function () {
         loadChildrenClasses(id, object.elementsGenericClass);
     }
     // button to initialize list
     var initializeListButton = $(result).find('.initialize');
-    initializeListButton[0].onclick = function() {
+    initializeListButton[0].onclick = function () {
         initializeList(id);
     }
     // buttons to confirm/reject initialization act
     var confirmInitializeButton = $(result).find('.confirm-initialize');
-    confirmInitializeButton[0].onclick = function() {
+    confirmInitializeButton[0].onclick = function () {
         confirmInitializeList(id)
     }
     var rejectInitializeButton = $(result).find('.reject-initialize');
-    rejectInitializeButton[0].onclick = function() {
+    rejectInitializeButton[0].onclick = function () {
         rejectInitializeList(id);
     }
 
@@ -306,7 +308,7 @@ function confirmInitializeList(id) {
     $.ajax({
         type:"PUT",
         url:"good",
-        data: dataString,
+        data:dataString,
         success:function (data) {
 
         }
@@ -329,6 +331,17 @@ function rejectInitializeList(id) {
  * Function to put new element into the model.
  * @param id
  */
-function addElement(id) {
+function addElementToList(id) {
+    var targetList = window.bindingMap[id];
+    var listDiv = $('#'+id);
+    var ul = listDiv.find('ul');
+    $.ajax({
+        type:'GET',
+        url:'describe',
+        data:'class='+targetList.elementsGenericClass,
+        success:function(data){
+            ul.append(doGood(data,id));
+        }
 
+    })
 }

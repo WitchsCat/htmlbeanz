@@ -1,11 +1,9 @@
 package org.funcode.htmlbeans.mvc;
 
 
-import com.google.gson.Gson;
 import org.funcode.htmlbeans.mapping.ElementToElementMapper;
 import org.funcode.htmlbeans.mapping.Json2JavaMapper;
 import org.funcode.htmlbeans.wrappers.Clazz;
-import org.funcode.htmlbeans.wrappers.ClazzAttribute;
 import org.funcode.htmlbeans.wrappers.ClazzList;
 import org.funcode.htmlbeans.wrappers.Element;
 
@@ -108,8 +106,8 @@ public class ModelViewController {
 
     /**
      * Puts element with presented id into the model or map existing.
-     * @param id
-     * @param element
+     * @param id ID of the element on the server
+     * @param element the modified values for the element described by the ID
      */
     public void putSingleElement(String id, Element element) {
         String parentElementId = id.substring(0, id.lastIndexOf("-"));

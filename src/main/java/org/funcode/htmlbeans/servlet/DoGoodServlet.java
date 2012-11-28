@@ -69,7 +69,7 @@ public class DoGoodServlet extends HttpServlet {
     }
 
     /**
-     * Puts (replaces) all the model or it's part from the server.
+     * Puts (replaces) all the model or it's part on the server.
      *
      * @param request
      * @param response

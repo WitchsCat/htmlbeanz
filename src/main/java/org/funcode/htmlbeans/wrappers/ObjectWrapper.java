@@ -15,6 +15,8 @@ import java.util.*;
 
 public class ObjectWrapper {
 
+   // private static final Map<Class, Element> wrapperCache = new HashMap<Class, Element>();
+
     public static final Map<Class<?>, ElementType> classToPrimitiveType;
 
     public static final Map<ElementType, Class<?>> primitiveTypeToClass;
@@ -57,6 +59,9 @@ public class ObjectWrapper {
     @SuppressWarnings("unchecked")
     public Element doGood(Object object, Class objectClass) throws IllegalArgumentException,
             IllegalAccessException {
+//        if(object == null && objectClass != null && wrapperCache.containsKey(objectClass)){
+//            return wrapperCache.get(objectClass);
+//        }
 
         Element result;
         if (classToPrimitiveType.get(objectClass) != null) {
@@ -125,6 +130,7 @@ public class ObjectWrapper {
         result.setOriginalClass(objectClass.getName());
         if (object == null) {
             result.setEmpty(true);
+//            wrapperCache.put(objectClass,result);
         }
         return result;
 
@@ -176,9 +182,9 @@ public class ObjectWrapper {
                 }
             } else {
                 //TODO don't know what to do if the new elements aren't last in the list :(
-                ArrayList tempResult = new ArrayList();
+                ArrayList<Object> tempResult = new ArrayList<Object>();
                 Iterator<Element> elementsIterator = ((ClazzList) element).getElements().iterator();
-                Iterator<Object> originalObjects = ((Collection) result).iterator();
+                Iterator<Object> originalObjects = ((Collection<Object>) result).iterator();
                 while (elementsIterator.hasNext()) {
                     if (originalObjects.hasNext()) {
                         Object nextOriginalObject = originalObjects.next();

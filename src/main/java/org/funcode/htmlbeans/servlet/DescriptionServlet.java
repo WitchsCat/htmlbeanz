@@ -3,6 +3,7 @@ package org.funcode.htmlbeans.servlet;
 import com.google.gson.Gson;
 import org.funcode.htmlbeans.mvc.ModelViewController;
 import org.funcode.htmlbeans.wrappers.Element;
+import org.funcode.htmlbeans.wrappers.ObjectWrapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,17 +21,26 @@ import java.util.Enumeration;
  */
 public class DescriptionServlet extends HttpServlet {
 
-    public static final String ID_REQUEST_ATTRIBUTE = "id";
+    public static final String ID_CLASS_TO_DESCRIBE = "class";
+
+    private ObjectWrapper objectWrapper;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Enumeration parameterNames = req.getParameterNames();
-        String requestedId = (String) req.getParameterValues(ID_REQUEST_ATTRIBUTE)[0];
+        String classAsString = (String) req.getParameterValues(ID_CLASS_TO_DESCRIBE)[0];
         HttpSession session = req.getSession(false);
-        ModelViewController modelViewController = (ModelViewController) session.getAttribute(DoGoodServlet.PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
-        Element element = modelViewController.getModelBindingMap().get(requestedId);
+        if(objectWrapper == null){
+            objectWrapper = new ObjectWrapper();
+        }
         resp.setContentType("text/json");
-        resp.getWriter().print(new Gson().toJson(element));
+        try {
+            resp.getWriter().print(new Gson().toJson(objectWrapper.doGood(null, Class.forName(classAsString))));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();  //TODO add the error handling
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         resp.getWriter().flush();
     }
 }

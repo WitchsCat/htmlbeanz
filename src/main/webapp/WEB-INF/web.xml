@@ -15,7 +15,7 @@
         <servlet-class>org.funcode.htmlbeans.servlet.DescriptionServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SubClassesServlet</servlet-name>
+        <servlet-name>subClassesServlet</servlet-name>
         <servlet-class>org.funcode.htmlbeans.servlet.SubClassesServlet</servlet-class>
     </servlet>
 
@@ -30,7 +30,7 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>SubClassesServlet</servlet-name>
+        <servlet-name>subClassesServlet</servlet-name>
         <url-pattern>/subclasses</url-pattern>
     </servlet-mapping>
 
