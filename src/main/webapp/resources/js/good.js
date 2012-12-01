@@ -154,8 +154,14 @@ function generateClazzBlock(id, object) {
     var result = window.htmlTemplates.clazz.clone();
     result.toggleClass("template");
     result = result[0];
-    var header = $(result).find('h4');
+    var header= $(result).find('h4');
     header.html(object.fieldName);
+
+
+    header[0].onclick = function() {
+        $(result).toggleClass("collapsed");
+    };
+
     var classHint = $(result).find('span');
     classHint.html(object.originalClass);
     var listOfAttributes = $(result).find('ul')[0];
@@ -176,6 +182,10 @@ function generateClazzListBlock(id, object) {
     header.html(object.fieldName);
     var classHint = $(result).find('.original-class');
     classHint.html(object.originalClass);
+
+    header[0].onclick = function() {
+        $(result).toggleClass("collapsed");
+    };
 
     if (object.isEmpty == true) {
         $(result).find('.null').removeClass('invisible');

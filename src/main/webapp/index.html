@@ -9,17 +9,27 @@
 
 <body>
 
-<button onclick="submitModified()">Submit Modified</button>
-<div id="graphroot"></div>
+<div class="wrapper">
+    <div class="decor">
+        <button onclick="submitModified()">Submit Modified</button>
+    </div>
 
-<div id="ClazzAttributeTemplate" class="row template">
+    <a id="expandall" href="javascript:;" class="switch">Expand All</a>
+
+    <div class="decor">
+        <div id="graphroot"></div>
+    </div>
+</div>
+
+<div id="ClazzAttributeTemplate" class="row template collapsed">
+    <a class="btn-link save" href="javascript:;">Save</a>
+    <a class="btn-link cancel" href="javascript:;">Cancel</a>
     <label></label>
     <div class="field-wrap">
         <input>
         <span></span>
     </div>
-    <a class="btn-link save" href="javascript:;">Save</a>
-    <a class="cancel" href="javascript:;">Cancel</a>
+
 </div>
 
 <section id="ClazzTemplate" class="template">
@@ -34,7 +44,7 @@
     <ul></ul>
 </section>
 
-<section id="ClazzListTemplate" class="template">
+<section id="ClazzListTemplate" class="template collapsed">
     <header>
         <h4></h4>
         <div class="actions">
@@ -45,7 +55,6 @@
             <button class="btn confirm-initialize invisible">[+]</button>
             <button class="btn add-elements">Add elements</button>
             <select class="simple elements-impl"></select>
-            <button class="btn add invisible">Add</button>
         </div>
         <span class="snippet original-class"></span>
     </header>
