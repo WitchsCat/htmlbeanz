@@ -152,4 +152,19 @@ button {
 
 .collapsed ul {
     display: none;
-}
+    }
+
+.invisible {
+    display: none;
+    }
+
+.popup {
+    position: absolute;
+    margin: 15px;
+    background: #E5FCD4;
+    }
+.popup .row {
+    border: 2px solid #CCC;
+    padding: 3px;
+    cursor: pointer;
+    }

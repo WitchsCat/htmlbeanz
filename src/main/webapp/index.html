@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div id="ClazzAttributeTemplate" class="row template collapsed">
+<div id="ClazzAttributeTemplate" class="row template">
     <a class="btn-link save" href="javascript:;">Save</a>
     <a class="btn-link cancel" href="javascript:;">Cancel</a>
     <label></label>
@@ -32,7 +32,7 @@
 
 </div>
 
-<section id="ClazzTemplate" class="template">
+<section id="ClazzTemplate" class="template collapsed">
     <header>
         <h4></h4>
         <div class="actions">
@@ -48,15 +48,11 @@
     <header>
         <h4></h4>
         <div class="actions">
-            <span class="snippet null invisible" >NULL</span>
-            <button class="btn initialize invisible">Create</button>
-            <select class="simple list-impl invisible"></select>
-            <button class="btn reject-initialize invisible">[-]</button>
-            <button class="btn confirm-initialize invisible">[+]</button>
-            <button class="btn add-elements">Add elements</button>
-            <select class="simple elements-impl"></select>
+            <button class="initialize">Create</button>
+            <button class="add-element">Add</button>
+            <div class="popup"></div>
         </div>
-        <span class="snippet original-class"></span>
+        <span class="original-class"></span>
     </header>
     <ul></ul>
 </section>
