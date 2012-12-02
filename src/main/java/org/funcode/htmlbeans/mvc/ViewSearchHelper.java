@@ -6,23 +6,28 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 /**
- * Created with IntelliJ IDEA.
+ * This class is an util, that helps to navigate the UI model & apply changes to it.
  * User: dmarkin
  * Date: 22.11.12
  * Time: 17:57
- * To change this template use File | Settings | File Templates.
  */
 public class ViewSearchHelper {
 
+    /**
+     * Given element is becoming a part of the UI model
+     *
+     * @param parent         node that exists in the UI model on the server side
+     * @param changedElement element that is to become part of the model
+     */
     public static void updateParent(Element parent, Element changedElement) {
         switch (parent.getType()) {
             case COMPLEX:
                 Clazz parentClazz = (Clazz) parent;
-                ListIterator<Element> attibuteIterator = parentClazz.getAttributes().listIterator();
-                while (attibuteIterator.hasNext()) {
-                    Element nextElement = attibuteIterator.next();
+                ListIterator<Element> attributeIterator = parentClazz.getAttributes().listIterator();
+                while (attributeIterator.hasNext()) {
+                    Element nextElement = attributeIterator.next();
                     if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
-                        attibuteIterator.set(changedElement);
+                        attributeIterator.set(changedElement);
                     }
                 }
                 break;

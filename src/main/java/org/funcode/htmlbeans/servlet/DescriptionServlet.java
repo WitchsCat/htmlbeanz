@@ -27,10 +27,8 @@ public class DescriptionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Enumeration parameterNames = req.getParameterNames();
-        String classAsString = (String) req.getParameterValues(ID_CLASS_TO_DESCRIBE)[0];
-        HttpSession session = req.getSession(false);
-        if(objectWrapper == null){
+        String classAsString = req.getParameterValues(ID_CLASS_TO_DESCRIBE)[0];
+        if (objectWrapper == null) {
             objectWrapper = new ObjectWrapper();
         }
         resp.setContentType("text/json");

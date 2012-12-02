@@ -9,6 +9,7 @@ import org.funcode.htmlbeans.wrappers.*;
 import java.lang.reflect.Type;
 
 /**
+ * This is a wrapper around Googgles Gson mapper, that helps in deserialization of htmlbeans wrapper classes.
  * @author dmarkin
  */
 public class Json2JavaMapper {
@@ -24,6 +25,11 @@ public class Json2JavaMapper {
         gson = builder.create();
     }
 
+    /**
+     * Unwrappes the given json string into corresponding Element subclasses
+     * @param json String to unwrapp
+     * @return Element that was represented by the input json parameter
+     */
     public Element json2Java(String json) {
         if (json == null) {
             return null;
@@ -36,6 +42,10 @@ public class Json2JavaMapper {
 
     }
 
+    /**
+     * This is an implementation of JsonDeserializer that helps to properly handle class hierarchy
+     * of Element and all of its subclasses.
+     */
     class ClassAttributeDeserializer implements JsonDeserializer<Element> {
 
         @Override

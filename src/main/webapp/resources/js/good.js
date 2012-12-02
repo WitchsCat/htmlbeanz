@@ -16,6 +16,8 @@ $(document).ready(function () {
         window.dataModel = data;
         window.bindingMap = new Object();
         window.modifiedArray = [];
+        window.createdArray = [];
+        window.deletedArray = [];
         window.htmlTemplates = new Object();
         window.htmlTemplates.clazz = $('#ClazzTemplate');
         window.htmlTemplates.clazzList = $('#ClazzListTemplate');
@@ -25,11 +27,18 @@ $(document).ready(function () {
 
     });
 });
-
+/**
+ * Method that put a newly created element to the binding map.
+ * @param id to assign to the object.
+ * @param object Object to put into the map.
+ */
 function updateBindingMap(id, object) {
     window.bindingMap[id] = object;
 }
-
+/**
+ * Marks visually the changes element & updates the changed, created, and deleted lists
+ * @param id the element id that has to be marked as changed
+ */
 function markAsChanged(id) {
     var p = $('#' + id);
     var input = $('#' + id + ' :input');
@@ -225,7 +234,12 @@ function generateClazzListBlock(id, object) {
     }
     return result;
 }
-
+/**
+ * Creates a li element wrapper
+ * @param object to create wrapper based on
+ * @param id of the element
+ * @return {Element}
+ */
 function createListElement(object, id) {
     var li = document.createElement('li');
     li.appendChild(doGood(object, id));

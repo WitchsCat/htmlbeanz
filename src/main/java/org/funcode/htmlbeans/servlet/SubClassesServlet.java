@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.Vector;
 
 /**
- * Created with IntelliJ IDEA.
+ * This servlet is created to find all non abstract members of the class hierarchy, staring from the given class name.
  * User: amatveev
  * Date: 22.11.12
  * Time: 15:14
@@ -24,6 +24,7 @@ public class SubClassesServlet extends HttpServlet {
 
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String parentClassString = request.getParameter("parent");
         if (parentClassString != null) {
