@@ -166,11 +166,11 @@ function generateClazzBlock(id, object) {
     var result = window.htmlTemplates.clazz.clone();
     result.toggleClass("template");
     result = result[0];
-    var header= $(result).find('h4');
+    var header = $(result).find('h4');
     header.html(object.fieldName);
 
 
-    header[0].onclick = function() {
+    header[0].onclick = function () {
         $(result).toggleClass("collapsed");
     };
 
@@ -195,7 +195,7 @@ function generateClazzListBlock(id, object) {
     var classHint = $(result).find('.original-class');
     classHint.html(object.originalClass);
 
-    header[0].onclick = function() {
+    header[0].onclick = function () {
         $(result).toggleClass("collapsed");
     };
 
@@ -208,7 +208,7 @@ function generateClazzListBlock(id, object) {
     // button to show all available elements to add
     var addElementsButton = $(result).find('.add-element');
     addElementsButton[0].onclick = function () {
-        loadChildrenClasses(id, object.elementsGenericClass);
+        loadChildrenClasses(id, object.elementsGenericClass, result);
     }
 
     // button to initialize list
@@ -220,11 +220,16 @@ function generateClazzListBlock(id, object) {
     // recursively load all children elements
     var listOfElements = $(result).find('ul')[0];
     for (var elementIndex in object.elements) {
-        var li = document.createElement('li');
+        var li = createListElement(object.elements[elementIndex], id)
         listOfElements.appendChild(li);
-        li.appendChild(doGood(object.elements[elementIndex], id));
     }
     return result;
+}
+
+function createListElement(object, id) {
+    var li = document.createElement('li');
+    li.appendChild(doGood(object, id));
+    return li;
 }
 
 /**
@@ -234,7 +239,7 @@ function generateClazzListBlock(id, object) {
  * @param id
  * @param parentClass
  */
-function loadChildrenClasses(id, parentClass) {
+function loadChildrenClasses(id, parentClass, uiElement) {
     var listElementClasses = [];
     var dataString = 'parent=' + parentClass;
     $.ajax({
@@ -249,17 +254,18 @@ function loadChildrenClasses(id, parentClass) {
                 for (var index in data) {
                     var childClass = document.createElement('span');
                     var childClassName = data[index];
-                    childClass.onclick = function() {
+                    childClass.onclick = function () {
                         addElementToList(id, childClassName);
                         popupDiv.hide();
+                        $(uiElement).toggleClass('collapsed');
                         // TODO childClassName passing to function is always the last one (javascript language specifics)
                     }
                     $(childClass).addClass('row');
                     popupDiv.append(childClass);
                     childClass.innerHTML = childClassName;
                 }
-                popupDiv.css('top',y);
-                popupDiv.css('left',x);
+                popupDiv.css('top', y);
+                popupDiv.css('left', x);
                 popupDiv.show();
             } else {
                 alert('no elements found.. fixmeplease!');
@@ -312,16 +318,20 @@ function put(id) {
  * Function to put new element into the model.
  * @param id
  */
-function addElementToList(id, className) {
-    var targetList = window.bindingMap[id];
-    var listSection = $('#'+id);
-    var ul = listSection.find('ul');
+function addElementToList(listId, className) {
+    var targetList = window.bindingMap[listId];
+    var listSection = $('#' + listId);
+    var ul = listSection.find('ul')[0];
     $.ajax({
         type:'GET',
         url:'describe',
-        data:'class='+className,
-        success:function(data){
-            ul.append(doGood(data,id));
+        data:'class=' + className,
+        success:function (data) {
+
+            var elementId = 'element_' + targetList.elements.length;
+            data.id = listId + '-' + elementId;
+            targetList.elements.push(data);
+            ul.appendChild(createListElement(data, elementId));
         }
     })
 }
