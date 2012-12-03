@@ -165,7 +165,18 @@ public class ObjectWrapper {
                 result = originalClass.newInstance();
             }
             for (Element attribute : ((Clazz) element).getAttributes()) {
-                Field field = originalClass.getDeclaredField(attribute.getFieldName());
+                Field field = null;
+                Class recursiveObject = objectToUpdate.getClass();
+                while (!(recursiveObject.getName().equals("java.lang.Object"))) {
+                    for (Field recursiveField : recursiveObject.getDeclaredFields()) {
+                        if (recursiveField.getName().equals(attribute.getFieldName())) {
+                            field = recursiveField;
+                            break;
+                        }
+                    }
+                    if (field != null) break;
+                    recursiveObject = recursiveObject.getSuperclass();
+                }
                 field.setAccessible(true);
                 if (objectToUpdate != null) {
                     field.set(result, doReverse(attribute, field.get(objectToUpdate)));

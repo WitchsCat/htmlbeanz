@@ -305,6 +305,8 @@ function initializeList(id) {
     var object = bindingMap[id];
     object.isEmpty = false;
     object.originalClass = implementation;
+
+    put(id);
 }
 
 /**
@@ -345,7 +347,9 @@ function addElementToList(listId, className) {
             var elementId = 'element_' + targetList.elements.length;
             data.id = listId + '-' + elementId;
             targetList.elements.push(data);
+            updateBindingMap(data.id, data);
             ul.appendChild(createListElement(data, elementId));
+            submitGood(data.id);
         }
     })
 }

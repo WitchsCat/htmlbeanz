@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 
 /**
  * This is a wrapper around Googgles Gson mapper, that helps in deserialization of htmlbeans wrapper classes.
+ *
  * @author dmarkin
  */
 public class Json2JavaMapper {
@@ -27,6 +28,7 @@ public class Json2JavaMapper {
 
     /**
      * Unwrappes the given json string into corresponding Element subclasses
+     *
      * @param json String to unwrapp
      * @return Element that was represented by the input json parameter
      */
@@ -91,34 +93,39 @@ public class Json2JavaMapper {
                 default: {
                     result = new ClazzAttribute();
                     JsonElement originalValue = unknownElement.get("originalValue");
-                    switch (elementType) {
-                        case BOOLEAN: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsBoolean());
-                            break;
-                        }
-                        case STRING: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsString());
-                            break;
-                        }
-                        case BYTE: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsByte());
-                            break;
-                        }
-                        case DOUBLE: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsDouble());
-                            break;
-                        }
-                        case FLOAT: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsFloat());
-                            break;
-                        }
-                        case LONG: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsLong());
-                            break;
-                        }
-                        case INTEGER: {
-                            ((ClazzAttribute) result).setOriginalValue(originalValue.getAsInt());
-                            break;
+                    Boolean isEmpty = unknownElement.get("isEmpty").getAsBoolean();
+                    if (isEmpty) {
+                        ((ClazzAttribute) result).setOriginalValue(null);
+                    } else {
+                        switch (elementType) {
+                            case BOOLEAN: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsBoolean());
+                                break;
+                            }
+                            case STRING: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsString());
+                                break;
+                            }
+                            case BYTE: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsByte());
+                                break;
+                            }
+                            case DOUBLE: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsDouble());
+                                break;
+                            }
+                            case FLOAT: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsFloat());
+                                break;
+                            }
+                            case LONG: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsLong());
+                                break;
+                            }
+                            case INTEGER: {
+                                ((ClazzAttribute) result).setOriginalValue(originalValue.getAsInt());
+                                break;
+                            }
                         }
                     }
                 }
