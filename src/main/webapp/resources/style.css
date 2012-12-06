@@ -40,28 +40,26 @@ label,
     font-size:.95em;
     text-decoration:none;
     color:#646464;
-    }
-
-.modified {
-    background-color: #f6ff3b;
-}
-
-.saved {
-    background-color: #00f400;
-}
+   }
 h4 {
     padding-right:5px;
+    padding-left:15px;
     font-size:1.4em;
     text-transform:capitalize;
     cursor:pointer;
     }
 header {
-    padding:7px 0;
+    padding:7px 5px 7px 0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
     line-height:1.47em;
     letter-spacing:-1px;
     }
     header span {
         display:block;
+        padding-left:15px;
         font-size:1em;
         font-weight:normal;
         }
@@ -69,14 +67,45 @@ header span,
 .field-wrap span {
     color:#666;
         }
+section header {
+    background:url(sprite.png) -27px -24px no-repeat;
+   } 
+section.collapsed header {background-position:-38px 0;}   
+.empty {
+    border:1px solid #ccc;
+    border-left-width:5px;
+    background:#e3e3e3 url(bg_empty_node.gif);
+    }
+    .empty h4,
+    .empty span {padding-left:10px;}
 ul {
+    margin-left:10px;
     background:url(bg_list.gif) repeat-y 0 10px;
     }
 li {
     padding-left:15px;
     margin-bottom:5px;
     list-style:none;
-}
+    }
+.row {
+    padding:5px 15px 0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+    }
+.modified {
+    padding-left:10px;
+    border:1px solid #fec627;
+    border-left-width:5px;
+    background:#ffeb8d;
+    }
+.saved {
+    padding-left:10px;
+    border:1px solid #b4cb33;
+    border-left-width:5px;
+    background:#eef98d;
+    }
 .field-wrap span {
     display: block;
     font-size: 0.75em;
@@ -109,7 +138,7 @@ select{width:78px;}
 input:focus {
     -moz-transition: background-color 0.5s linear;
     -webkit-transition: background-color 0.5s linear;
-    background: #ccc;
+    background:#e1e1e1;
     }
 button {
     min-width:20px;
@@ -141,17 +170,16 @@ button {
     background-position:0 0;
     }
 .btn-link.save {
-    margin-top:2px;
     width:13px;
-    height:13px;
+    height:15px;
     background-position:0 -15px;
     }
 .template {
-    display: none;
+    display:none;
     }
 
 .collapsed ul {
-    display: none;
+    display:none;
     }
 
 .invisible {
