@@ -36,24 +36,63 @@ function updateBindingMap(id, object) {
     window.bindingMap[id] = object;
 }
 /**
+ * Called on input value change, triggers update of the quick access maps to the modified elements
+ *
+ * @param id of the input that has to trigger an update
+ */
+function inputChangedValue(id) {
+    var changedObject = window.bindingMap[id];
+    var input = $('#' + id + ' :input');
+    if (changedObject.originalValue == input.val()) {
+        unMarkAsChanged(id);
+    } else if (changedObject.originalValue != input.val()
+        && window.modifiedArray.indexOf(id) != -1) {
+        //DO NOTHING
+    } else {
+        if (!isChangedOrInChangedHierarchy(id)) {
+            markAsChanged(id);
+        }
+    }
+
+}
+
+function isChangedOrInChangedHierarchy(id) {
+    var isModified = window.modifiedArray.indexOf(id) != -1;
+    if (isModified) {
+        return true;
+    } else if (id.indexOf('-') != -1) {
+        var parentId = id.substring(0, id.lastIndexOf('-'));
+        return isChangedOrInChangedHierarchy(parentId);
+    } else {
+        return false;
+    }
+}
+
+
+/**
  * Marks visually the changes element & updates the changed, created, and deleted lists
  * @param id the element id that has to be marked as changed
  */
 function markAsChanged(id) {
+
     var p = $('#' + id);
-    var input = $('#' + id + ' :input');
-    if (window.bindingMap[id].originalValue != input.val()) {
-        if (window.modifiedArray.indexOf(id) == -1) {
-            $(p).addClass("modified");
-            $(p).removeClass("saved");
-            window.modifiedArray.push(id);
-        }
-    } else {
-        //Think about removing it from the modified array.
+    if (window.modifiedArray.indexOf(id) == -1) {
+        $(p).addClass("modified");
+        $(p).removeClass("saved");
+        window.modifiedArray.push(id);
+    }
+
+}
+/**
+ * Removes changed marking from the element and all of its children
+ * @param id the element id that has to be unmarked as changed
+ */
+function unMarkAsChanged(id) {
+    var p = $('#' + id);
+    if (window.modifiedArray.indexOf(id) != -1) {
         $(p).removeClass("modified");
         window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
     }
-
 }
 
 /**
@@ -95,20 +134,44 @@ function submitModified() {
  * @param id
  */
 function submitGood(id) {
-    var div = $('#' + id);
 
-    window.bindingMap[id].originalValue = div.find(":input").val();
-    var dataString = id + "=" + JSON.stringify(window.bindingMap[id]);
+    var objectToSubmit = window.bindingMap[id];
+    syncInputsToObjects(objectToSubmit, id);
+
+    var dataString = id + "=" + JSON.stringify(objectToSubmit);
     $.ajax({
         type:"POST",
         url:"good",
         data:dataString,
         success:function (jqXHR) {
             window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
+            var div = $('#' + id);
             div.removeClass("modified");
             div.addClass("saved");
         }
     });
+}
+
+function syncInputsToObjects(object, id) {
+    switch (object.type) {
+        case 'LIST':
+            for (var elementIndex in object.elements) {
+                syncInputsToObjects(object.elements[elementIndex],
+                    id + '-' + object.elements[elementIndex].fieldName);
+            }
+            break;
+        case 'COMPLEX':
+            for (var attributeIndex in object.attributes) {
+                syncInputsToObjects(object.attributes[attributeIndex],
+                    id + '-' + object.attributes[attributeIndex].fieldName);
+            }
+            break;
+        default :
+            var input = $('#' + id + ' input');
+            object.originalValue = input.val();
+            break;
+    }
+
 }
 
 /**
@@ -162,7 +225,7 @@ function generateClazzAttributeBlock(id, object) {
     var input = $(result).find(":input")[0];
     input.value = object.originalValue;
     input.onblur = function () {
-        markAsChanged(id)
+        inputChangedValue(id)
     };
     var saveLink = $(result).find('a.save');
     saveLink[0].onclick = function () {
@@ -182,6 +245,11 @@ function generateClazzBlock(id, object) {
     header[0].onclick = function () {
         $(result).toggleClass("collapsed");
     };
+
+    var classSaveButton = $(result).find('.save')[0];
+    classSaveButton.onclick = function () {
+        submitGood(id);
+    }
 
     var classHint = $(result).find('span');
     classHint.html(object.originalClass);
@@ -234,6 +302,7 @@ function generateClazzListBlock(id, object) {
     }
     return result;
 }
+
 /**
  * Creates a li element wrapper
  * @param object to create wrapper based on
@@ -271,7 +340,6 @@ function loadChildrenClasses(id, parentClass, uiElement) {
                     childClass.onclick = function () {
                         addElementToList(id, childClassName);
                         popupDiv.hide();
-                        $(uiElement).toggleClass('collapsed');
                         // TODO childClassName passing to function is always the last one (javascript language specifics)
                     }
                     $(childClass).addClass('row');
@@ -343,13 +411,12 @@ function addElementToList(listId, className) {
         url:'describe',
         data:'class=' + className,
         success:function (data) {
-
-            var elementId = 'element_' + targetList.elements.length;
-            data.id = listId + '-' + elementId;
+            data.fieldName = 'element_' + targetList.elements.length
             targetList.elements.push(data);
-            updateBindingMap(data.id, data);
-            ul.appendChild(createListElement(data, elementId));
-            submitGood(data.id);
+            var listElement = createListElement(data, listId);
+            ul.appendChild(listElement);
+            listSection.removeClass('collapsed');
+            markAsChanged(listId + '-' + data.fieldName);
         }
     })
 }

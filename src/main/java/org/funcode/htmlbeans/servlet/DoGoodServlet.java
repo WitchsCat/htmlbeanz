@@ -102,6 +102,17 @@ public class DoGoodServlet extends HttpServlet {
             ModelViewController modelViewController
                     = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
             modelViewController.putElements(putMap);
+            try {
+                objectWrapper.doReverse(modelViewController.getModel(), source);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (InstantiationException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         } else {
             // TODO create an error message 'nothing to put'
         }
