@@ -43,12 +43,14 @@ function updateBindingMap(id, object) {
 function inputChangedValue(id) {
     var changedObject = window.bindingMap[id];
     var input = $('#' + id + ' :input');
+    changedObject.isEmpty = false;
     if (changedObject.originalValue == input.val()) {
         unMarkAsChanged(id);
     } else if (changedObject.originalValue != input.val()
         && window.modifiedArray.indexOf(id) != -1) {
         //DO NOTHING
     } else {
+        changedObject.originalValue = input.first().val();
         if (!isChangedOrInChangedHierarchy(id)) {
             markAsChanged(id);
         }
@@ -81,7 +83,6 @@ function markAsChanged(id) {
         $(p).removeClass("saved");
         window.modifiedArray.push(id);
     }
-
 }
 /**
  * Removes changed marking from the element and all of its children
@@ -231,6 +232,9 @@ function generateClazzAttributeBlock(id, object) {
     saveLink[0].onclick = function () {
         submitGood(id);
     };
+    if (object.isEmpty == true) {
+        $(result).addClass('empty');
+    }
     return result;
 }
 
@@ -277,9 +281,7 @@ function generateClazzListBlock(id, object) {
     };
 
     if (object.isEmpty == true) {
-        $(result).find('.add-element').first().addClass('invisible');
-    } else {
-        $(result).find('.initialize').first().addClass('invisible');
+        $(result).addClass("empty");
     }
 
     // button to show all available elements to add
@@ -365,9 +367,7 @@ function initializeList(id) {
 
     var listSection = $('#' + id);
     listSection.find('.original-class').first().html(implementation);
-    listSection.find('.initialize').first().addClass('invisible');
-    listSection.find('.add-element').first().removeClass('invisible');
-    listSection.removeClass('collapsed');
+    listSection.removeClass('empty');
 
     // update client model
     var object = bindingMap[id];

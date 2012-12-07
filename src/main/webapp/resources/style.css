@@ -63,6 +63,9 @@ header {
         font-size:1em;
         font-weight:normal;
         }
+button.initialize {
+    display: none;
+    }
 header span,
 .field-wrap span {
     color:#666;
@@ -78,6 +81,12 @@ section.collapsed header {background-position:-38px 0;}
     }
     .empty h4,
     .empty span {padding-left:10px;}
+    .empty .actions button.add-element {
+        display: none;
+        }
+    .empty .actions button.initialize {
+        display: block;
+        }
 ul {
     margin-left:10px;
     background:url(bg_list.gif) repeat-y 0 10px;
