@@ -43,14 +43,13 @@ function updateBindingMap(id, object) {
 function inputChangedValue(id) {
     var changedObject = window.bindingMap[id];
     var input = $('#' + id + ' :input');
-    changedObject.isEmpty = false;
+
     if (changedObject.originalValue == input.val()) {
         unMarkAsChanged(id);
     } else if (changedObject.originalValue != input.val()
         && window.modifiedArray.indexOf(id) != -1) {
         //DO NOTHING
     } else {
-        changedObject.originalValue = input.first().val();
         if (!isChangedOrInChangedHierarchy(id)) {
             markAsChanged(id);
         }
@@ -169,6 +168,7 @@ function syncInputsToObjects(object, id) {
             break;
         default :
             var input = $('#' + id + ' input');
+            object.isEmpty = false;
             object.originalValue = input.val();
             break;
     }
