@@ -24,6 +24,12 @@ public class TestObjectWrapperDoReverse extends TestObjectWrapperBase {
     }
 
     @Test
+    public void testIsEmptyNull() throws ClassNotFoundException, NoSuchFieldException, InstantiationException, IllegalAccessException {
+        houseClazz.setEmpty(true);
+        assertNull("wrapper marked isEmpty should result null", wrapper.doReverse(houseClazz));
+    }
+
+    @Test
     public void testClazzAttributeWrapping() throws ClassNotFoundException,
             NoSuchFieldException, InstantiationException, IllegalAccessException {
         Object result = wrapper.doReverse(colorClazzAttribute);

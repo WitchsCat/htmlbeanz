@@ -224,7 +224,12 @@ function generateClazzAttributeBlock(id, object) {
     var hint = $(result).find('.field-wrap > span');
     hint.html(object.originalClass);
     var input = $(result).find(":input")[0];
-    input.value = object.originalValue;
+    if (object.isEmpty == true) {
+        $(result).addClass('empty');
+    } else {
+        input.value = object.originalValue;
+    }
+
     input.onblur = function () {
         inputChangedValue(id)
     };
@@ -232,9 +237,7 @@ function generateClazzAttributeBlock(id, object) {
     saveLink[0].onclick = function () {
         submitGood(id);
     };
-    if (object.isEmpty == true) {
-        $(result).addClass('empty');
-    }
+
     return result;
 }
 

@@ -34,12 +34,10 @@ public class DescriptionServlet extends HttpServlet {
         resp.setContentType("text/json");
         try {
             Class<?> clazz = Class.forName(classAsString);
-            resp.getWriter().print(new Gson().toJson(objectWrapper.doGood(clazz.newInstance(), clazz)));
+            resp.getWriter().print(new Gson().toJson(objectWrapper.doGood(null, clazz)));
         } catch (IllegalAccessException e) {
             e.printStackTrace();  //TODO add the error handling
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (InstantiationException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         resp.getWriter().flush();
