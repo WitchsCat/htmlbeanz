@@ -30,7 +30,6 @@ public class DoGoodServlet extends HttpServlet {
     /**
      * Key that is to be used to get the ModelViewController instance from the session.
      */
-    ++
     public static final String PRESENTATION_CONTROLLER_ATTRIBUTE_NAME = "PRESENTATION_CONTROLLER";
 
     /**

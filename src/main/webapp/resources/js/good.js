@@ -2,6 +2,7 @@
 var x, y;
 
 window.onload = init;
+
 function init() {
     document.onmousemove = getCursorXY;
 }
@@ -15,6 +16,7 @@ $(document).ready(function () {
     $.getJSON('good', function (data) {
         window.dataModel = data;
         window.bindingMap = new Object();
+        window.parentChildArrayMap = new Object();
         window.modifiedArray = [];
         window.createdArray = [];
         window.deletedArray = [];
@@ -32,8 +34,12 @@ $(document).ready(function () {
  * @param id to assign to the object.
  * @param object Object to put into the map.
  */
-function updateBindingMap(id, object) {
+function updateBindingMap(id, object, parentId) {
     window.bindingMap[id] = object;
+    if (window.parentChildArrayMap[parentId] == null) {
+        window.parentChildArrayMap[parentId] = [];
+    }
+    window.parentChildArrayMap[parentId].push(id);
 }
 /**
  * Called on input value change, triggers update of the quick access maps to the modified elements
@@ -56,7 +62,11 @@ function inputChangedValue(id) {
     }
 
 }
-
+/**
+ * This method checks if the element is part of a hierarchy that is already marked as changed
+ * @param id
+ * @return true if the above statement is true
+ */
 function isChangedOrInChangedHierarchy(id) {
     var isModified = window.modifiedArray.indexOf(id) != -1;
     if (isModified) {
@@ -84,15 +94,23 @@ function markAsChanged(id) {
     }
 }
 /**
- * Removes changed marking from the element and all of its children
+ * Removes changed marking from the element and all of its children recursively
  * @param id the element id that has to be unmarked as changed
  */
 function unMarkAsChanged(id) {
     var p = $('#' + id);
+    //Remove 'changed' marking from the object itself
     if (window.modifiedArray.indexOf(id) != -1) {
         $(p).removeClass("modified");
         window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
     }
+    //Remove 'changed' marking
+    if (window.parentChildArrayMap[id] != null) {
+        for (var childIdIndex in window.parentChildArrayMap[id]) {
+            unMarkAsChanged(window.parentChildArrayMap[id][childIdIndex]);
+        }
+    }
+
 }
 
 /**
@@ -131,27 +149,30 @@ function submitModified() {
  * Function submits the changed element to server.
  * POST - DoGoodServlet
  *
- * @param id
+ * @param id of the element that has to be submitted to the server as changed.
  */
 function submitGood(id) {
 
     var objectToSubmit = window.bindingMap[id];
     syncInputsToObjects(objectToSubmit, id);
-
+    //TODO change to submitting only modified parts of the object if possible
     var dataString = id + "=" + JSON.stringify(objectToSubmit);
     $.ajax({
         type:"POST",
         url:"good",
         data:dataString,
         success:function (jqXHR) {
-            window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
+            unMarkAsChanged(id);
             var div = $('#' + id);
-            div.removeClass("modified");
             div.addClass("saved");
         }
     });
 }
-
+/**
+ * This function recursively gets the values from the html inputs and sets them to the object model
+ * @param object to put the value into
+ * @param id of the input to take the value from
+ */
 function syncInputsToObjects(object, id) {
     switch (object.type) {
         case 'LIST':
@@ -182,8 +203,10 @@ function syncInputsToObjects(object, id) {
  * @return {*}
  */
 function doGood(object, parentId) {
+    var renderControls = true;
     if (parentId == null) {
         parentId = "TOP";
+        renderControls = false;
     }
     var id;
     if (object.fieldName != null) {
@@ -192,12 +215,12 @@ function doGood(object, parentId) {
         id = parentId;
         object.fieldName = parentId;
     }
-    updateBindingMap(id, object);
+    updateBindingMap(id, object, parentId);
 
     var htmlResult;
 
     if (object.type == 'COMPLEX') {
-        htmlResult = generateClazzBlock(id, object)
+        htmlResult = generateClazzBlock(id, object, renderControls)
     } else if (object.type == 'LIST') {
         htmlResult = generateClazzListBlock(id, object);
     } else {
@@ -224,6 +247,7 @@ function generateClazzAttributeBlock(id, object) {
     var hint = $(result).find('.field-wrap > span');
     hint.html(object.originalClass);
     var input = $(result).find(":input")[0];
+
     if (object.isEmpty == true) {
         $(result).addClass('empty');
     } else {
@@ -240,22 +264,42 @@ function generateClazzAttributeBlock(id, object) {
 
     return result;
 }
-
-function generateClazzBlock(id, object) {
+/**
+ * This function renders a block that represents element type Clazz
+ * @param id the full element id that this block will be tied to
+ * @param object the model object that is represented by this block
+ * @param renderControls if true the block will be collapsed and control buttons will be rendered
+ * @return {*}
+ */
+function generateClazzBlock(id, object, renderControls) {
     var result = window.htmlTemplates.clazz.clone();
     result.toggleClass("template");
     result = result[0];
     var header = $(result).find('h4');
     header.html(object.fieldName);
-
-
-    header[0].onclick = function () {
-        $(result).toggleClass("collapsed");
-    };
+    //for rendering top element should be uncollapsed
+    if (!renderControls) {
+        $(result).toggleClass('collapsed');
+    } else {
+        header[0].onclick = function () {
+            $(result).toggleClass("collapsed");
+        };
+    }
 
     var classSaveButton = $(result).find('.save')[0];
-    classSaveButton.onclick = function () {
-        submitGood(id);
+    if (!renderControls) {
+        $(classSaveButton).toggleClass('invisible');
+    } else {
+        classSaveButton.onclick = function () {
+            submitGood(id);
+        }
+    }
+
+    var classDeleteButton = $(result).find('.delete')[0];
+    if (!renderControls) {
+        $(classDeleteButton).toggleClass('invisible');
+    } else {
+        //TODO do the clazz deletion for god sakes!
     }
 
     var classHint = $(result).find('span');
