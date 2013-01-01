@@ -71,54 +71,6 @@ public class DoGoodServlet extends HttpServlet {
     }
 
     /**
-     * Puts (replaces) all the model or it's part on the server.
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    @Override
-    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
-        BufferedReader jsonReader = new BufferedReader(new InputStreamReader(request.getInputStream()));
-        StringBuilder jsonObject = new StringBuilder();
-        String st;
-        while ((st = jsonReader.readLine()) != null) {
-            jsonObject.append(st);
-        }
-        jsonReader.close();
-
-        // creating parameter map from http parameter string
-        Map<String, String> putMap = new HashMap<String, String>();
-        StringTokenizer parameterTokenizer = new StringTokenizer(jsonObject.toString(), "&");
-        while (parameterTokenizer.hasMoreTokens()) {
-            String oneParameter = parameterTokenizer.nextToken();
-            String[] parameter = oneParameter.split("=");
-            putMap.put(parameter[0], parameter[1]);
-        }
-
-        if (!StringUtils.isEmpty(jsonObject.toString())) {
-            ModelViewController modelViewController
-                    = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
-            modelViewController.putElements(putMap);
-            try {
-                objectWrapper.doReverse(modelViewController.getModel(), source);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            } catch (InstantiationException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-            }
-        } else {
-            // TODO create an error message 'nothing to put'
-        }
-    }
-
-    /**
      * Gets all the model or it's part from the server.
      *
      * @param request

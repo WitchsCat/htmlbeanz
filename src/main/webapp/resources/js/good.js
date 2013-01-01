@@ -1,17 +1,3 @@
-/* Cursor coordinates */
-var x, y;
-
-window.onload = init;
-
-function init() {
-    document.onmousemove = getCursorXY;
-}
-
-function getCursorXY(e) {
-    x = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
-    y = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
-}
-
 $(document).ready(function () {
     $.getJSON('good', function (data) {
         window.dataModel = data;
@@ -30,120 +16,36 @@ $(document).ready(function () {
     });
 });
 /**
- * Method that put a newly created element to the binding map.
- * @param id to assign to the object.
- * @param object Object to put into the map.
- */
-function updateBindingMap(id, object, parentId) {
-    window.bindingMap[id] = object;
-    if (window.parentChildArrayMap[parentId] == null) {
-        window.parentChildArrayMap[parentId] = [];
-    }
-    window.parentChildArrayMap[parentId].push(id);
-}
-/**
- * Called on input value change, triggers update of the quick access maps to the modified elements
- *
- * @param id of the input that has to trigger an update
- */
-function inputChangedValue(id) {
-    var changedObject = window.bindingMap[id];
-    var input = $('#' + id + ' :input');
-
-    if (changedObject.originalValue == input.val()) {
-        unMarkAsChanged(id);
-    } else if (changedObject.originalValue != input.val()
-        && window.modifiedArray.indexOf(id) != -1) {
-        //DO NOTHING
-    } else {
-        if (!isChangedOrInChangedHierarchy(id)) {
-            markAsChanged(id);
-        }
-    }
-
-}
-/**
- * This method checks if the element is part of a hierarchy that is already marked as changed
- * @param id
- * @return true if the above statement is true
- */
-function isChangedOrInChangedHierarchy(id) {
-    var isModified = window.modifiedArray.indexOf(id) != -1;
-    if (isModified) {
-        return true;
-    } else if (id.indexOf('-') != -1) {
-        var parentId = id.substring(0, id.lastIndexOf('-'));
-        return isChangedOrInChangedHierarchy(parentId);
-    } else {
-        return false;
-    }
-}
-
-
-/**
- * Marks visually the changes element & updates the changed, created, and deleted lists
- * @param id the element id that has to be marked as changed
- */
-function markAsChanged(id) {
-
-    var p = $('#' + id);
-    if (window.modifiedArray.indexOf(id) == -1) {
-        $(p).addClass("modified");
-        $(p).removeClass("saved");
-        window.modifiedArray.push(id);
-    }
-}
-/**
- * Removes changed marking from the element and all of its children recursively
- * @param id the element id that has to be unmarked as changed
- */
-function unMarkAsChanged(id) {
-    var p = $('#' + id);
-    //Remove 'changed' marking from the object itself
-    if (window.modifiedArray.indexOf(id) != -1) {
-        $(p).removeClass("modified");
-        window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
-    }
-    //Remove 'changed' marking
-    if (window.parentChildArrayMap[id] != null) {
-        for (var childIdIndex in window.parentChildArrayMap[id]) {
-            unMarkAsChanged(window.parentChildArrayMap[id][childIdIndex]);
-        }
-    }
-
-}
-
-/**
  * Function submits all changes to the server as a list of HTTP parameters.
  * POST - DoGoodServlet
  */
-function submitModified() {
-    var data = '';
-    for (var index in window.modifiedArray) {
-        if (index != 0) {
-            data += '&';
-        }
-        var id = window.modifiedArray[index];
-        data += (id + '=' + $('#' + id + ' :input').val());
-    }
-    if (data != '') {
-        $.ajax({
-            type:"POST",
-            url:"good",
-            data:data,
-            success:function (jqXHR) {
-                for (var index in window.modifiedArray) {
-                    $('#' + window.modifiedArray[index]).removeClass("modified");
-                    $('#' + window.modifiedArray[index]).addClass("saved");
-                }
-                window.modifiedArray = [];
-            }
-        });
-    } else {
-        window.alert('no changes to submit!');
-    }
-
-}
+//function submitModified() {
+//    var data = '';
+//    for (var index in window.modifiedArray) {
+//        if (index != 0) {
+//            data += '&';
+//        }
+//        var id = window.modifiedArray[index];
+//        data += (id + '=' + $('#' + id + ' :input').val());
+//    }
+//    if (data != '') {
+//        $.ajax({
+//            type:"POST",
+//            url:"good",
+//            data:data,
+//            success:function (jqXHR) {
+//                for (var index in window.modifiedArray) {
+//                    $('#' + window.modifiedArray[index]).removeClass("modified");
+//                    $('#' + window.modifiedArray[index]).addClass("saved");
+//                }
+//                window.modifiedArray = [];
+//            }
+//        });
+//    } else {
+//        window.alert('no changes to submit!');
+//    }
+//
+//}
 
 /**
  * Function submits the changed element to server.
@@ -362,108 +264,4 @@ function createListElement(object, id) {
     var li = document.createElement('li');
     li.appendChild(doGood(object, id));
     return li;
-}
-
-/**
- * Function to check parent class for available children in JVM.
- * GET - SubClassesServlet
- *
- * @param id
- * @param parentClass
- */
-function loadChildrenClasses(id, parentClass, uiElement) {
-    var listElementClasses = [];
-    var dataString = 'parent=' + parentClass;
-    $.ajax({
-        type:"GET",
-        url:"subclasses",
-        data:dataString,
-        success:function (data) {
-            if (data != '') {
-                var listSection = $('#' + id);
-                var popupDiv = listSection.find('.popup').first();
-                popupDiv.empty();
-                for (var index in data) {
-                    var childClass = document.createElement('span');
-                    var childClassName = data[index];
-                    childClass.onclick = function () {
-                        addElementToList(id, childClassName);
-                        popupDiv.hide();
-                        // TODO childClassName passing to function is always the last one (javascript language specifics)
-                    }
-                    $(childClass).addClass('row');
-                    popupDiv.append(childClass);
-                    childClass.innerHTML = childClassName;
-                }
-                popupDiv.css('top', y);
-                popupDiv.css('left', x);
-                popupDiv.show();
-            } else {
-                alert('no elements found.. fixmeplease!');
-            }
-        }
-    });
-}
-
-/**
- * Function to perform initialize list act.
- * @param id
- */
-function initializeList(id) {
-    var implementation = "java.util.ArrayList";
-
-    var listSection = $('#' + id);
-    listSection.find('.original-class').first().html(implementation);
-    listSection.removeClass('empty');
-
-    // update client model
-    var object = bindingMap[id];
-    object.isEmpty = false;
-    object.originalClass = implementation;
-
-    put(id);
-}
-
-/**
- * Function to send initialize list request to server.
- * Update client and server.
- * PUT - DoGoodServlet
- *
- * @param id
- */
-function put(id) {
-    var object = bindingMap[id];
-    // update server model
-    var dataString = id + '=' + JSON.stringify(object);
-    $.ajax({
-        type:"PUT",
-        url:"good",
-        data:dataString,
-        success:function (data) {
-
-        }
-    });
-}
-
-/**
- * Function to put new element into the model.
- * @param id
- */
-function addElementToList(listId, className) {
-    var targetList = window.bindingMap[listId];
-    var listSection = $('#' + listId);
-    var ul = listSection.find('ul')[0];
-    $.ajax({
-        type:'GET',
-        url:'describe',
-        data:'class=' + className,
-        success:function (data) {
-            data.fieldName = 'element_' + targetList.elements.length
-            targetList.elements.push(data);
-            var listElement = createListElement(data, listId);
-            ul.appendChild(listElement);
-            listSection.removeClass('collapsed');
-            markAsChanged(listId + '-' + data.fieldName);
-        }
-    })
 }
