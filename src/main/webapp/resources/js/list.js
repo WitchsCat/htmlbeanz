@@ -70,6 +70,9 @@ function addElementToList(listId, className) {
         url:'describe',
         data:'class=' + className,
         success:function (data) {
+            if (targetList.elements == null) {
+                targetList.elements = [];
+            }
             data.fieldName = 'element_' + targetList.elements.length
             targetList.elements.push(data);
             var listElement = createListElement(data, listId);

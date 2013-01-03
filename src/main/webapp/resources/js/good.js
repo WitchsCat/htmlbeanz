@@ -1,28 +1,28 @@
 $(document).ready(function () {
+    window.dataModel = new Object();
+    window.bindingMap = new Object();
+    window.parentChildArrayMap = new Object();
+    window.modifiedArray = [];
+    window.createdArray = [];
+    window.deletedArray = [];
+    window.htmlTemplates = new Object();
+    window.htmlTemplates.clazz = $('#ClazzTemplate');
+    window.htmlTemplates.clazzList = $('#ClazzListTemplate');
+    window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
+    window.search = new Object();
+    window.search.clazz = new Object();
+    window.search.attribute = new Object();
+    window.search.savedState = new Object();
+    window.search.newSearch = true;
+    window.search.clazzFN = true;
+    window.search.clazzOC = false;
+    window.search.attributeFN = true;
+    window.search.attributeOC = false;
+    window.search.attributeOV = true;
+
     $.getJSON('good', function (data) {
         window.dataModel = data;
-        window.bindingMap = new Object();
-        window.parentChildArrayMap = new Object();
-        window.modifiedArray = [];
-        window.createdArray = [];
-        window.deletedArray = [];
-        window.htmlTemplates = new Object();
-        window.htmlTemplates.clazz = $('#ClazzTemplate');
-        window.htmlTemplates.clazzList = $('#ClazzListTemplate');
-        window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
-        window.search = new Object();
-        window.search.clazz = new Object();
-        window.search.attribute = new Object();
-        window.search.savedState = new Object();
-        window.search.newSearch = true;
-        window.search.clazzFN = true;
-        window.search.clazzOC = false;
-        window.search.attributeFN = true;
-        window.search.attributeOC = false;
-        window.search.attributeOV = true;
-
         document.getElementById('graphroot').appendChild(doGood(data));
-
     });
 });
 /**
@@ -64,19 +64,21 @@ $(document).ready(function () {
  * @param id of the element that has to be submitted to the server as changed.
  */
 function submitGood(id) {
-
+    console.log(id);
     var objectToSubmit = window.bindingMap[id];
+    console.log(objectToSubmit);
     syncInputsToObjects(objectToSubmit, id);
+    console.log(objectToSubmit);
     //TODO change to submitting only modified parts of the object if possible
     var dataString = id + "=" + JSON.stringify(objectToSubmit);
     $.ajax({
-        type:"POST",
-        url:"good",
-        data:dataString,
-        success:function (jqXHR) {
+        type: "POST",
+        url: "good",
+        data: dataString,
+        success: function () {
             unMarkAsChanged(id);
-            var div = $('#' + id);
-            div.addClass("saved");
+            unMarkAsSavedRecursively(id);
+            markAsSaved(id);
         }
     });
 }
@@ -101,8 +103,16 @@ function syncInputsToObjects(object, id) {
             break;
         default :
             var input = $('#' + id + ' input');
-            object.isEmpty = false;
-            object.originalValue = input.val();
+            if (input.val() == '') {
+                object.isEmpty = true;
+                delete object.originalValue;
+            } else {
+                if (object.isEmpty == true) {
+                    unMarkAsEmpty(id);
+                }
+                object.isEmpty = false;
+                object.originalValue = input.val();
+            }
             break;
     }
 

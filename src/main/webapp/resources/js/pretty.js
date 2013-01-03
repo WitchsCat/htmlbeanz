@@ -54,7 +54,6 @@ function isChangedOrInChangedHierarchy(id) {
  * @param id the element id that has to be marked as changed
  */
 function markAsChanged(id) {
-
     var p = $('#' + id);
     if (window.modifiedArray.indexOf(id) == -1) {
         $(p).addClass("modified");
@@ -79,5 +78,48 @@ function unMarkAsChanged(id) {
             unMarkAsChanged(window.parentChildArrayMap[id][childIdIndex]);
         }
     }
-
+}
+/**
+ * Marks element as saved (green).
+ * @param id
+ */
+function markAsSaved(id) {
+    var element = $('#' + id);
+    element.addClass('saved');
+}
+/**
+ * Unmarks single element as saved.
+ * @param id
+ */
+function unMarkAsSaved(id) {
+    var element = $('#' + id);
+    element.removeClass('saved');
+}
+/**
+ * Unmarks element and all it's children as saved.
+ * @param id
+ */
+function unMarkAsSavedRecursively(id) {
+    if (window.parentChildArrayMap[id] != null) {
+        for (var childIdIndex in window.parentChildArrayMap[id]) {
+            unMarkAsSaved(id);
+            unMarkAsSavedRecursively(window.parentChildArrayMap[id][childIdIndex])
+        }
+    }
+}
+/**
+ * Marks element as empty.
+ * @param id
+ */
+function markAsEmpty(id) {
+    var element = $('#' + id);
+    element.addClass('empty');
+}
+/**
+ * Unmarks element as empty.
+ * @param id
+ */
+function unMarkAsEmpty(id) {
+    var element = $('#' + id);
+    element.removeClass('empty');
 }
