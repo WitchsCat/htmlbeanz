@@ -7,12 +7,16 @@
     <script src="resources/js/pretty.js"></script>
     <script src="resources/js/cursor.js"></script>
     <script src="resources/js/list.js"></script>
+    <script src="resources/js/search.js"></script>
     <link rel="stylesheet" href="resources/style.css" type="text/css"/>
 </head>
 
 <body>
 
 <div class="wrapper">
+    <div class="decor">
+        <input id="search" type="text" oninput="javascript:doSearch(this.value);" onfocus="javascript:resetNewSearch(this.value);"/>
+    </div>
     <div class="decor">
         <button onclick="submitModified()">Submit Modified</button>
     </div>

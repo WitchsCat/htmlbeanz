@@ -10,6 +10,16 @@ $(document).ready(function () {
         window.htmlTemplates.clazz = $('#ClazzTemplate');
         window.htmlTemplates.clazzList = $('#ClazzListTemplate');
         window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
+        window.search = new Object();
+        window.search.clazz = new Object();
+        window.search.attribute = new Object();
+        window.search.savedState = new Object();
+        window.search.newSearch = true;
+        window.search.clazzFN = true;
+        window.search.clazzOC = false;
+        window.search.attributeFN = true;
+        window.search.attributeOC = false;
+        window.search.attributeOV = true;
 
         document.getElementById('graphroot').appendChild(doGood(data));
 
@@ -122,11 +132,13 @@ function doGood(object, parentId) {
     var htmlResult;
 
     if (object.type == 'COMPLEX') {
-        htmlResult = generateClazzBlock(id, object, renderControls)
+        htmlResult = generateClazzBlock(id, object, renderControls);
+        updateSearchClazz(id, object);
     } else if (object.type == 'LIST') {
         htmlResult = generateClazzListBlock(id, object);
     } else {
         htmlResult = generateClazzAttributeBlock(id, object);
+        updateSearchAttribute(id, object);
     }
     htmlResult.id = id;
 
