@@ -205,3 +205,7 @@ button {
     padding: 3px;
     cursor: pointer;
     }
+
+.highlight {
+    background-color:yellow;
+    }

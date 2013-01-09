@@ -107,13 +107,6 @@ public class ModelViewController {
         }
     }
 
-    public void putElements(Map<String, String> map) {
-        for (String id : map.keySet()) {
-            String jsonElement = map.get(id);
-            applyChanges(id, jsonElement);
-        }
-    }
-
     /**
      * Getter for the UI model around witch the controller is build
      *
