@@ -2,9 +2,7 @@ package org.funcode.htmlbeans.servlet;
 
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
-import org.apache.commons.lang.StringUtils;
 import org.funcode.htmlbeans.mvc.ModelViewController;
-import org.funcode.htmlbeans.wrappers.Element;
 import org.funcode.htmlbeans.wrappers.ObjectWrapper;
 
 import javax.servlet.ServletException;
@@ -12,12 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 /**
  * This servlet serves all of the requests related to the Object model manipulation

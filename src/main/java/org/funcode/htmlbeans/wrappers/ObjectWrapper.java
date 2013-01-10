@@ -15,7 +15,7 @@ import java.util.*;
 
 public class ObjectWrapper {
 
-   // private static final Map<Class, Element> wrapperCache = new HashMap<Class, Element>();
+    // private static final Map<Class, Element> wrapperCache = new HashMap<Class, Element>();
 
     public static final Map<Class<?>, ElementType> classToPrimitiveType;
 
@@ -59,9 +59,6 @@ public class ObjectWrapper {
     @SuppressWarnings("unchecked")
     public Element doGood(Object object, Class objectClass) throws IllegalArgumentException,
             IllegalAccessException {
-//        if(object == null && objectClass != null && wrapperCache.containsKey(objectClass)){
-//            return wrapperCache.get(objectClass);
-//        }
 
         Element result;
         if (classToPrimitiveType.get(objectClass) != null) {
@@ -73,11 +70,9 @@ public class ObjectWrapper {
         } else if (List.class.isAssignableFrom(objectClass)) {
             result = new ClazzList();
             result.setType(ElementType.LIST);
-
             if (object != null) {
                 long i = 0;
                 for (Object resultElement : ((List<Object>) object)) {
-
                     Element element = doGood(resultElement, resultElement.getClass());
                     element.setFieldName("element_" + i++);
                     ((ClazzList) result).getElements().add(element);
@@ -130,7 +125,6 @@ public class ObjectWrapper {
         result.setOriginalClass(objectClass.getName());
         if (object == null) {
             result.setEmpty(true);
-//            wrapperCache.put(objectClass,result);
         }
         return result;
 

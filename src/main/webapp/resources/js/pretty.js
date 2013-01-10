@@ -54,8 +54,9 @@ function isChangedOrInChangedHierarchy(id) {
  * @param id the element id that has to be marked as changed
  */
 function markAsChanged(id) {
-    var p = $('#' + id);
+
     if (window.modifiedArray.indexOf(id) == -1) {
+        var p = $('#' + id);
         $(p).addClass("modified");
         $(p).removeClass("saved");
         window.modifiedArray.push(id);
@@ -66,9 +67,10 @@ function markAsChanged(id) {
  * @param id the element id that has to be unmarked as changed
  */
 function unMarkAsChanged(id) {
-    var p = $('#' + id);
+
     //Remove 'changed' marking from the object itself
     if (window.modifiedArray.indexOf(id) != -1) {
+        var p = $('#' + id);
         $(p).removeClass("modified");
         window.modifiedArray.splice(window.modifiedArray.indexOf(id), 1);
     }
