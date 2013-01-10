@@ -1,6 +1,6 @@
 package org.funcode.htmlbeans.samples.foundation;
 
-public class Room {
+public class Room implements Cloneable {
 
 	private int number;
 
@@ -59,5 +59,13 @@ public class Room {
 			return false;
 		return true;
 	}
+
+    @Override
+    public Object clone() {
+        Room result = new Room();
+        result.setNumber(this.getNumber());
+        result.setOwner(this.getOwner());
+        return result;
+    }
 	
 }

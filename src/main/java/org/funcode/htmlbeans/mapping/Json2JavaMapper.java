@@ -7,6 +7,7 @@ import com.google.gson.*;
 import org.funcode.htmlbeans.wrappers.*;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 /**
  * This is a wrapper around Googgles Gson mapper, that helps in deserialization of htmlbeans wrapper classes.
@@ -72,6 +73,9 @@ public class Json2JavaMapper {
                     JsonElement attributes = unknownElement.get("attributes");
                     if (attributes != null) {
                         for (JsonElement attribute : attributes.getAsJsonArray()) {
+                            if (((Clazz) result).getAttributes() == null) {
+                                ((Clazz) result).setAttributes(new ArrayList<Element>());
+                            }
                             ((Clazz) result).getAttributes().add(
                                     gson.fromJson(attribute, Element.class));
                         }
@@ -80,10 +84,15 @@ public class Json2JavaMapper {
                 }
                 case LIST: {
                     result = new ClazzList();
-                    ((ClazzList) result).setElementsGenericClass(unknownElement.get("elementsGenericClass").getAsString());
+                    ((ClazzList) result).setElementsGenericClass(unknownElement.get("elementsGenericClass") != null ?
+                            unknownElement.get("elementsGenericClass").getAsString()
+                            : null);
                     JsonElement elements = unknownElement.get("elements");
                     if (elements != null) {
                         for (JsonElement element : elements.getAsJsonArray()) {
+                            if (((ClazzList) result).getElements() == null) {
+                                ((ClazzList) result).setElements(new ArrayList<Element>());
+                            }
                             ((ClazzList) result).getElements().add(
                                     gson.fromJson(element, Element.class));
                         }

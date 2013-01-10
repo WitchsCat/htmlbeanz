@@ -36,4 +36,5 @@ public class ClazzAttribute extends Element {
         result = 31 * result + (originalValue != null ? originalValue.hashCode() : 0);
         return result;
     }
+
 }

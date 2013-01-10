@@ -27,16 +27,17 @@ public abstract class TestObjectWrapperBase {
         house = (House) xStream.fromXML(this.getClass().getResourceAsStream("/house.init.xml"));
         houseClazz = (Clazz) xStream.fromXML(this.getClass().getResourceAsStream("/houseClazz.init.xml"));
 
-        for (Element element : houseClazz.getAttributes()) {
-            if (element.getFieldName().equals("dimension")) {
-                simpleDimensionClazz = (Clazz) element;
-            } else if (element.getFieldName().equals("color")) {
-                colorClazzAttribute = (ClazzAttribute) element;
-            } else if (element.getFieldName().equals("stages")) {
-                simpleClazzList = (ClazzList) element;
+        if (houseClazz.getAttributes() != null) {
+            for (Element element : houseClazz.getAttributes()) {
+                if (element.getFieldName().equals("dimension")) {
+                    simpleDimensionClazz = (Clazz) element;
+                } else if (element.getFieldName().equals("color")) {
+                    colorClazzAttribute = (ClazzAttribute) element;
+                } else if (element.getFieldName().equals("stages")) {
+                    simpleClazzList = (ClazzList) element;
+                }
             }
         }
-
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.*;
 
 public class ObjectWrapper {
 
-   // private static final Map<Class, Element> wrapperCache = new HashMap<Class, Element>();
+    // private static final Map<Class, Element> wrapperCache = new HashMap<Class, Element>();
 
     public static final Map<Class<?>, ElementType> classToPrimitiveType;
 
@@ -80,6 +80,9 @@ public class ObjectWrapper {
 
                     Element element = doGood(resultElement, resultElement.getClass());
                     element.setFieldName("element_" + i++);
+                    if (((ClazzList) result).getElements() == null) {
+                        ((ClazzList) result).setElements(new ArrayList<Element>());
+                    }
                     ((ClazzList) result).getElements().add(element);
                 }
             }
@@ -122,6 +125,9 @@ public class ObjectWrapper {
                         }
                     }
                     justCreatedElement.setFieldName(field.getName());
+                    if (((Clazz) result).getAttributes() == null) {
+                        ((Clazz) result).setAttributes(new ArrayList<Element>());
+                    }
                     ((Clazz) result).getAttributes().add(justCreatedElement);
                 }
             }
@@ -164,51 +170,57 @@ public class ObjectWrapper {
             if (result == null) {
                 result = originalClass.newInstance();
             }
-            for (Element attribute : ((Clazz) element).getAttributes()) {
-                Field field = null;
-                Class recursiveObject = result.getClass();
-                while (!(recursiveObject.getName().equals("java.lang.Object"))) {
-                    for (Field recursiveField : recursiveObject.getDeclaredFields()) {
-                        if (recursiveField.getName().equals(attribute.getFieldName())) {
-                            field = recursiveField;
-                            break;
+            if (((Clazz) element).getAttributes() != null) {
+                for (Element attribute : ((Clazz) element).getAttributes()) {
+                    Field field = null;
+                    Class recursiveObject = result.getClass();
+                    while (!(recursiveObject.getName().equals("java.lang.Object"))) {
+                        for (Field recursiveField : recursiveObject.getDeclaredFields()) {
+                            if (recursiveField.getName().equals(attribute.getFieldName())) {
+                                field = recursiveField;
+                                break;
+                            }
                         }
+                        if (field != null) break;
+                        recursiveObject = recursiveObject.getSuperclass();
                     }
-                    if (field != null) break;
-                    recursiveObject = recursiveObject.getSuperclass();
-                }
-                field.setAccessible(true);
-                if (objectToUpdate != null) {
-                    field.set(result, doReverse(attribute, field.get(objectToUpdate)));
-                } else {
-                    field.set(result, doReverse(attribute));
+                    field.setAccessible(true);
+                    if (objectToUpdate != null) {
+                        field.set(result, doReverse(attribute, field.get(objectToUpdate)));
+                    } else {
+                        field.set(result, doReverse(attribute));
+                    }
                 }
             }
         } else if (element.getType().equals(ElementType.LIST)) {
             Class<?> originalClass = Class.forName(element.getOriginalClass());
             if (result == null) {
                 result = originalClass.newInstance();
-                for (Element listElement : ((ClazzList) element).getElements()) {
-                    ((Collection) result).add(doReverse(listElement));
+                if (((ClazzList) element).getElements() != null) {
+                    for (Element listElement : ((ClazzList) element).getElements()) {
+                        ((Collection) result).add(doReverse(listElement));
+                    }
                 }
             } else {
                 //TODO don't know what to do if the new elements aren't last in the list :(
                 ArrayList<Object> tempResult = new ArrayList<Object>();
-                Iterator<Element> elementsIterator = ((ClazzList) element).getElements().iterator();
-                Iterator<Object> originalObjects = ((Collection<Object>) result).iterator();
-                while (elementsIterator.hasNext()) {
-                    if (originalObjects.hasNext()) {
-                        Object nextOriginalObject = originalObjects.next();
-                        Element nextElement = elementsIterator.next();
-                        if (!nextElement.isEmpty()) {
-                            tempResult.add(doReverse(nextElement, nextOriginalObject));
+                if (((ClazzList) element).getElements() != null) {
+                    Iterator<Element> elementsIterator = ((ClazzList) element).getElements().iterator();
+                    Iterator<Object> originalObjects = ((Collection<Object>) result).iterator();
+                    while (elementsIterator.hasNext()) {
+                        if (originalObjects.hasNext()) {
+                            Object nextOriginalObject = originalObjects.next();
+                            Element nextElement = elementsIterator.next();
+                            if (!nextElement.isEmpty()) {
+                                tempResult.add(doReverse(nextElement, nextOriginalObject));
+                            }
+                        } else if (elementsIterator.hasNext()) {
+                            tempResult.add(doReverse(elementsIterator.next()));
                         }
-                    } else if (elementsIterator.hasNext()) {
-                        tempResult.add(doReverse(elementsIterator.next()));
                     }
+                    ((Collection) result).clear();
+                    ((Collection) result).addAll(tempResult);
                 }
-                ((Collection) result).clear();
-                ((Collection) result).addAll(tempResult);
             }
 
 

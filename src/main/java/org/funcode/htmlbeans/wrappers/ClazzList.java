@@ -10,10 +10,11 @@ public class ClazzList extends Element {
     protected List<Element> elements;
 
     public List<Element> getElements() {
-        if (elements == null) {
-            elements = new ArrayList<Element>();
-        }
         return elements;
+    }
+
+    public void setElements(List<Element> elements) {
+        this.elements = elements;
     }
 
     public String getElementsGenericClass() {
@@ -46,4 +47,5 @@ public class ClazzList extends Element {
         result = 31 * result + (elementsGenericClass != null ? elementsGenericClass.hashCode() : 0);
         return result;
     }
+
 }

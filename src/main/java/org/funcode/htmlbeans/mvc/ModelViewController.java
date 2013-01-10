@@ -61,15 +61,19 @@ public class ModelViewController {
         switch (element.getType()) {
             case COMPLEX: {
                 Clazz elementAsClazz = (Clazz) element;
-                for (Element attribute : elementAsClazz.getAttributes()) {
-                    fillModelBindingMap(attribute, id);
+                if (elementAsClazz.getAttributes() != null) {
+                    for (Element attribute : elementAsClazz.getAttributes()) {
+                        fillModelBindingMap(attribute, id);
+                    }
                 }
                 break;
             }
             case LIST: {
                 ClazzList elementAsClazzList = (ClazzList) element;
-                for (Element listElement : elementAsClazzList.getElements()) {
-                    fillModelBindingMap(listElement, id);
+                if (elementAsClazzList.getElements() != null) {
+                    for (Element listElement : elementAsClazzList.getElements()) {
+                        fillModelBindingMap(listElement, id);
+                    }
                 }
                 break;
             }

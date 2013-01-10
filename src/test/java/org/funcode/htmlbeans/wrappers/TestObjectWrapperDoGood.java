@@ -15,7 +15,6 @@ public class TestObjectWrapperDoGood extends TestObjectWrapperBase {
     @Test
     public void testClazzAttributeWrapping() throws IllegalArgumentException,
             IllegalAccessException {
-
         ClazzAttribute result = (ClazzAttribute) wrapper
                 .doGood("stringToWrapp");
         assertNotNull("result is null", result);
@@ -27,7 +26,6 @@ public class TestObjectWrapperDoGood extends TestObjectWrapperBase {
     @Test
     public void testSimpleClazzWrapping() throws IllegalArgumentException,
             IllegalAccessException {
-
         Element result = wrapper.doGood(house.getDimension());
 
         assertNotNull("List of attributes is null", result);
@@ -42,7 +40,7 @@ public class TestObjectWrapperDoGood extends TestObjectWrapperBase {
                 ElementType.COMPLEX);
         assertTrue("has invalid attributes size", resultClazz.getAttributes()
                 .size() == 2);
-        assertEquals("Referential dimension clazz doesn't match the result",simpleDimensionClazz,resultClazz);
+        assertEquals("Referential dimension clazz doesn't match the result", simpleDimensionClazz, resultClazz);
     }
 
     @Test
@@ -54,6 +52,20 @@ public class TestObjectWrapperDoGood extends TestObjectWrapperBase {
         assertTrue("instance object not correct", result instanceof Clazz);
         Clazz resultClazz = (Clazz) result;
         assertEquals("Referential manually created object and the wrapping result aren't equal", houseClazz, resultClazz);
+    }
+
+    @Test
+    public void testClazzListWrapping() throws IllegalArgumentException,
+            IllegalAccessException {
+        Element result = wrapper.doGood(house.getStages());
+
+        assertNotNull("Result of wrapping is null", result);
+        assertTrue("instance object not correct", result instanceof ClazzList);
+        ClazzList resultClazzList = (ClazzList) result;
+        assertNull("ClazzList elements generic class is not null", resultClazzList.getElementsGenericClass());
+        assertNull("ClazzList field name is not null", resultClazzList.getFieldName());
+        assertEquals("ClazzList elements are not equal", resultClazzList.getElements(),
+                ((ClazzList) houseClazz.getAttributes().get(2)).getElements());
     }
 
 }

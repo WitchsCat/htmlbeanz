@@ -2,6 +2,7 @@ package org.funcode.htmlbeans.mvc;
 
 import org.funcode.htmlbeans.wrappers.*;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
@@ -23,27 +24,31 @@ public class ViewSearchHelper {
         switch (parent.getType()) {
             case COMPLEX:
                 Clazz parentClazz = (Clazz) parent;
-                ListIterator<Element> attributeIterator = parentClazz.getAttributes().listIterator();
-                while (attributeIterator.hasNext()) {
-                    Element nextElement = attributeIterator.next();
-                    if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
-                        attributeIterator.set(changedElement);
+                if (parentClazz.getAttributes() != null) {
+                    ListIterator<Element> attributeIterator = parentClazz.getAttributes().listIterator();
+                    while (attributeIterator.hasNext()) {
+                        Element nextElement = attributeIterator.next();
+                        if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
+                            attributeIterator.set(changedElement);
+                        }
                     }
                 }
                 break;
             case LIST:
                 ClazzList parentClazzList = (ClazzList) parent;
-                ListIterator<Element> elementIterator = parentClazzList.getElements().listIterator();
-                boolean elementExisted = false;
-                while (elementIterator.hasNext()) {
-                    Element nextElement = elementIterator.next();
-                    if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
-                        elementIterator.set(changedElement);
-                        elementExisted = true;
+                if (parentClazzList.getElements() == null) {
+                    ListIterator<Element> elementIterator = parentClazzList.getElements().listIterator();
+                    boolean elementExisted = false;
+                    while (elementIterator.hasNext()) {
+                        Element nextElement = elementIterator.next();
+                        if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
+                            elementIterator.set(changedElement);
+                            elementExisted = true;
+                        }
                     }
-                }
-                if (!elementExisted) {
-                    parentClazzList.getElements().add(changedElement);
+                    if (!elementExisted) {
+                        parentClazzList.getElements().add(changedElement);
+                    }
                 }
                 break;
             default:
