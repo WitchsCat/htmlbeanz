@@ -28,7 +28,6 @@ public class ViewSearchHelper {
                     Element nextElement = attributeIterator.next();
                     if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
                         attributeIterator.set(changedElement);
-                        break;
                     }
                 }
                 break;
@@ -41,7 +40,6 @@ public class ViewSearchHelper {
                     if (nextElement.getFieldName().equals(changedElement.getFieldName())) {
                         elementIterator.set(changedElement);
                         elementExisted = true;
-                        break;
                     }
                 }
                 if (!elementExisted) {
