@@ -72,8 +72,9 @@ header span,
         }
 section header {
     background:url(sprite.png) -27px -24px no-repeat;
-   } 
-section.collapsed header {background-position:-38px 0;}   
+   }
+section.collapsed header {background-position:-38px 0;}
+section.empty header {background: none}
 .empty {
     border:1px solid #ccc;
     border-left-width:5px;
