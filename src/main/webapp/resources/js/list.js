@@ -73,7 +73,8 @@ function addElementToList(listId, className) {
             if (targetList.elements == null) {
                 targetList.elements = [];
             }
-            data.fieldName = 'element_' + targetList.elements.length
+            data.fieldName = 'element_' + targetList.elements.length;
+            data.isEmpty = false;
             targetList.elements.push(data);
             var listElement = createListElement(data, listId);
             ul.appendChild(listElement);
