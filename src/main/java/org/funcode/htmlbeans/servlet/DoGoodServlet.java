@@ -78,7 +78,7 @@ public class DoGoodServlet extends HttpServlet {
                 = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
         if (source == null) {
             source = new XStream().fromXML(
-                    DoGoodServlet.class.getResourceAsStream("/house.init.xml")
+                    DoGoodServlet.class.getResourceAsStream("/salesDataForProspect.xml")
             );
         }
         if (modelViewController == null) {

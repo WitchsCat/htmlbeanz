@@ -41,19 +41,20 @@ public class ModelViewController {
      */
     public ModelViewController(Element model) {
         this.model = model;
-        fillModelBindingMap(model, "TOP");
+        fillModelBindingMap(model, null, "TOP");
     }
 
     /**
      * This method does binding of elements to the IDs. The same approach to ID generation is used on the user side.
      *
      * @param element  the node in the element tree to create binding for.
+     * @param elementId simple element id, NOT FULL: 'stages' but not 'TOP-stages'
      * @param parentId since id isn't part of the Element, we have to pass the parent nodes ID here.
      */
-    private void fillModelBindingMap(Element element, String parentId) {
+    private void fillModelBindingMap(Element element, String elementId, String parentId) {
         String id;
-        if (element.getFieldName() != null) {
-            id = parentId + "-" + element.getFieldName();
+        if (elementId != null) {
+            id = parentId + "-" + elementId;
         } else {
             id = parentId;
         }
@@ -63,7 +64,7 @@ public class ModelViewController {
                 Clazz elementAsClazz = (Clazz) element;
                 if (elementAsClazz.getAttributes() != null) {
                     for (Element attribute : elementAsClazz.getAttributes()) {
-                        fillModelBindingMap(attribute, id);
+                        fillModelBindingMap(attribute, attribute.getFieldName(), id);
                     }
                 }
                 break;
@@ -72,7 +73,7 @@ public class ModelViewController {
                 ClazzList elementAsClazzList = (ClazzList) element;
                 if (elementAsClazzList.getElements() != null) {
                     for (Element listElement : elementAsClazzList.getElements()) {
-                        fillModelBindingMap(listElement, id);
+                        fillModelBindingMap(listElement, listElement.getFieldName(), id);
                     }
                 }
                 break;
@@ -102,10 +103,13 @@ public class ModelViewController {
      */
     public void applyChanges(String elementId, String json) {
         String parentElementId = (elementId).substring(0, (elementId).lastIndexOf("-"));
+        String childElementId = (elementId).substring((elementId).lastIndexOf("-")+1);
         if (modelBindingMap.containsKey(parentElementId)) {
             Element parentElement = modelBindingMap.get(parentElementId);
             Element changedElement = json2JavaMapper.json2Java(json);
-            fillModelBindingMap(changedElement, parentElementId);
+            // workaround, because json data don't give it
+            changedElement.setFieldName(childElementId);
+            fillModelBindingMap(changedElement, childElementId, parentElementId);
             ViewSearchHelper.updateParent(parentElement,
                     changedElement);
         }

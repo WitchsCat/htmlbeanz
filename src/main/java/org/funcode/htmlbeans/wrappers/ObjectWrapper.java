@@ -86,7 +86,8 @@ public class ObjectWrapper {
             result.setType(ElementType.COMPLEX);
             List<Field> fields = new ArrayList<Field>();
             Class recursiveObject = objectClass;
-            while (!(recursiveObject.getName().equals("java.lang.Object"))) {
+            while (!(recursiveObject.getName().equals("java.lang.Object"))
+                    && !(recursiveObject.getName().equals("java.util.Calendar"))) {
                 fields.addAll(Arrays.asList(recursiveObject.getDeclaredFields()));
                 recursiveObject = recursiveObject.getSuperclass();
             }
@@ -168,7 +169,8 @@ public class ObjectWrapper {
                 for (Element attribute : ((Clazz) element).getAttributes()) {
                     Field field = null;
                     Class recursiveObject = result.getClass();
-                    while (!(recursiveObject.getName().equals("java.lang.Object"))) {
+                    while (!(recursiveObject.getName().equals("java.lang.Object"))
+                            && !(recursiveObject.getName().equals("java.util.Calendar"))) {
                         for (Field recursiveField : recursiveObject.getDeclaredFields()) {
                             if (recursiveField.getName().equals(attribute.getFieldName())) {
                                 field = recursiveField;

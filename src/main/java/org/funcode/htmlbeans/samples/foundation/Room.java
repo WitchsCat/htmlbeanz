@@ -2,7 +2,7 @@ package org.funcode.htmlbeans.samples.foundation;
 
 public class Room implements Cloneable {
 
-	private int number;
+	private Integer number;
 
 	private String owner;
 
@@ -16,11 +16,11 @@ public class Room implements Cloneable {
 		this.owner = owner;
 	}
 
-	public int getNumber() {
+	public Integer getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(Integer number) {
 		this.number = number;
 	}
 
@@ -41,24 +41,18 @@ public class Room implements Cloneable {
 		return result;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Room other = (Room) obj;
-		if (number != other.number)
-			return false;
-		if (owner == null) {
-			if (other.owner != null)
-				return false;
-		} else if (!owner.equals(other.owner))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Room room = (Room) o;
+
+        if (!number.equals(room.number)) return false;
+        if (!owner.equals(room.owner)) return false;
+
+        return true;
+    }
 
     @Override
     public Object clone() {

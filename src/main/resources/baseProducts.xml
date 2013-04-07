@@ -1,0 +1,1482 @@
+<java.util.Arrays_-ArrayList>
+  <a class="de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO-array">
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>CLIRTA</bpName>
+      <bpDescription>Rufnummernfreischaltung</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010583</agId>
+      <agDescription>Rufnummernunterdr. (CLIR) Parameter</agDescription>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CLIRTR</bpName>
+      <bpDescription>Rufnummernunterdrückung</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010583</agId>
+      <agDescription>Rufnummernunterdr. (CLIR) Parameter</agDescription>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>EMAILPUSH8</bpName>
+      <bpDescription>BlackBerry Webmail S 6M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010584</agId>
+      <agDescription>Blackberry Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>EMAILPUSH9</bpName>
+      <bpDescription>BlackBerry Webmail M 6M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010584</agId>
+      <agDescription>Blackberry Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>EMAIPUSH10</bpName>
+      <bpDescription>BlackBerry Webmail L 6M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010584</agId>
+      <agDescription>Blackberry Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TMCALLGRIE</bpName>
+      <bpDescription>Griechenland Option</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010585</agId>
+      <agDescription>Auslandoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TMCALLITAL</bpName>
+      <bpDescription>Italien Option</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010585</agId>
+      <agDescription>Auslandoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TMCALLTUER</bpName>
+      <bpDescription>Türkei Option</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010585</agId>
+      <agDescription>Auslandoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>INTCTPKGK</bpName>
+      <bpDescription>International</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010585</agId>
+      <agDescription>Auslandoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>INTCTPKGKF</bpName>
+      <bpDescription>International Flat</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010585</agId>
+      <agDescription>Auslandoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HAREAOPT1</bpName>
+      <bpDescription>@home Singles / Selbständige 3M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010586</agId>
+      <agDescription>T-Mobile@home-Tarifoptionen</agDescription>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>1</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HAREAOPT5</bpName>
+      <bpDescription>@home Singles / Selbständige 24 M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010586</agId>
+      <agDescription>T-Mobile@home-Tarifoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HAREAOPT2</bpName>
+      <bpDescription>@home Family / Business</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010586</agId>
+      <agDescription>T-Mobile@home-Tarifoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HAREAOPT9</bpName>
+      <bpDescription>@home FN-Flat 3 M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010586</agId>
+      <agDescription>T-Mobile@home-Tarifoptionen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT101</bpName>
+      <bpDescription>Mobile E-Mail 24 Monate</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010587</agId>
+      <agDescription>E-Mail</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT100</bpName>
+      <bpDescription>Mobile E-Mail 3 Monate</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010587</agId>
+      <agDescription>E-Mail</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>2008-10-01 00:00:00.0 CEST</usableFrom>
+      <bpName>EMLPRO1</bpName>
+      <bpDescription>Mobile E-Mail Pro</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010587</agId>
+      <agDescription>E-Mail</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>2008-10-01 00:00:00.0 CEST</usableFrom>
+      <bpName>EMLPRO1TRY</bpName>
+      <bpDescription>Mobile E-Mail Pro Try</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010587</agId>
+      <agDescription>E-Mail</agDescription>
+      <maxContractInstances>1</maxContractInstances>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MESSIFLAT</bpName>
+      <bpDescription>Messaging Flat 3 Monate</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010587</agId>
+      <agDescription>E-Mail</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>44</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2010-08-22 00:00:00.0 CEST</usableTo>
+      <bpName>SEVN</bpName>
+      <bpDescription>Standard EVN</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010588</agId>
+      <agDescription>EVN Alternativen</agDescription>
+      <bprTyp>9</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2010-08-22 00:00:00.0 CEST</usableTo>
+      <bpName>KEVN</bpName>
+      <bpDescription>Komfort EVN</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010588</agId>
+      <agDescription>EVN Alternativen</agDescription>
+      <bprTyp>9</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>KEVNECN</bpName>
+      <bpDescription>KomfortPlus EVN</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010588</agId>
+      <agDescription>EVN Alternativen</agDescription>
+      <bprTyp>9</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>SEVNPLUS</bpName>
+      <bpDescription>StandardPlus EVN</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010588</agId>
+      <agDescription>EVN Alternativen</agDescription>
+      <bprTyp>9</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TWINCARD</bpName>
+      <bpDescription>T-Mobile TwinCard</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010589</agId>
+      <agDescription>Twin-Alternativen</agDescription>
+      <bprTyp>3</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>2</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>2006-09-29 00:00:00.0 CEST</usableFrom>
+      <bpName>MSTNV</bpName>
+      <bpDescription>MultiSIM</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010589</agId>
+      <agDescription>Twin-Alternativen</agDescription>
+      <bprTyp>53</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>D1MBX</bpName>
+      <bpDescription>Mobilbox</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010582</agId>
+      <agDescription>Mobilbox-Alternativen</agDescription>
+      <bprTyp>14</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>STDBYMBX</bpName>
+      <bpDescription>Voicemail-Standby</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010582</agId>
+      <agDescription>Mobilbox-Alternativen</agDescription>
+      <bprTyp>14</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>VVMMBX</bpName>
+      <bpDescription>Mobilbox Pro</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010582</agId>
+      <agDescription>Mobilbox-Alternativen</agDescription>
+      <bprTyp>14</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MUSIK1</bpName>
+      <bpDescription>Musik Option S</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010592</agId>
+      <agDescription>Musik Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MUSIK2</bpName>
+      <bpDescription>Musik Option M</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010592</agId>
+      <agDescription>Musik Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MUSIK3</bpName>
+      <bpDescription>Musik Option L</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010592</agId>
+      <agDescription>Musik Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>GPRSOPT90</bpName>
+      <bpDescription>web&apos;n&apos;walk Starter</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2011-08-01 00:00:00.0 CEST</usableTo>
+      <bpName>GPRSOPT25</bpName>
+      <bpDescription>T-Mobile Data</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>2005-07-01 00:00:00.0 CEST</usableFrom>
+      <bpName>GPRSOPT37</bpName>
+      <bpDescription>T-Mobile Data 5</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT38</bpName>
+      <bpDescription>T-Mobile Data 30 3 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT91</bpName>
+      <bpDescription>web&apos;n&apos;walk Time 120</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT106</bpName>
+      <bpDescription>web&apos;n&apos;walk Basic Standard 3 M</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT70</bpName>
+      <bpDescription>web&apos;n&apos;walk Basic 3 M</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT71</bpName>
+      <bpDescription>web&apos;n&apos;walk Basic 24 M</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT109</bpName>
+      <bpDescription>web&apos;n&apos;walk XL Standard 3 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT66</bpName>
+      <bpDescription>T-Mobile web and walk XL 3 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT67</bpName>
+      <bpDescription>T-Mobile web and walk XL 24 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT15</bpName>
+      <bpDescription>T-Mobile Data 30 24 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT118</bpName>
+      <bpDescription>web&apos;n&apos;walk Time 300 6 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT119</bpName>
+      <bpDescription>web&apos;n&apos;walk HandyFlat 6 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT120</bpName>
+      <bpDescription>web&apos;n&apos;walk M 6 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2009-12-01 00:00:00.0 CET</usableTo>
+      <bpName>GPRSOPT121</bpName>
+      <bpDescription>web&apos;n&apos;walk L 6 M.</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT192</bpName>
+      <bpDescription>web&apos;n&apos;walk L 6 M. 5 GB FUP</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT140</bpName>
+      <bpDescription>web&apos;n&apos;walk M 24 Monate</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2009-12-01 00:00:00.0 CET</usableTo>
+      <bpName>GPRSOPT141</bpName>
+      <bpDescription>web&apos;n&apos;walk L 24 M</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>GPRSOPT193</bpName>
+      <bpDescription>web&apos;n&apos;walk L 24 M. 5 GB FUP</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010590</agId>
+      <agDescription>GPRS Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>24</bindingPeriodUnits>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>WLANOPT4</bpName>
+      <bpDescription>HotSpot Flat 6 M.</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010591</agId>
+      <agDescription>WLAN Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>6</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>WLANOPT3</bpName>
+      <bpDescription>HotSpot 180</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010591</agId>
+      <agDescription>WLAN Alternativen</agDescription>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>TMWELTWEIT</bpName>
+      <bpDescription>Weltweit</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010593</agId>
+      <agDescription>Roaming Alternativen</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>SMRTTRVLR</bpName>
+      <bpDescription>Smart Traveller</bpDescription>
+      <agType>MANDATORY_AG</agType>
+      <agId>2132010593</agId>
+      <agDescription>Roaming Alternativen</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CLLPRDSLB</bpName>
+      <bpDescription>Telekom-Vorteil Beauftragung</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010596</agId>
+      <agDescription>FMC Bündeloption/Telekom Vorteil</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>THOMECOME</bpName>
+      <bpDescription>T-Vorteil 2.0 Small</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010596</agId>
+      <agDescription>FMC Bündeloption/Telekom Vorteil</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>THOMECOMEP</bpName>
+      <bpDescription>T-Vorteil 2.0 Large</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010596</agId>
+      <agDescription>FMC Bündeloption/Telekom Vorteil</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>POWCALL6M</bpName>
+      <bpDescription>PowerCall S</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010596</agId>
+      <agDescription>FMC Bündeloption/Telekom Vorteil</agDescription>
+      <bprTyp>55</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>BONUSLINE</bpName>
+      <bpDescription>Telekom-Vorteil Festnetznummer</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>4</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HOMEAREA1</bpName>
+      <bpDescription>T-Mobile@home Bereich</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>52</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>GPRS</bpName>
+      <bpDescription>GPRS von T-Mobile</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>43</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>WLANSUBSC</bpName>
+      <bpDescription>WLAN Subskription</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>TNV</bpName>
+      <bpDescription>T-Mobile Teilnehmerverhältnis</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>2</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TAKTUNG10</bpName>
+      <bpDescription>10-Sekunden-Takt</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>EMLPP</bpName>
+      <bpDescription>Bevorrechtigung gem. TKSiV</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>31</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>2</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>COMBICARD1</bpName>
+      <bpDescription>CombiCard</bpDescription>
+      <agType>NO_AG</agType>
+      <isInMasterRole>true</isInMasterRole>
+      <bprTyp>30</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>DATA64000</bpName>
+      <bpDescription>Videotelefonie</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>RLXHOLIDAY</bpName>
+      <bpDescription>Relax Holiday</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>4</bindingPeriodUnits>
+      <bprTyp>47</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>SMSFLAT</bpName>
+      <bpDescription>SMS Flat</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>1996-01-01 00:00:00.0 CET</usableFrom>
+      <usableTo>2005-02-28 00:00:00.0 CET</usableTo>
+      <bpName>0900MWDPIN</bpName>
+      <bpDescription>0900er-MWD-PIN</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MMS20</bpName>
+      <bpDescription>MMS20</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MELODY</bpName>
+      <bpDescription>SoundLogo</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>LOSTCALLS</bpName>
+      <bpDescription>Entgangene Anrufe</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>CCBS</bpName>
+      <bpDescription>Rückruf bei Besetzt</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>INTERROAM</bpName>
+      <bpDescription>International Roaming</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>TEL</bpName>
+      <bpDescription>T-Mobile Telefonie</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FAX</bpName>
+      <bpDescription>T-Mobile FaxService</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>DATA9600</bpName>
+      <bpDescription>DatenService 9600 bit/s</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>SMSMT</bpName>
+      <bpDescription>SMS ankommend</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>SMSMO</bpName>
+      <bpDescription>SMS abgehend</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CLIP</bpName>
+      <bpDescription>Rufnummernanzeige</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CFALL</bpName>
+      <bpDescription>Rufumleitungspaket</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CALLWAIT</bpName>
+      <bpDescription>Anklopfen</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>CALLHOLD</bpName>
+      <bpDescription>Halten</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MPARTY</bpName>
+      <bpDescription>Konferenz</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>BOIC</bpName>
+      <bpDescription>Sperre aller abg. internat. Rufe</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>NOTIFYME</bpName>
+      <bpDescription>Anruferinnerung per SMS</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>NOTIFYBPTY</bpName>
+      <bpDescription>Rückrufbitte per SMS</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>1</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>3</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FRNDLN2GEW</bpName>
+      <bpDescription>FriendsLine zum Geworbenen</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>4</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FRNDLN2WRB</bpName>
+      <bpDescription>FriendsLine zum Werber</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>4</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>NAB01</bpName>
+      <bpDescription>MyPhonebook</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2009-02-01 00:00:00.0 CET</usableTo>
+      <bpName>MMALLNET</bpName>
+      <bpDescription>All-net Option</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Monat(e)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>3</bindingPeriodUnits>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FAMINIT</bpName>
+      <bpDescription>Family</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>1</bindingPeriodUnits>
+      <bprTyp>20</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>3</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FAMMEMBER</bpName>
+      <bpDescription>Family-Mitglied</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>1</bindingPeriodUnits>
+      <bprTyp>20</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FAMFIXED</bpName>
+      <bpDescription>Family-Festnetzrufnummer</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>1</bindingPeriodUnits>
+      <bprTyp>10</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>2</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>FAMSLAVE</bpName>
+      <bpDescription>Family-Mitglied</bpDescription>
+      <agType>NO_AG</agType>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>1</bindingPeriodUnits>
+      <bprTyp>20</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>COMUI</bpName>
+      <bpDescription>Community-UI</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>ONNETIND</bpName>
+      <bpDescription>OnNet Indikator</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MAXCHARGE</bpName>
+      <bpDescription>TwinBill Pro Aufpreis</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2011-07-01 00:00:00.0 CEST</usableTo>
+      <bpName>SMDPTMUS</bpName>
+      <bpDescription>Handy DayPass T-Mobile USA</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2011-07-01 00:00:00.0 CEST</usableTo>
+      <bpName>SMDPASIA</bpName>
+      <bpDescription>Handy DayPass Asia</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2012-12-01 00:00:00.0 CET</usableTo>
+      <bpName>SMDPEU</bpName>
+      <bpDescription>DayPass Europe S</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010594</agId>
+      <agDescription>EU GPRS Roaming Alterrnativen</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2011-07-01 00:00:00.0 CEST</usableTo>
+      <bpName>DAYFLATEU</bpName>
+      <bpDescription>DayPass Europe L</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010594</agId>
+      <agDescription>EU GPRS Roaming Alterrnativen</agDescription>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableTo>2011-03-01 00:00:00.0 CET</usableTo>
+      <bpName>SMKONT</bpName>
+      <bpDescription>Handy 4-Week Pass Europe (PK)</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010594</agId>
+      <agDescription>EU GPRS Roaming Alterrnativen</agDescription>
+      <bindingPeriodUnitCv>Woche(n)</bindingPeriodUnitCv>
+      <bindingPeriodUnits>4</bindingPeriodUnits>
+      <bprTyp>47</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <usableFrom>2010-03-01 00:00:00.0 CET</usableFrom>
+      <bpName>EUOPTOUT</bpName>
+      <bpDescription>Nutzungskontrolle Dataroaming aus</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010595</agId>
+      <agDescription>Nutzungskontrolle Dataroaming EU</agDescription>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>1</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>EUREG</bpName>
+      <bpDescription>Nutzungskontrolle Dataroaming ein</bpDescription>
+      <agType>OPTIONAL_AG</agType>
+      <agId>2132010595</agId>
+      <agDescription>Nutzungskontrolle Dataroaming EU</agDescription>
+      <bprTyp>56</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>PBCROAM</bpName>
+      <bpDescription>Travel &amp; Surf</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>17</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>true</isDefault>
+      <bpName>RCS</bpName>
+      <bpDescription>joyn</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>0</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>LTE</bpName>
+      <bpDescription>LTE</bpDescription>
+      <agType>NO_AG</agType>
+      <bprTyp>8</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>HPHONEREF1</bpName>
+      <bpDescription>Homephone Vertragslink</bpDescription>
+      <agType>NO_AG</agType>
+      <isInMasterRole>false</isInMasterRole>
+      <bprTyp>30</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+    <de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+      <stmfvNumber>10336</stmfvNumber>
+      <stmfvDescription>Max Flat S Power mit Handy</stmfvDescription>
+      <minInst>0</minInst>
+      <maxInst>1</maxInst>
+      <isDefault>false</isDefault>
+      <bpName>MLTACCREF</bpName>
+      <bpDescription>TwinBill Pro</bpDescription>
+      <agType>NO_AG</agType>
+      <isInMasterRole>false</isInMasterRole>
+      <bprTyp>30</bprTyp>
+    </de.tmobile.ecare.common.vo.ws.cc.BaseProductStructureInfoVO>
+  </a>
+</java.util.Arrays_-ArrayList>

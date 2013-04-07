@@ -186,6 +186,18 @@ function generateClazzAttributeBlock(id, object) {
         submitGood(id);
     };
 
+    var deleteLink = $(result).find('a.cancel');
+    deleteLink[0].onclick = function () {
+        // nullify object
+        var object = bindingMap[id];
+        object.isEmpty = true;
+        delete object.originalValue;
+        // delete input content
+        $('#'+id).parent().find('input').val('');
+        // mark as empty
+        markAsEmpty(id);
+    };
+
     return result;
 }
 /**
@@ -223,7 +235,26 @@ function generateClazzBlock(id, object, renderControls) {
     if (!renderControls) {
         $(classDeleteButton).toggleClass('invisible');
     } else {
-        //TODO do the clazz deletion for god sakes!
+        classDeleteButton.onclick = function () {
+            // nullify object
+            var parent = bindingMap[getParentIdOrNull(id)];
+            if (parent.type == 'LIST') {
+                var index = getIndexInList(id);
+                parent.elements.splice(index, 1);
+            } else if (parent.type == 'COMPLEX') {
+                var field = getFieldName(id);
+                var indexToDelete = undefined;
+                $(parent.attributes).each(function(index) {
+                    if (this.fieldName == field) {
+                        indexToDelete = index;
+                    }
+                });
+                if (indexToDelete) {
+                    parent.attributes.splice(indexToDelete, 1);
+                }
+            }
+            markAsEmpty(id);
+        }
     }
 
     var classHint = $(result).find('span');

@@ -5,6 +5,7 @@ import com.thoughtworks.xstream.XStream;
 import org.funcode.htmlbeans.mapping.Json2JavaMapper;
 import org.funcode.htmlbeans.samples.foundation.House;
 import org.funcode.htmlbeans.samples.foundation.Room;
+import org.funcode.htmlbeans.samples.foundation.Stage;
 import org.funcode.htmlbeans.wrappers.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,8 +46,8 @@ public class TestModelViewController extends TestObjectWrapperBase {
         assertEquals("Original house have 2 stages", house.getStages().size(), 2);
 
         // changes
-        final int NEW_PERIMETER = 123;
-        final int NEW_NUMBER = 1234;
+        final Integer NEW_PERIMETER = Integer.valueOf(123);
+        final Integer NEW_NUMBER = Integer.valueOf(1234);
         final String NEW_OWNER = "OneTwoThreeFour";
         final Room NEW_ROOM = new Room();
         house.getStages().get(1).setPerimeter(NEW_PERIMETER);
@@ -58,7 +59,7 @@ public class TestModelViewController extends TestObjectWrapperBase {
                 .doGood(house);
         ClazzList originalStagesClazz = (ClazzList) originalHouseClazz.getAttributes().get(2);
 
-        mvc.applyChanges(DIMENSION_ID, gson.toJson(originalStagesClazz));
+        mvc.applyChanges(STAGES_ID, gson.toJson(originalStagesClazz));
         House changedObject = (House) wrapper.doReverse(mvc.getModel());
         assertEquals(
                 "Changed mvc model have wrong perimeter value",
@@ -75,12 +76,13 @@ public class TestModelViewController extends TestObjectWrapperBase {
     }
 
     @Test
-    public void testApplyChangesDeleteObject() throws IllegalAccessException, InstantiationException, NoSuchFieldException, ClassNotFoundException {
-        // remove stage 1
+    public void testDeleteElement() throws IllegalAccessException, InstantiationException, NoSuchFieldException, ClassNotFoundException {
         house.getStages().remove(0);
+        XStream xStream = new XStream();
+        Stage leftStage = (Stage)xStream.fromXML(xStream.toXML(house.getStages().get(0)));
 
         ClazzList originalStagesClazz = (ClazzList) wrapper
-                .doGood(house.getStages());
+        .doGood(house.getStages());
 
         mvc.applyChanges(STAGES_ID, gson.toJson(originalStagesClazz));
         House changedObject = (House) wrapper.doReverse(mvc.getModel());
@@ -90,7 +92,7 @@ public class TestModelViewController extends TestObjectWrapperBase {
                 changedObject.getStages().size(), 1);
         assertEquals(
                 "Original mvc model stage 2 does not shift to stage 1",
-                changedObject.getStages().get(0), house.getStages().get(1));
+                changedObject.getStages().get(0), leftStage);
     }
 
     @Before

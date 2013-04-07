@@ -9,13 +9,13 @@ package org.funcode.htmlbeans.samples.foundation;
  */
 public class BadRoom extends Room {
 
-    private int howBad;
+    private Integer howBad;
 
-    public int getHowBad() {
+    public Integer getHowBad() {
         return howBad;
     }
 
-    public void setHowBad(int howBad) {
+    public void setHowBad(Integer howBad) {
         this.howBad = howBad;
     }
 }

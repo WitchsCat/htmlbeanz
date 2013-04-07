@@ -32,11 +32,16 @@ public class ViewSearchHelper {
                             attributeIterator.set(changedElement);
                         }
                     }
+                } else {
+                    // changed element is new
+                    ArrayList<Element> attributes = new ArrayList<Element>();
+                    attributes.add(changedElement);
+                    parentClazz.setAttributes(attributes);
                 }
                 break;
             case LIST:
                 ClazzList parentClazzList = (ClazzList) parent;
-                if (parentClazzList.getElements() == null) {
+                if (parentClazzList.getElements() != null) {
                     ListIterator<Element> elementIterator = parentClazzList.getElements().listIterator();
                     boolean elementExisted = false;
                     while (elementIterator.hasNext()) {
@@ -49,6 +54,11 @@ public class ViewSearchHelper {
                     if (!elementExisted) {
                         parentClazzList.getElements().add(changedElement);
                     }
+                } else {
+                    // first element in list
+                    ArrayList<Element> elements = new ArrayList<Element>();
+                    elements.add(changedElement);
+                    parentClazzList.setElements(elements);
                 }
                 break;
             default:
