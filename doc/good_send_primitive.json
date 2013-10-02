@@ -1,0 +1,8 @@
+TOP-salesStructure-salesOrganization:
+{
+    "originalValue": "asdf",
+    "type": "STRING",
+    "fieldName": "salesOrganization",
+    "originalClass": "java.lang.String",
+    "isEmpty": false
+}

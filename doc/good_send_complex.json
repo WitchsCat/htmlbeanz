@@ -1,0 +1,38 @@
+TOP-salesStructure-parents-element_0:
+{
+    "attributes": [{
+        "originalValue": "500df9",
+        "type": "STRING",
+        "fieldName": "salesOrganization",
+        "originalClass": "java.lang.String",
+        "isEmpty": false
+    }, {
+        "originalValue": "2",
+        "type": "INTEGER",
+        "fieldName": "level",
+        "originalClass": "java.lang.Integer",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "parents",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "parentGroups",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "children",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }],
+    "type": "COMPLEX",
+    "fieldName": "element_0",
+    "originalClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+    "isEmpty": false
+}

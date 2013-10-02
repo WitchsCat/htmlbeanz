@@ -1,0 +1,163 @@
+### ID's
+When page get good data it should render it.
+
+To do it, javascript recursively reads the data and creates specific html block for PRIMITIVE, COMPLEX and LIST.
+
+But we need to know which html block is associated with which element in good data.
+
+To do this each rendered html element gets an ID.
+
+ID is hierarchical as in JSF, using parent element ID and delimiter '-'.
+
+Root element ID is 'TOP'.
+
+Example:
+"TOP-salesStructure-parents" - ID of list
+"TOP-salesStructure-parents-element_0" - ID of it's first element
+"TOP-salesStructure-parents-element_1-salesOrganization" - ID of this element's attribute
+
+When input field is updated, our javascript code is smart enough to get it's block ID and set data from input to good data.
+
+### Submit
+There are save buttons near each block - PRIMITIVE, COMPLEX and LIST.
+
+When user clicks on save button, good data is updated with new values and send to GoodServlet.
+
+Data is send partially, only those parts which were changed. First goes ID of changed block and then data in "good" format.
+
+Example for PRIMITIVE:
+`
+TOP - salesStructure - salesOrganization: {
+    "originalValue": "asdf",
+    "type": "STRING",
+    "fieldName": "salesOrganization",
+    "originalClass": "java.lang.String",
+    "isEmpty": false
+}
+`
+
+Example for COMPLEX:
+`
+TOP - salesStructure - parents - element_0: {
+    "attributes": [{
+        "originalValue": "500df9",
+        "type": "STRING",
+        "fieldName": "salesOrganization",
+        "originalClass": "java.lang.String",
+        "isEmpty": false
+    }, {
+        "originalValue": "2",
+        "type": "INTEGER",
+        "fieldName": "level",
+        "originalClass": "java.lang.Integer",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "parents",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "parentGroups",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "type": "LIST",
+        "fieldName": "children",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": false
+    }],
+    "type": "COMPLEX",
+    "fieldName": "element_0",
+    "originalClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+    "isEmpty": false
+}
+`
+
+Example for LIST:
+
+`
+TOP - salesStructure - children {
+    "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+    "elements": [{
+        "attributes": [{
+            "originalValue": "500df9",
+            "type": "STRING",
+            "fieldName": "salesOrganization",
+            "originalClass": "java.lang.String",
+            "isEmpty": false
+        }, {
+            "originalValue": "2",
+            "type": "INTEGER",
+            "fieldName": "level",
+            "originalClass": "java.lang.Integer",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "parents",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "parentGroups",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "children",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }],
+        "type": "COMPLEX",
+        "fieldName": "element_0",
+        "originalClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "isEmpty": false
+    }, {
+        "attributes": [{
+            "originalValue": "50003958",
+            "type": "STRING",
+            "fieldName": "salesOrganization",
+            "originalClass": "java.lang.String",
+            "isEmpty": false
+        }, {
+            "originalValue": "3",
+            "type": "INTEGER",
+            "fieldName": "level",
+            "originalClass": "java.lang.Integer",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "parents",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "parentGroups",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }, {
+            "elementsGenericClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+            "type": "LIST",
+            "fieldName": "children",
+            "originalClass": "java.util.ArrayList",
+            "isEmpty": false
+        }],
+        "type": "COMPLEX",
+        "fieldName": "element_1",
+        "originalClass": "de.tmobile.ecare.common.vo.CCOSSalesStructureVO",
+        "isEmpty": false
+    }],
+    "type": "LIST",
+    "fieldName": "parents",
+    "originalClass": "java.util.ArrayList",
+    "isEmpty": false
+}
+`
