@@ -104,7 +104,36 @@ public class Json2JavaMapper {
                     JsonElement originalValue = unknownElement.get("originalValue");
                     Boolean isEmpty = unknownElement.get("isEmpty").getAsBoolean();
                     if (isEmpty) {
-                        ((ClazzAttribute) result).setOriginalValue(null);
+                        switch (elementType) {
+                            case BOOLEAN: {
+                                ((ClazzAttribute) result).setOriginalValue(false);
+                                break;
+                            }
+                            case STRING: {
+                                ((ClazzAttribute) result).setOriginalValue(null);
+                                break;
+                            }
+                            case BYTE: {
+                                ((ClazzAttribute) result).setOriginalValue(0);
+                                break;
+                            }
+                            case DOUBLE: {
+                                ((ClazzAttribute) result).setOriginalValue(0.0);
+                                break;
+                            }
+                            case FLOAT: {
+                                ((ClazzAttribute) result).setOriginalValue(0f);
+                                break;
+                            }
+                            case LONG: {
+                                ((ClazzAttribute) result).setOriginalValue(0L);
+                                break;
+                            }
+                            case INTEGER: {
+                                ((ClazzAttribute) result).setOriginalValue(0);
+                                break;
+                            }
+                        }
                     } else {
                         switch (elementType) {
                             case BOOLEAN: {

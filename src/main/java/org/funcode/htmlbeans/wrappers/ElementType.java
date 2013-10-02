@@ -10,6 +10,17 @@ public enum ElementType {
     COMPLEX,
     LIST,
     DOUBLE,
-    BYTE
+    BYTE;
+
+
+    public static boolean isPrimitive(ElementType type) {
+         return type == BOOLEAN
+                 || type == STRING
+                 || type == FLOAT
+                 || type == INTEGER
+                 || type == LONG
+                 || type == DOUBLE
+                 || type == BYTE;
+    }
 
 }

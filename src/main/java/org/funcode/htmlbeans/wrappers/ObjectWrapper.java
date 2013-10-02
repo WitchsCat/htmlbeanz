@@ -61,12 +61,14 @@ public class ObjectWrapper {
             IllegalAccessException {
 
         Element result;
+        // PRIMITIVE
         if (classToPrimitiveType.get(objectClass) != null) {
             result = new ClazzAttribute();
             result.setType(classToPrimitiveType.get(objectClass));
             if (object != null) {
                 ((ClazzAttribute) result).setOriginalValue(object);
             }
+        // LIST
         } else if (List.class.isAssignableFrom(objectClass)) {
             result = new ClazzList();
             result.setType(ElementType.LIST);
@@ -81,6 +83,7 @@ public class ObjectWrapper {
                     ((ClazzList) result).getElements().add(element);
                 }
             }
+        // COMPLEX
         } else {
             result = new Clazz();
             result.setType(ElementType.COMPLEX);
@@ -152,7 +155,8 @@ public class ObjectWrapper {
     public Object doReverse(Element element, Object objectToUpdate) throws ClassNotFoundException,
             IllegalAccessException, InstantiationException, NoSuchFieldException {
 
-        if (element == null || element.isEmpty) {
+        // check for primitive is related to HB000 (this is a bug identifier)
+        if (element == null || (element.isEmpty && !ElementType.isPrimitive(element.getType()))) {
             return null;
         }
 
