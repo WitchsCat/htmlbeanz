@@ -1,0 +1,46 @@
+Attribute
+--
+Attributes are representation of one of these java entities - primitive, class or collection.
+
+Each attribute have type, which can be one of the following:
+    1. primitives - INTEGER, STRING, BOOLEAN, LONG
+    2. classes - COMPLEX
+    3. collections - LIST
+
+Each attribute (except root) have a fieldName - it's field name in parent java class.
+
+Each attribute have a originalClass - it's java full class name (primitives use wrappers).
+
+Each attribute have isEmpty property which identifies if it is null (not for primitives).
+
+
+PRIMITIVES specific
+--
+Each primitive attribute can have a originalValue - the value of this primitive in java.
+If primitive isEmpty=true it has no originalValue.
+
+
+COMPLEX specific
+--
+Each complex attribute can have attributes array in it - array of this class fields as attributes.
+If class have no fields it has no attributes.
+
+
+LIST specific
+--
+Each list attribute can have elements in it - array of elements in this list as attributes.
+If list isEmpty=true it has no elements.
+As there is no fieldName for a list element, fieldNames of elements are like "element_1", "element_2", ... .
+Each list attribute can have elementsGenericClass - generic modifier of elements in this list in java.
+
+
+All json data elements
+--
+attributes - array of fields in java class (COMPLEX)
+type - STRING, BOOLEAN, INTEGER, LONG, COMPLEX, LIST (ALL)
+fieldName - name of field in java class (ALL except root)
+originalClass - full java class name (ALL)
+isEmpty - identifies if this entry is null (ALL)
+originalValue - value of this attribute (PRIMITIVES)
+elements - array of list elements (LIST)
+elementsGenericClass - generic modifier for elements in list in java (LIST)
