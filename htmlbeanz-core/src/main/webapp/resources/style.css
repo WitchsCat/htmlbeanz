@@ -1,0 +1,212 @@
+* {
+    margin:0;
+    padding:0;
+    vertical-align:baseline;
+    outline: none;
+}
+body {
+    background:#e3e3e3;
+    font:normal 12px Arial,Helvetica,sans-serif;
+    }
+.wrapper {
+    margin:18px;
+    min-width:350px;
+    }
+.decor {
+    margin-bottom:10px;
+    padding:3px 15px 10px;
+    border:1px solid #999;
+    background:#fff;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+    }
+    .decor:first-child {padding-top:10px;}
+.wrapper,
+h4,
+.actions,
+.switch,
+.field-wrap,
+label,
+.value,
+.btn-link,
+.cancel {
+    display: inline-block;
+}
+.switch {
+    margin:0 0 11px 11px;
+    border-bottom:1px dotted #646464;
+    font-size:.95em;
+    text-decoration:none;
+    color:#646464;
+   }
+h4 {
+    padding-right:5px;
+    padding-left:15px;
+    font-size:1.4em;
+    text-transform:capitalize;
+    cursor:pointer;
+    }
+header {
+    padding:7px 5px 7px 0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+    line-height:1.47em;
+    letter-spacing:-1px;
+    }
+    header span {
+        display:block;
+        padding-left:15px;
+        font-size:1em;
+        font-weight:normal;
+        }
+button.initialize {
+    display: none;
+    }
+header span,
+.field-wrap span {
+    color:#666;
+        }
+section header {
+    background:url(sprite.png) -27px -24px no-repeat;
+   }
+section.collapsed header {background-position:-38px 0;}
+section.empty header {background: none}
+.empty {
+    border:1px solid #ccc;
+    border-left-width:5px;
+    background:#e3e3e3 url(bg_empty_node.gif);
+    }
+    .empty h4,
+    .empty span {padding-left:10px;}
+    .empty .actions button.add-element {
+        display: none;
+        }
+    .empty .actions button.initialize {
+        display: block;
+        }
+ul {
+    margin-left:10px;
+    background:url(bg_list.gif) repeat-y 0 10px;
+    }
+li {
+    padding-left:15px;
+    margin-bottom:5px;
+    list-style:none;
+    }
+.row {
+    padding:5px 15px 0;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    -khtml-border-radius:3px;
+    border-radius:3px;
+    }
+.modified {
+    padding-left:10px;
+    border:1px solid #fec627;
+    border-left-width:5px;
+    background:#ffeb8d;
+    }
+.saved {
+    padding-left:10px;
+    border:1px solid #b4cb33;
+    border-left-width:5px;
+    background:#eef98d;
+    }
+.field-wrap span {
+    display: block;
+    font-size: 0.75em;
+    }
+label, label:after, .row a {
+    vertical-align:top;
+    }
+label {
+    min-width:50px;
+    padding-right:5px;
+    padding-left:5px;
+    font-size:1em;
+    text-align:right;
+    }
+label:after {
+    content: ' :';
+    }
+.value {
+    margin-right:10px;
+    font-weight:bold;
+    }
+button, input{
+    border:1px solid #999;
+    }
+input {
+    padding:0 2px;
+    width:80px;
+    }
+select{width:78px;}
+input:focus {
+    -moz-transition: background-color 0.5s linear;
+    -webkit-transition: background-color 0.5s linear;
+    background:#e1e1e1;
+    }
+button {
+    min-width:20px;
+    padding:2px 3px;
+    background:#fdfdfd;
+    background:-moz-linear-gradient(top, #fdfdfd, #cecece);
+    background:-webkit-linear-gradient(top, #fdfdfd, #cecece);
+    text-transform:lowercase;
+    cursor:pointer;
+    }
+    button:hover {
+        background:-moz-linear-gradient(top, #cecece, #fdfdfd);
+        background:-webkit-linear-gradient(top, #cecece, #fdfdfd);
+        }
+    button:first-letter {
+        text-transform:uppercase;
+        }
+        .actions button{
+            line-height:.75em;
+            }
+.btn-link {
+    margin-right:5px;
+    background:url(sprite.png) no-repeat;
+    text-indent:-9999px;
+    }
+.btn-link.cancel {
+    width:13px;
+    height:15px;
+    background-position:0 0;
+    }
+.btn-link.save {
+    width:13px;
+    height:15px;
+    background-position:0 -15px;
+    }
+.template {
+    display:none;
+    }
+
+.collapsed ul {
+    display:none;
+    }
+
+.invisible {
+    display: none;
+    }
+
+.popup {
+    position: absolute;
+    margin: 15px;
+    background: #E5FCD4;
+    }
+.popup .row {
+    border: 2px solid #CCC;
+    padding: 3px;
+    cursor: pointer;
+    }
+
+.highlight {
+    background-color:yellow;
+    }

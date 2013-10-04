@@ -1,0 +1,25 @@
+<org.funcode.htmlbeans.samples.foundation.House>
+    <color>yellow</color>
+    <dimension>
+        <width>140</width>
+        <height>160</height>
+    </dimension>
+    <stages>
+        <org.funcode.htmlbeans.samples.foundation.Stage>
+            <perimeter>270</perimeter>
+        </org.funcode.htmlbeans.samples.foundation.Stage>
+        <org.funcode.htmlbeans.samples.foundation.Stage>
+            <perimeter>1670</perimeter>
+            <rooms>
+                <org.funcode.htmlbeans.samples.foundation.Room>
+                    <number>1</number>
+                    <owner>Givi</owner>
+                </org.funcode.htmlbeans.samples.foundation.Room>
+                <org.funcode.htmlbeans.samples.foundation.Room>
+                    <number>2</number>
+                    <owner>Goggi</owner>
+                </org.funcode.htmlbeans.samples.foundation.Room>
+            </rooms>
+        </org.funcode.htmlbeans.samples.foundation.Stage>
+    </stages>
+</org.funcode.htmlbeans.samples.foundation.House>
