@@ -1,0 +1,38 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+    <display-name>Sandbox data editor</display-name>
+    <servlet>
+        <servlet-name>doGood</servlet-name>
+        <servlet-class>org.funcode.htmlbeans.servlet.DoGoodServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>descriptionServlet</servlet-name>
+        <servlet-class>org.funcode.htmlbeans.servlet.DescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>subClassesServlet</servlet-name>
+        <servlet-class>org.funcode.htmlbeans.servlet.SubClassesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>doGood</servlet-name>
+        <url-pattern>/good</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>descriptionServlet</servlet-name>
+        <url-pattern>/describe</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>subClassesServlet</servlet-name>
+        <url-pattern>/subclasses</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+

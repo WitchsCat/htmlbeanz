@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Html Beanzz</title>
+    <script src="resources/js_lib/jquery-1.7.2.min.js"></script>
+    <script src="resources/js/util.js"></script>
+    <script src="resources/js/good.js"></script>
+    <script src="resources/js/pretty.js"></script>
+    <script src="resources/js/cursor.js"></script>
+    <script src="resources/js/list.js"></script>
+    <script src="resources/js/search.js"></script>
+    <link rel="stylesheet" href="resources/style.css" type="text/css"/>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="decor">
+        <input id="search" type="text" oninput="javascript:doSearch(this.value);" onfocus="javascript:resetNewSearch(this.value);"/>
+    </div>
+    <div class="decor">
+        <button onclick="submitModified()">Submit Modified</button>
+    </div>
+
+    <a id="expandall" href="javascript:;" class="switch">Expand All</a>
+
+    <div class="decor">
+        <div id="graphroot"></div>
+    </div>
+</div>
+
+<div id="ClazzAttributeTemplate" class="row template">
+    <a class="btn-link save" href="javascript:;">Save</a>
+    <a class="btn-link cancel" href="javascript:;">Cancel</a>
+    <label></label>
+    <div class="field-wrap">
+        <input>
+        <span></span>
+    </div>
+</div>
+
+<section id="ClazzTemplate" class="template collapsed">
+    <header>
+        <h4></h4>
+        <div class="actions">
+            <button class="save">SAVE</button>
+            <button class="delete">DEL</button>
+        </div>
+        <span></span>
+    </header>
+    <ul></ul>
+</section>
+
+<section id="ClazzListTemplate" class="template collapsed">
+    <header>
+        <h4></h4>
+        <div class="actions">
+            <button class="initialize">Create</button>
+            <button class="add-element">Add</button>
+            <div class="popup"></div>
+        </div>
+        <span class="original-class"></span>
+    </header>
+    <ul></ul>
+</section>
+
+<section id="ClazzMapTemplate" class="template collapsed">
+    <header>
+        <h4></h4>
+        <div class="actions">
+            <button class="initialize">Create</button>
+            <button class="add-element">Add</button>
+            <div class="popup"></div>
+        </div>
+        <span class="original-class"></span>
+    </header>
+    <ul></ul>
+</section>
+
+<section id="MapItemTemplate" class="template collapsed">
+    <header>
+        <h4></h4>
+    </header>
+    <ul></ul>
+</section>
+
+</body>
+</html>
