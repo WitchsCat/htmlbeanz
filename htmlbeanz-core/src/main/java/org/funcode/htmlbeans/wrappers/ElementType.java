@@ -10,6 +10,7 @@ public enum ElementType {
     COMPLEX,
     LIST,
     DOUBLE,
-    BYTE
+    BYTE,
+    MAP
 
 }

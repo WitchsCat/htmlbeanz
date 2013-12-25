@@ -10,8 +10,19 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>htmlbeanz-core</module>
-        <module>htmlbeanz-wi</module>
     </modules>
 
+    <properties>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>htmlbeanz</id>
+            <modules>
+                <module>htmlbeanz-core</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>

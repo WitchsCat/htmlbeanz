@@ -1,6 +1,5 @@
 package org.funcode.htmlbeans.wrappers;
 
-import com.thoughtworks.xstream.core.util.Fields;
 import org.apache.commons.lang.ClassUtils;
 
 import java.lang.reflect.*;
@@ -81,6 +80,24 @@ public class ObjectWrapper {
                     ((ClazzList) result).getElements().add(element);
                 }
             }
+        } else if (Map.class.isAssignableFrom(objectClass)) {
+            result = new ClazzMap();
+            result.setType(ElementType.MAP);
+            if (object != null) {
+                long i = 0;
+                Map<Object, Object> objectMap = (Map<Object, Object>) object;
+                for (Object key : objectMap.keySet()) {
+                    Element keyElement = doGood(key, key.getClass());
+                    Element valueElement = doGood(objectMap.get(key), objectMap.get(key).getClass());
+
+                    keyElement.setFieldName("key_" + i);
+                    valueElement.setFieldName("value_" + i++);
+                    if (((ClazzMap) result).getMapElements() == null) {
+                        ((ClazzMap) result).setMapElements(new HashMap<Element, Element>());
+                    }
+                    ((ClazzMap) result).getMapElements().put(keyElement, valueElement);
+                }
+            }
         } else {
             result = new Clazz();
             result.setType(ElementType.COMPLEX);
@@ -112,12 +129,25 @@ public class ObjectWrapper {
                         fieldType = fieldValue.getClass();
                     }
                     Element justCreatedElement = doGood(fieldValue, fieldType);
+                    // sets the generic <> for List elements
                     if (justCreatedElement.getType() == ElementType.LIST) {
                         Type fieldGenericType = field.getGenericType();
                         if (fieldGenericType instanceof ParameterizedType) {
                             String elementsGenericClassString = ((ParameterizedType) fieldGenericType)
                                     .getActualTypeArguments()[0].toString().split(" ")[1];
                             ((ClazzList) justCreatedElement).setElementsGenericClass(elementsGenericClassString);
+                        }
+                    }
+                    // sets the generic <> for Map key and value if exist
+                    if (justCreatedElement.getType() == ElementType.MAP) {
+                        Type fieldGenericType = field.getGenericType();
+                        if (fieldGenericType instanceof ParameterizedType) {
+                            String keyGenericClassString = ((ParameterizedType) fieldGenericType)
+                                    .getActualTypeArguments()[0].toString().split(" ")[1];
+                            String valueGenericClassString = ((ParameterizedType) fieldGenericType)
+                                    .getActualTypeArguments()[1].toString().split(" ")[1];
+                            ((ClazzMap) justCreatedElement).setKeyGenericClass(keyGenericClassString);
+                            ((ClazzMap) justCreatedElement).setValueGenericClass(valueGenericClassString);
                         }
                     }
                     justCreatedElement.setFieldName(field.getName());

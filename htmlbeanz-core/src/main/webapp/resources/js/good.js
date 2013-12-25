@@ -8,6 +8,7 @@ $(document).ready(function () {
     window.htmlTemplates = new Object();
     window.htmlTemplates.clazz = $('#ClazzTemplate');
     window.htmlTemplates.clazzList = $('#ClazzListTemplate');
+    window.htmlTemplates.mapItem = $('#MapItemTemplate');
     window.htmlTemplates.clazzAttribute = $('#ClazzAttributeTemplate');
     window.search = new Object();
     window.search.clazz = new Object();
@@ -146,6 +147,8 @@ function doGood(object, parentId) {
         updateSearchClazz(id, object);
     } else if (object.type == 'LIST') {
         htmlResult = generateClazzListBlock(id, object);
+    } else if (object.type == 'MAP') {
+        htmlResult = generateClazzMapBlock(id, object);
     } else {
         htmlResult = generateClazzAttributeBlock(id, object);
         updateSearchAttribute(id, object);
@@ -317,4 +320,65 @@ function createListElement(object, id) {
     var li = document.createElement('li');
     li.appendChild(doGood(object, id));
     return li;
+}
+
+function generateClazzMapBlock(id, object) {
+    // templates are the same
+    var result = window.htmlTemplates.clazzList.clone();
+    result.toggleClass("template");
+    result = result[0];
+    var header = $(result).find('h4');
+    header.html(object.fieldName);
+    var classHint = $(result).find('.original-class');
+    classHint.html(object.originalClass);
+
+    header[0].onclick = function () {
+        $(result).toggleClass("collapsed");
+    };
+
+    if (object.isEmpty == true) {
+        $(result).addClass("empty");
+    }
+
+    // button to show all available elements to add
+    var addElementsButton = $(result).find('.add-element');
+    addElementsButton[0].onclick = function () {
+        loadChildrenClasses(id, object.elementsGenericClass, result);
+    }
+
+    // button to initialize list
+    var initializeListButton = $(result).find('.initialize');
+    initializeListButton[0].onclick = function () {
+        initializeList(id);
+    }
+
+    // recursively load all children elements
+    var mapElements = $(result).find('ul');
+    for (var mapEntryIndex in object.mapElements) {
+        var mapItem = createMapElement(object.mapElements[mapEntryIndex], id, mapEntryIndex);
+        var item = $('<li></li>').append(mapItem);
+        mapElements.append(item);
+    }
+    return result;
+}
+
+/**
+ * Creates a li key-value wrapper
+ * @param object - key-value object; object[0]=key, object[1]=value
+ * @param id of the element
+ * @return {Element}
+ */
+function createMapElement(object, id, itemIndex) {
+    var result = window.htmlTemplates.mapItem.clone();
+    result.toggleClass("template");
+    result = result[0];
+    var header = $(result).find('h4');
+    header[0].onclick = function () {
+        $(result).toggleClass("collapsed");
+    };
+    header.html(itemIndex);
+    $(result).find('ul')
+        .append(createListElement(object[0], id))
+        .append(createListElement(object[1], id));
+    return result;
 }

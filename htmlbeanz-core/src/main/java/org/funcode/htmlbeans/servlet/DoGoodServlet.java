@@ -1,8 +1,10 @@
 package org.funcode.htmlbeans.servlet;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import org.funcode.htmlbeans.mvc.ModelViewController;
+import org.funcode.htmlbeans.wrappers.Element;
 import org.funcode.htmlbeans.wrappers.ObjectWrapper;
 
 import javax.servlet.ServletException;
@@ -78,7 +80,7 @@ public class DoGoodServlet extends HttpServlet {
                 = (ModelViewController) session.getAttribute(PRESENTATION_CONTROLLER_ATTRIBUTE_NAME);
         if (source == null) {
             source = new XStream().fromXML(
-                    DoGoodServlet.class.getResourceAsStream("/salesDataForProspect.xml")
+                    DoGoodServlet.class.getResourceAsStream("/house.xml")
             );
         }
         if (modelViewController == null) {
@@ -91,8 +93,12 @@ public class DoGoodServlet extends HttpServlet {
             }
         }
 
+        GsonBuilder builder = new GsonBuilder();
+        builder.enableComplexMapKeySerialization().setPrettyPrinting();
+        Gson gson = builder.create();
+
         response.setContentType("text/json");
-        response.getWriter().print(new Gson().toJson(modelViewController.getModel()));
+        response.getWriter().print(gson.toJson(modelViewController.getModel()));
         response.getWriter().flush();
     }
 

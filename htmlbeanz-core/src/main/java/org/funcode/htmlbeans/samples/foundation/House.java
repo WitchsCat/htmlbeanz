@@ -2,6 +2,8 @@ package org.funcode.htmlbeans.samples.foundation;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class House {
 
@@ -9,70 +11,76 @@ public class House {
 	
 	private Dimension dimension;
 	
-	private ArrayList<Stage> stages;
+	private List<Stage> stages;
 
-	public String getColor() {
-		return color;
-	}
+    private Map<String, Integer> objects;
 
-	public void setColor(String color) {
-		this.color = color;
-	}
+    private Map<Room, Stage> roomStageMap;
 
-	public Dimension getDimension() {
-		return dimension;
-	}
 
-	public void setDimension(Dimension dimension) {
-		this.dimension = dimension;
-	}
+    public String getColor() {
+        return color;
+    }
 
-	public ArrayList<Stage> getStages() {
-		return stages;
-	}
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-	public void setStages(ArrayList<Stage> stages) {
-		this.stages = stages;
-	}
+    public Dimension getDimension() {
+        return dimension;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((color == null) ? 0 : color.hashCode());
-		result = prime * result
-				+ ((dimension == null) ? 0 : dimension.hashCode());
-		result = prime * result + ((stages == null) ? 0 : stages.hashCode());
-		return result;
-	}
+    public void setDimension(Dimension dimension) {
+        this.dimension = dimension;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		House other = (House) obj;
-		if (color == null) {
-			if (other.color != null)
-				return false;
-		} else if (!color.equals(other.color))
-			return false;
-		if (dimension == null) {
-			if (other.dimension != null)
-				return false;
-		} else if (!dimension.equals(other.dimension))
-			return false;
-		if (stages == null) {
-			if (other.stages != null)
-				return false;
-		} else if (!stages.equals(other.stages))
-			return false;
-		return true;
-	}
-	
-	
-	
+    public List<Stage> getStages() {
+        return stages;
+    }
+
+    public void setStages(List<Stage> stages) {
+        this.stages = stages;
+    }
+
+    public Map<String, Integer> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(Map<String, Integer> objects) {
+        this.objects = objects;
+    }
+
+    public Map<Room, Stage> getRoomStageMap() {
+        return roomStageMap;
+    }
+
+    public void setRoomStageMap(Map<Room, Stage> roomStageMap) {
+        this.roomStageMap = roomStageMap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof House)) return false;
+
+        House house = (House) o;
+
+        if (color != null ? !color.equals(house.color) : house.color != null) return false;
+        if (dimension != null ? !dimension.equals(house.dimension) : house.dimension != null) return false;
+        if (objects != null ? !objects.equals(house.objects) : house.objects != null) return false;
+        if (roomStageMap != null ? !roomStageMap.equals(house.roomStageMap) : house.roomStageMap != null) return false;
+        if (stages != null ? !stages.equals(house.stages) : house.stages != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = color != null ? color.hashCode() : 0;
+        result = 31 * result + (dimension != null ? dimension.hashCode() : 0);
+        result = 31 * result + (stages != null ? stages.hashCode() : 0);
+        result = 31 * result + (objects != null ? objects.hashCode() : 0);
+        result = 31 * result + (roomStageMap != null ? roomStageMap.hashCode() : 0);
+        return result;
+    }
 }

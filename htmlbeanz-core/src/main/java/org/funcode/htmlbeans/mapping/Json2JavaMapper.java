@@ -4,10 +4,12 @@
 package org.funcode.htmlbeans.mapping;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import org.funcode.htmlbeans.wrappers.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * This is a wrapper around Googgles Gson mapper, that helps in deserialization of htmlbeans wrapper classes.
@@ -24,6 +26,9 @@ public class Json2JavaMapper {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Element.class,
                 new ClassAttributeDeserializer());
+//        builder.registerTypeAdapter(ClazzMap.class,
+//                new ClassAttributeSerializer());
+        builder.enableComplexMapKeySerialization().setPrettyPrinting();
         gson = builder.create();
     }
 
@@ -43,6 +48,14 @@ public class Json2JavaMapper {
 
         return gson.fromJson(json, Element.class);
 
+    }
+
+    class ClassAttributeSerializer implements JsonSerializer<ClazzMap> {
+        @Override
+        public JsonElement serialize(ClazzMap src, Type typeOfSrc, JsonSerializationContext context) {
+            Type typeOfHashMap = new TypeToken<Map<Element,Element>>() { }.getType();
+            return context.serialize(src, typeOfHashMap);
+        }
     }
 
     /**
@@ -90,6 +103,26 @@ public class Json2JavaMapper {
                     JsonElement elements = unknownElement.get("elements");
                     if (elements != null) {
                         for (JsonElement element : elements.getAsJsonArray()) {
+                            if (((ClazzList) result).getElements() == null) {
+                                ((ClazzList) result).setElements(new ArrayList<Element>());
+                            }
+                            ((ClazzList) result).getElements().add(
+                                    gson.fromJson(element, Element.class));
+                        }
+                    }
+                    break;
+                }
+                case MAP: {
+                    result = new ClazzMap();
+                    ((ClazzMap) result).setKeyGenericClass(unknownElement.get("keyGenericClass") != null ?
+                            unknownElement.get("keyGenericClass").getAsString()
+                            : null);
+                    ((ClazzMap) result).setKeyGenericClass(unknownElement.get("valueGenericClass") != null ?
+                            unknownElement.get("valueGenericClass").getAsString()
+                            : null);
+                    JsonElement mapElements = unknownElement.get("mapElements");
+                    if (mapElements != null) {
+                        for (JsonElement element : mapElements.getAsJsonArray()) {
                             if (((ClazzList) result).getElements() == null) {
                                 ((ClazzList) result).setElements(new ArrayList<Element>());
                             }

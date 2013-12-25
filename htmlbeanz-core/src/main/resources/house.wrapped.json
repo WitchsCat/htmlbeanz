@@ -1,0 +1,59 @@
+{
+    "attributes": [{
+        "originalValue": "red",
+        "type": "STRING",
+        "fieldName": "color",
+        "originalClass": "java.lang.String",
+        "isEmpty": false
+    }, {
+        "attributes": [{
+            "originalValue": 100,
+            "type": "INTEGER",
+            "fieldName": "width",
+            "originalClass": "java.lang.Integer",
+            "isEmpty": false
+        }, {
+            "originalValue": 200,
+            "type": "INTEGER",
+            "fieldName": "height",
+            "originalClass": "java.lang.Integer",
+            "isEmpty": false
+        }],
+        "type": "COMPLEX",
+        "fieldName": "dimension",
+        "originalClass": "java.awt.Dimension",
+        "isEmpty": false
+    }, {
+        "elementsGenericClass": "org.funcode.htmlbeans.samples.foundation.Stage",
+        "type": "LIST",
+        "fieldName": "stages",
+        "originalClass": "java.util.ArrayList",
+        "isEmpty": true
+    }, {
+        "keyGenericClass": "java.lang.String",
+        "valueGenericClass": "java.lang.Integer",
+        "mapElements": {
+            "org.funcode.htmlbeans.wrappers.ClazzAttribute@c5afb1bd": {
+                "originalValue": 6,
+                "type": "INTEGER",
+                "fieldName": "value_1",
+                "originalClass": "java.lang.Integer",
+                "isEmpty": false
+            },
+            "org.funcode.htmlbeans.wrappers.ClazzAttribute@fa58b3f3": {
+                "originalValue": 12,
+                "type": "INTEGER",
+                "fieldName": "value_0",
+                "originalClass": "java.lang.Integer",
+                "isEmpty": false
+            }
+        },
+        "type": "MAP",
+        "fieldName": "objects",
+        "originalClass": "java.util.HashMap",
+        "isEmpty": false
+    }],
+    "type": "COMPLEX",
+    "originalClass": "org.funcode.htmlbeans.samples.foundation.House",
+    "isEmpty": false
+}

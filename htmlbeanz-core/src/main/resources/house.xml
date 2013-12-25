@@ -1,0 +1,50 @@
+<org.funcode.htmlbeans.samples.foundation.House>
+  <color>red</color>
+  <dimension>
+    <width>100</width>
+    <height>200</height>
+  </dimension>
+  <stages>
+    <org.funcode.htmlbeans.samples.foundation.Stage>
+      <perimeter>14</perimeter>
+      <rooms>
+        <org.funcode.htmlbeans.samples.foundation.Room>
+          <number>12</number>
+          <owner>Alex</owner>
+        </org.funcode.htmlbeans.samples.foundation.Room>
+        <org.funcode.htmlbeans.samples.foundation.Room>
+          <number>13</number>
+          <owner>Nancy</owner>
+        </org.funcode.htmlbeans.samples.foundation.Room>
+        <org.funcode.htmlbeans.samples.foundation.Room>
+          <number>14</number>
+          <owner>Drew</owner>
+        </org.funcode.htmlbeans.samples.foundation.Room>
+      </rooms>
+    </org.funcode.htmlbeans.samples.foundation.Stage>
+  </stages>
+  <objects>
+    <entry>
+      <string>doors</string>
+      <int>12</int>
+    </entry>
+    <entry>
+      <string>window</string>
+      <int>6</int>
+    </entry>
+  </objects>
+  <roomStageMap>
+    <entry>
+      <org.funcode.htmlbeans.samples.foundation.Room reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage/rooms/org.funcode.htmlbeans.samples.foundation.Room[3]"/>
+      <org.funcode.htmlbeans.samples.foundation.Stage reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage"/>
+    </entry>
+    <entry>
+      <org.funcode.htmlbeans.samples.foundation.Room reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage/rooms/org.funcode.htmlbeans.samples.foundation.Room"/>
+      <org.funcode.htmlbeans.samples.foundation.Stage reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage"/>
+    </entry>
+    <entry>
+      <org.funcode.htmlbeans.samples.foundation.Room reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage/rooms/org.funcode.htmlbeans.samples.foundation.Room[2]"/>
+      <org.funcode.htmlbeans.samples.foundation.Stage reference="../../../stages/org.funcode.htmlbeans.samples.foundation.Stage"/>
+    </entry>
+  </roomStageMap>
+</org.funcode.htmlbeans.samples.foundation.House>
